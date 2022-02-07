@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body>
+<div id="onemillion" style="display:none">
+</div>
+<script>
+function writeM(){
+var div1 = document.getElementById('onemillion');
+for(var i=0; i<1000000;){
+var arr = new Array(1000);
+//alert(arr);
+for(var j=0; j<1000;j++){arr[j]=i++;}
+//alert(arr.join(" "));
+//for(var j=0; i<1000;j++){z=z.join(i++, ' ');}
+div1.appendChild(document.createTextNode(arr.join(" ")));
+//div1.appendChild(document.createTextNode( i, ' ' , i++, ' ' , i++, ' ' , i++, ' ' , i++, ' ' , i++, ' ' , i++, ' ' , i++, ' ' , i++, ' ' , i++, ' ' ));
+//i++;
+///20seconds div1.appendChild(document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "),document.createTextNode( i+++" "));
+//div1.appendChild(document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "));
+// 8 seconds div1.appendChild(document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "));
+}
+//div1.appendChild(x);
+//document.body.appendChild(x);
+
+//document.write(x.innerHTML); 
+/* Joined by commas and not by spaces, mind you! We must not do all that work and still end up
+paying the price of 1,000 string concatenations. */ 
+//div1.style.display="none";
+}
+
+t0 = new Date(); 
+writeM();
+var uu = document.getElementById('onemillion');
+t = new Date() - t0;
+uu.appendChild(document.createTextNode(" time ="+t));
+uu.style.display="block";
+
+//alert("time ="+t);
+//document.write('<p>time = ', t, '</p>'); 
+</script>
+</body>
+</html>

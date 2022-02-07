@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Bug Example</title>
+<link href="wuiV003/stacksite/n/5/g.css" rel="stylesheet" type="text/css">
+<SCRIPT LANGUAGE="javascript" type="text/javascript">
+function test1(){
+
+var openTabs = dw.getDocumentList();
+var openTabLength = openTabs.length;
+for each(var tab in openTabs){
+dw.openDocument(tab.URL);
+dw.moveToNewWindow(tab.URL);
+dw.closeDocument(tab.URL);
+
+//dw.moveToNewWindow(tab.URL);
+//alert(tab.URL);
+//if(tab.URL == fileURL){isFileURLOpenInTab=true;break;}
+}
+
+	//alert(dw.moveToNewWindow.toSource());
+	
+//alert(dw.moveToNewWindow());
+
+/*
+var uiStrings = {
+                '0invalidAttrValGiven':'Invalid value given',
+};
+
+try{
+//document.getElementById("test1div").innerHTML = document.getElementById("test1div").innerHTML;
+var ff = document.getElementById("test1div").cloneNode();
+//document.getElementById("test1div").appendChild(ff);
+//document.getElementById("test1div").innerHTML = "EEEEE";
+alert(document.getElementById("test1div").parentNode.innerHTML);
+
+///var sse = uiStrings.prototype;
+//uiStrings.invalidAttrValGiven = 
+//alert(uiStrings['0invalidAttrValGiven']);
+//force an error with XML
+//var elm = new XML("<"+"["+ " />"); //line #9
+}
+catch(error){
+document.getElementById("test1div").innerHTML = error.toSource();
+}
+*/
+}
+</SCRIPT>
+</head>
+<body style="margin-top:0px; width:100%;height:100%" view="testpg" >
+
+<p id="p"> </p>
+<div style="white-space:nowrap">
+<INPUT type="button" id="dwreload" value="ReLoad DW" onClick="dreamweaver.reloadExtensions()" />
+<br />
+</div>
+Extension JS try-Catch XML Error Reports Wrong Line, and missing file Name TEST
+<hr />
+Test1 Expected Result:<br />
+(new SyntaxError("illegal XML charecter",":example.html",8))
+<br />
+<hr />
+Test1 Actual Result:<br />
+<div id="test1div" class="jobbby"></div>
+<INPUT type="button" id="test1btn" value="test1" onClick="test1()" />
+</body>
+</html>

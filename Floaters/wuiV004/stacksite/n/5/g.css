@@ -1,0 +1,4 @@
+#test1div:before {
+	content: "Test paragraph 333ZZZXX ZZ";
+/*	content: "Test paragraph " counter(test) " " url(/pix/logo_ppk.gif) " with a class of " attr(class); background:yellow; */
+}

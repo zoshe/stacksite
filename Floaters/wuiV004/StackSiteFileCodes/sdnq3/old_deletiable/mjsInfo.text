@@ -1,0 +1,4 @@
+"qSetArray(1,1,'"+sdnMFileHolder.innerHTML+"');"
+arrayType: 1=Site Nav 2=custom
+arrayNumber: number that is the same as the folder number ,
+arrayObjects: it's a nesting of html elements

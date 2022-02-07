@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="border:0px;padding:0px;margin:0px;height:100%;width:100%; background:green">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Example: Equal Height Columns with CSS Flexible Box Layout</title>
+<style>
+.hbox {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: center;
+ 
+	display: -moz-box;
+	-moz-box-orient: horizontal;
+	-moz-box-align: center;
+ 
+	display: box;
+	box-orient: horizontal;
+	/*Xbox-align: stretch;*/
+}
+ 
+.hboxXXX > * {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+	/*Xdisplay: block;*/
+}
+ 
+.vbox {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: stretch;
+ 
+	display: -moz-box;
+	-moz-box-orient: vertical;
+	-moz-box-align: stretch;
+ 
+	display: box;
+	box-orient: vertical;
+	/*Xbox-align: stretch;*/
+}
+ 
+.vboxXXX > * {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+	/*Xdisplay: block;*/
+}
+ 
+.spacer {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	/*Xbox-flex: 1;*/
+}
+ 
+.reverse {
+	-webkit-box-direction: reverse;
+	-moz-box-direction: reverse;
+	/*Xbox-direction: reverse;*/
+}
+ 
+.boxFlex0 {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	/*Xbox-flex: 0;*/
+}
+.boxFlex1, .boxFlex {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	/*Xbox-flex: 1;*/
+}
+.boxFlex2 {
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	/*Xbox-flex: 2;*/
+}
+.boxFlex3 {
+	-webkit-box-flex: 3;
+	-moz-box-flex: 3;
+	/*Xbox-flex: 3;*/
+}
+
+.boxGroup1 {
+	-webkit-box-flex-group: 1;
+	-moz-box-flex-group: 1;
+	/*Xbox-flex-group: 1;*/
+}
+ 
+.boxGroup2 {
+	-webkit-box-flex-group: 2;
+	-moz-box-flex-group: 2;
+	/*Xbox-flex-group: 2;*/
+}
+ 
+.boxpackStart {
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	/*Xbox-pack: start;*/
+}
+ 
+.boxpackEnd {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	/*Xbox-pack: end;*/
+}
+ 
+.boxpackCenter { 
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	/*Xbox-pack: center;*/
+}
+
+.boxpackJustify {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	/*Xbox-pack: justify;*/
+}
+
+.boxsizeBrd{
+/*Xbox-sizing: border-box;*/ -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+
+.boxsizeMar{
+/*Xbox-sizing: margin-box;*/ -o-box-sizing: margin-box; -icab-box-sizing: margin-box; -khtml-box-sizing: margin-box; -moz-box-sizing: margin-box; -webkit-box-sizing: margin-box;
+}
+
+.boxalignStretch{
+-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	         /*Xbox-align: stretch;*/
+
+}
+.boxalignCenter{
+-webkit-box-align: center;
+	-moz-box-align: center;
+	         /*Xbox-align: center;*/
+
+}
+
+.boxalignStart{
+-webkit-box-align: start;
+	-moz-box-align: start;
+	         /*Xbox-align: start;*/
+
+}
+
+.boxalignEnd{
+-webkit-box-align: end;
+	-moz-box-align: end;
+	         /*Xbox-align: end;*/
+
+}
+
+.axisBoxOrient{
+-webkit-box-orient: block-axis;
+	-moz-box-orient: block-axis;
+     /*Xbox-orient:block-axis;*/
+}
+.hBoxOrient{
+-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+     /*Xbox-orient: horizontal;*/
+}
+.vBoxOrient{
+-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+    /*Xbox-orient:vertical;*/
+}
+
+.boxDisplay {
+	display: -webkit-box; 
+	display: -moz-box; 
+	display: box;
+}
+.blockDisplay {
+	display: block; 
+}
+.inlineBoxDisplay {
+	display: -webkit-inline-box;
+	display: -moz-inline-box;
+}
+.inlinetableDisplay {
+	display: inline-table;
+}
+.tableDisplay {
+	display: table;
+}
+.inlineTableDisplay{
+	display: inline-table;
+}
+
+.brdRadTestBlk {
+border:#333 solid 4px;
+-webkit-border-radius:10px 10px;
+-moz-border-radius: 10px 10px;
+
+}
+.marstartAuto{ /* did not work */
+-moz-margin-end : auto;
+-webkit-margin-end : auto;
+}
+.marstartAuto{ /* did not work */
+-moz-start-end : auto;
+-webkit-start-end : auto;
+}
+/* misc styling classes for testing: brdRadTestBlk */
+
+/* classes 
+(elm)        box-sizing:   boxsizeBrd      boxsizeMar
+(elm)        display:        boxDisplay      blockDisplay       inlineBoxDisplay tableDisplay       inlineTableDisplay
+(elm)        box-orient:   axisBoxOrient  hBoxOrient        vBoxOrient
+(elm)        box-align:     boxalignStart   boxalignCenter  boxalignEnd        boxalignStretch
+(chd)        box-pack:     boxpackStart   boxpackCenter  boxpackEnd        boxpackJustify
+(elmChd) box-flex:       boxFlex0          boxFlex              boxFlex1             boxFlex2           boxFlex3
+(elm)       margin-start: marstartAuto
+(elm)       margin-end:  marendAuto
+
+*/ 
+</style>
+</head>
+<body class="boxsizeBrd" style="border:0px;padding:5px;margin:0px auto;height:100%;width:100%;background:pink;">
+
+<div class="boxsizeBrd hBoxOrient inlineBoxDisplay boxalignStretch" style=" background:yellow; width:auto;">
+<div style="column-width:auto">
+1111  XXXXXXXXXXXXXX XXXXXXXXXXXXXX 11111 
+</div>
+<div>
+ 2222 XXXXXXXXXXXXXX XXXXXXXXXXXXXX 22222
+</div>
+</div>
+
+<!--
+<div class="boxsizeBrd boxDisplay hBoxOrient boxalignStretch " style="background:orange; width:100%; height: 100%; margin:0px 0px 0px 0px">
+<div class="boxsizeBrd boxDisplay boxFlex6" style="background:red; width:auto"></div>
+
+
+<div class="boxsizeBrd boxDisplay boxFlex6" style="background:purple;"></div>
+</div>
+-->
+<!--
+<div class="boxsizeBrd boxDisplay hBoxOrient boxpackCenter " style="background:orange; width:100%; height: 100%; margin:0px 0px 0px 0px">
+<div class="boxsizeBrd boxFlex0" style="background:red; width:auto"></div>
+
+<div class="boxsizeBrd hBoxOrient inlineBoxDisplay boxFlex0" style=" background:yellow; width:auto"><table class="boxsizeBrd" style="border:0px;padding:20px;margin:0px;height:auto;max-width:auto;background:#399;">
+<td style="border:0px;padding:20px;margin:0px;height:auto;width:0%;background:#399;">
+XXX XXXXXXXXXXXXXX XXXXXXXXXXXXXX</td>
+</table>
+</div>
+
+<div class="boxsizeBrd boxFlex3" style="background:purple;"></div>
+</div>
+-->
+<!-- this works but margin auto does not work on moz -->
+<!--page box size  this div may need to be a table to prevent the overflowing when user's view point is small-->
+<!--page margin -->
+<!--page border padding background  -->
+
+
+<!-- this works but margin auto does not work on moz -->
+<!--page box size  this div may need to be a table to prevent the overflowing when user's view point is small-->
+<!--page margin -->
+<!--page border padding background  -->
+<!--
+<div class="boxsizeBrd hBoxOrient boxDisplay boxalignStretch boxFlex0" style="background:orange; width:100%; min-height:100%; height: 100%">
+<div class="boxsizeBrd hBoxOrient boxDisplay boxalignStretch boxFlex1" style="background:red; width:100%; height:100%; margin:0px 0px">
+<div class="boxsizeBrd hBoxOrient boxDisplay boxalignStretch boxpackEnd boxFlex" style=" background:yellow; width:auto; height:100%; margin: 0% auto;">
+<div class="boxsizeBrd hBoxOrient boxDisplay boxalignStretch boxpackEnd boxFlex brdRadTestBlk" style="background:purple; width:50%; height:auto; padding: 10px;"></div>
+</div>
+</div>
+</div>
+-->
+
+<!--
+
+<div class="boxsizeBrd boxDisplay boxFlex" style="background:purple; min-width:100%; max-width:100%; width:100%; min-height:100%; height:auto; max-height:100%; margin:0px 0px; border:#333 solid 5px">XXX XXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+</div>
+
+<table class="boxsizeBrd " style="background:purple; width:100%; height:100%; margin:0px 0px;">
+<tr style="background:purple; width:100%; height:100%; margin:0px 0px;">
+<td style="background:purple; width:100%; height:100%; margin:0px 0px;">
+XXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</td>
+</tr>
+</table>
+-->
+
+<!--
+    <div class="vbox boxFlex" style="background:blue;width:50%">
+XXXX
+    </div>
+<form action="handler.cgi" method="POST" class="hbox">
+	<div class="vbox">
+		<label>First Name (required):</label>
+		<label>Last Name:</label>
+	</div>
+	<div class="vbox">
+		<input type="text" name="first"/>
+		<input type="text" name="last"/>
+		<input type="submit"/>
+	</div>
+</form>
+-->
+<!--
+<div class="hbox center" style="background:red;width:50%;height:100%">
+    <div class="vbox center boxFlex" style="background:blue;width:100%;height:50%">
+    <div class="vbox" style="background:yellow;width:100%;height:100%">
+        <div class="">...</div>
+        <div>...</div>
+    </div>
+    </div>
+</div>
+-webkit-border-top-left-radius:0ex 0ex;border:#06F solid 0px
+-->
+<!-- body div (top and bottom margin)-->
+<!-- body div b(v margin, width)-->
+<!-- body div b(width align )-->
+<!-- body div m(left and right margin)-->
+<!--
+    <div class="boxsizeBrd hbox" style="height:50%;width:100%;background:red;padding:0px">
+    <div class="boxsizeBrd boxFlex center" style="height:50%;width:50px; background:blue">
+    <div class="boxsizeBrd vbox boxFlex center" style="height:50px;width:50%;margin-top:0px;margin-bottom:0px;background:green">
+    <div class="boxsizeBrd vbox boxFlex center" style="height:50%;width:50%;background:yellow;">
+
+    <div class="boxsizeBrd vbox boxFlex center" style="height:50%;width:100%;background:orange;">
+
+
+   </div>
+   </div>
+
+   </div>
+   </div>
+    </div>
+-->
+<!--
+
+    <div class="boxsizeBrd vbox center boxFlex" style="height:auto;width:auto;margin:10px;background:blue">
+    <div class="boxsizeBrd vbox start" style="height:50%;min-width:100%;background:green">
+        <div style="background:red; text-align:center;vertical-align:center;height:100%;width:100%">...XXX box1 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXZ
+      </div>
+        <div style="background:blue">... XXX box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXX SSSSSSSS   XXXXXXXXXXXXXXXXXXXXXXZ
+      </div>
+    </div>
+   </div>
+-->
+<!--
+</div>
+<table class="boxsizeBrd" style="background:yellow;width:100%;height:100%;border:0px">
+<tbody class="boxsizeBrd hbox center" style="background:yellow;width:100%;height:100%;border:#06F solid 10px;">
+<tr class="boxsizeBrd vbox center" style="background:yellow;width:50%;height:100%;border:#06F solid 10px;">
+<td class="boxsizeBrd vbox" style="background:orange">td1 AAAAAAA
+</td>
+</tr>
+<tr class="boxsizeBrd vbox center" style="background:yellow;width:50%;height:100%;border:#06F solid 10px;">
+<td class="boxsizeBrd vbox" style="background:green">td2 XXX box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</td>
+</tr>
+</tbody>
+    </table>
+-->
+
+<!--
+<body style="border:#06F solid 10px;padding:10px;margin:0px;height:100%;width:100%;background:pink; -webkit-box-sizing: border-box" class="boxsizeBrd .hbox">
+-->
+<!--
+<div style="border:0px;padding:0px;margin:0px;height:100%;width:100%;background:pink;" class="vbox center">
+     <div style="background:red">...XXXXWWWWWWWWWWWWWWWWWWWWWWWWWW WWWWWWWWWWWWWWW</div>
+     <div style="background:blue">...XXXX2 WWWWWWWWWWWWWWWWW WWWWWWWW</div>
+</div>
+    <div class="hbox center">
+    </div>
+<div class="hbox center">
+</div>
+     <div class="vbox center boxsizeBrd" style="width:25%;  height:50%; display:block;-webkit-box-align: center; background:orange">XXX box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<div style="background:blue;display:-webkit-box">box1 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+        <div style="background:red;display:-webkit-box">box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+    </div>
+-->
+<!--
+<body style="border:#06F solid 10px;padding:10px;margin:0px;height:100%;width:100%;background:pink; -webkit-box-sizing: border-box" class="boxsizeBrd">
+<body style=" background:silver; border:black solid 10px;padding:10px;padding:10px;margin:0px;height:100%;width:100%;display:inline-table;position:absolute;top:0px;left:0px;bottom;right:0px;-webkit-border-top-left-radius:3ex 2ex" class="boxsizeBrd">
+-->
+<!--
+<div style="border:#06F solid 10px;padding:10px;margin:0px;height:100%;width:100%;background:pink; -webkit-box-sizing: border-box" class="boxsizeBrd">
+</div>
+<div class="boxsizeBrd" style="background:red;height:100%; width:100%;-webkit-box-align: stretch;-webkit-box-pack: center;display:box;position:absolute;top:0px;left:0px">  horizontal vertical
+</div>
+-->
+<!--
+<div class="boxsizeBrd" style="background:red;height:100%; width:100%;-webkit-box-align: stretch;-webkit-box-pack: center;display:-webkit-box;-webkit-box-orient: horizontal">
+<table class="boxsizeBrd" style="background:yellow;height:auto;border-collapse: collapse;border:#06F solid 10px;-webkit-box-flex: 1;-webkit-box-align: center;-webkit-box-pack: center">
+<tr>
+<td class="boxsizeBrd" style="background:orange">td1
+</td>
+<td class="boxsizeBrd" style="background:green">td2 XXX box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</td>
+</tr>
+    </table>
+</div>
+-->
+<!--
+<div class="boxsizeBrd" style="background:red;height:100%; width:100%;-webkit-box-align: stretch;-webkit-box-pack: center;display:table">
+<table class="boxsizeBrd" style="background:yellow;height:auto;border-collapse: collapse;border:#06F solid 10px;-webkit-box-flex: 1;-webkit-box-align: center;-webkit-box-pack: center">
+<tr>
+<td class="boxsizeBrd" style="background:orange">td1
+</td>
+<td class="boxsizeBrd" style="background:green">td2 XXX box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</td>
+</tr>
+    </table>
+</div>
+
+       horizontal vertical center end start -webkit-box stretch
+<table class="boxsizeBrd" style="width:50%;  height:50%; display:table;-webkit-box-align: end; -webkit-box-pack: center; box-pack: center; background:red;margin:auto auto;box-orient: horizontal">
+<tr>
+<td class="boxsizeBrd" style="width:50%;  height:50%; display:table-cell;-webkit-box-align: end; -webkit-box-pack: center; box-pack: center; background:red;margin:auto auto;box-orient: horizontal">
+</td>
+<td class="boxsizeBrd" style="width:50%;  height:50%; display:table-cell;-webkit-box-align: end; -webkit-box-pack: center; box-pack: center; background:red;margin:auto auto;box-orient: horizontal">
+</td>
+</tr>
+    </table>
+-->
+<!--  
+<div class="boxsizeBrd" style="width:50%;  height:50%; display:table;-webkit-box-align: end; -webkit-box-pack: center; box-pack: center; background:red;margin:auto auto;box-orient: horizontal">
+    </div>
+
+     <div class="vbox center boxsizeBrd" style="width:25%;  height:50%; display:block;-webkit-box-align: center; background:orange">XXX box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<div style="background:blue;display:-webkit-box">box1 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+        <div style="background:red;display:-webkit-box">box2 XXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+    </div>
+-->
+<!--</div>-->
+<!--
+	<div id="container" style="height: 50%;padding:15px;">
+		<div style="min-width: 100px;">Left-hand-column</div>
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div style="min-width: 100px">Right-hand-column</div>
+	</div>
+-->
+</body>
+</html>

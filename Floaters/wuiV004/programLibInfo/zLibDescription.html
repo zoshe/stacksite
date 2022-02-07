@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+</head>
+<body style="width:100%;height:100%">
+
+<div id="qss" style="display:none">
+
+<!-- ******************************* Library  Information ******************************* -->
+
+<!-- ********************************************Gobal Attributes
+* sortChildren = This Attribute and Argument is a optional array. All lib Items are sorted by default, which is pre-determined by it's XML tag name. Some tag names do not get sorted by default, and this attribute would force it's child XML nodes to be sorted. It requires a value of the child attribute names in which you want them to be sorted. It sorts by the order of the attribute names you supply. More than one name need to be divided by a pipe(|) char. 
+* sortOrder = This Attribute and Argument is optional. It's Value requires a number 1 or higher. No 0 or negative numbers are allowed. The sort Order of importants, is used to sort XML nodes in the lib. It can be used to make less used Lib Items go to the bottom of the Menu or to the top.
+.
+-->
+
+<!-- ********************************************Gobal Attribute Values
+* ~ = is a reference to use the value from another object. This is meant to cut down on coding. ie ~2 would mean to use object 2's value. also ~parent would mean to use the value found in the parent's attibute with the same name.
+-->
+
+<script>function bdnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Border Directory Nodes (bdn)
+q(Type)
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* nLink = this is the file to open in the browser. Leaving it blank would mean to open a blank
+* bln = border layout node tree tag set to use // it's a bad name, but it keeps with other tree schemes
+
+<z id="Imp" vV="_Import" iMv="0" iAd="0" iUd="0" adNds="" oSel="" oOpts="" vI=""></z>
+
+<z id="2" vV="_New" tyNme="_Folder" tyDes="_" iMv="0" iAd="1" iUd="0" adNds="2|Dup" oSel="add" oOpts="addq0|delq0|namq0|expq0|impq0|rplq0" fileDels="i.html|n.text|h.js|1.gif|2.gif|3.gif|4.gif|5.gif|6.gif|7.gif|8.gif" fileNamesfileDelTypes="c|c|c|c|c|c|c|c|c|c|c" ="iFile|nFile|hFile" fileNameTypes="rwm|rvw|rvw"  fileDups="1.gif|2.gif|3.gif|4.gif|5.gif|6.gif|7.gif|8.gif" dName="_unNamed" iFile="i.html" nFile="n.text" hFile="h.js" nInUse="+" nAttribute="nName|nNum|nPath" vI="" nLink="" nPath="" statusNum="1|0|7|9" statusNames="Visual|Hidden|Locked|Offline|Trash"></z>
+
+<z id="e" vV="ERROR!" tyNme="_ERROR" tyDes="_" iMv="0" iAd="0" iUd="0" adNds="" oSel="rep" oOpts="delq0|repq0" fileDels="i.html|n.text|h.js|1.gif|2.gif|3.gif|4.gif|5.gif|6.gif|7.gif|8.gif" fileDelTypes="c|c|c|c|c|c|c|c|c|c|c" fileNames="iFile|nFile|hFile" fileNameTypes="rwm|rvw|rvw"  fileDups="1.gif|2.gif|3.gif|4.gif|5.gif|6.gif|7.gif|8.gif" dName="_unNamed" iFile="i.html" nFile="n.text" hFile="h.js" nInUse="+" nAttribute="nName|nNum|nPath" vI="" nLink="" nPath="" statusNum="1|0|7|9" statusNames="Visual|Hidden|Locked|Offline|Trash"></z>
+-->
+
+<script>function bdoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Border Directory Options (bdo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+
+<script>function bdeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Border Directory Elements (bde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+-->
+
+<script>function blnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Border Layout Nodes (bln)
+q(Type)
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  re=read&eval|rw=read&write // this is still being used
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileFolderLocal: z=stacksite folder | u=user selected above the site root folder | 0orblank= not allowed anywhere
+* fileFolderName: b= border |  j= javascript | m= menu | s= snipit | t= templete | w= pages | *= user defined
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* nLink = this is the file to open in the browser. Leaving it blank would mean to open a blank
+* bln = border layout node tree tag set to use // it a bad name but it keeps with other tree schemes 
+-->
+
+<script>function bloLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Border Layout Options (blo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function bleLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Border Layout Elements (ble)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+-->
+
+<script>function jdnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Scripts Directory Nodes (jdn)
+q(Type)
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* nLink = this is the file to open in the browser. Leaving it blank means to open a blank
+* nPath =  currently it's used for snipits,   Leaving it blank would means don't use
+* nUrlView = how it should open, display and view the link : 
+0  = open a blank page in the browser and the edit screen
+1  = open  the nothing is selected page in the browser and the edit screen
+2  = open the selected page in the browser and the edit screen
+3  = open a blank page in the browser but open the selected page in the edit window (this is for development only
+* _Files: all types of files starting a letter to repersent the file
+* inUse is set when selecting a site, it keep track that of how many pages need this script
+
+<z id="t" vV="Trash" tyNme="Trash" tyDes="_" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="a" vV="Archive" tyNme="Archive" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="5" vV="New PHP Snipit" tyNme="pSnp"  tyDes="php Snipit"  iMv="0" iAd="0" iUd="0" adNds="2|5" oSel="add" oOpts="addq0|delq0|namq0|onoq0" vI="" statusNum="1|0|9" statusNames="live&Naved|live|Trash"></z>
+-->
+
+<script>function jdoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************JavaScripts Directory Options (jdo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function jdeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************JavaScripts Directory Elements (jde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+-->
+
+<script>function mdnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Menu Directory Nodes (mdn)
+NEEDS WORK
+q(Type)
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* nLink = this is the file to open in the browser. Leaving it blank means to open a blank
+* nPath =  currently it's used for snipits,   Leaving it blank would means don't use
+* _Files: all types of files starting a letter to repersent the file 
+
+<z id="t" vV="Trash" tyNme="Trash" tyDes="_" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="a" vV="Archive" tyNme="Archive" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="5" vV="New PHP Snipit" tyNme="pSnp"  tyDes="php Snipit"  iMv="0" iAd="0" iUd="0" adNds="2|5" oSel="add" oOpts="addq0|delq0|namq0|onoq0" vI="" statusNum="1|0|9" statusNames="live&Naved|live|Trash"></z>
+-->
+
+<script>function mdoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Menu Directory Options (mdo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function mdeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Menu Directory Elements (mde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+-->
+
+<script>function mmnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Main Menu Node (mmn)
+q(Type)
+* vV= Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* mmoSel = default node Option Selected
+* mmos = node Options for currently selected Node
+* vI = List of all it Propreties // not being used at the moment
+note: wdnq tag is use for when nothing is loaded in the Wui Directory
+NOTE: Error needs to be changed to mmnq and mmnq0 needs to be root Maybe
+-->
+
+<script>function mmoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Main Menu Options (mmo)
+q(Type)q(Version)
+* vV = Name
+* eElms = library elements to be used. //old* mme = Main Menu Elements.
+* prf = prefix(prf) letter used for things like objtags and var names:
+* sortOrder = sort Order of importants, mostly so less used menu Items go to the bottom of the Menu
+  * adn=About
+  * bi=Border Image
+  * js=Javascript
+  * mi=Menu Image
+  * pr=Pref
+  * su=Set Up
+  * si=Site
+  * sn=Snipit
+  * tm=Temp
+  * wu=Pages
+  * zdn=About StackSite
+-->
+
+<script>function mmeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Main Menu Elements (mme)
+q(Type)q(Version)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+* vSze = The Size of the element
+-->
+
+<script>function ndnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Snipit Directory Nodes (ndn)
+q(Type)
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+* nLink = this is the file to open in the browser. Leaving it blank would mean to open a blank
+* _Files: all types of files starting a letter to repersent the file
+
+<z id="t" vV="Trash" tyNme="Trash" tyDes="_" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="a" vV="Archive" tyNme="Archive" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="5" vV="New PHP Snipit" tyNme="pSnp"  tyDes="php Snipit"  iMv="0" iAd="0" iUd="0" adNds="2|5" oSel="add" oOpts="addq0|delq0|namq0|onoq0" vI="" statusNum="1|0|9" statusNames="live&Naved|live|Trash"></z>
+-->
+
+<script>function ndoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Snipit Directory Options (ndo)
+q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function ndeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Snipit Directory Elements (nde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+
+<z id="txt1" vV="textMessage" vBF="txtMsg0" vIdn="" pIH="ndnTd4" vFN="" dataSource="" vOPT="Error:"></z>
+<z id="txt2" vV="textMessage" vBF="txtMsg0" vIdn="" pIH="ndnTd4" vFN="" dataSource="" vOPT="<br />Links Do not have or use a Layout.."></z>
+-->
+
+<script>function sdnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Site Directory Nodes (sdn)
+q(Type)
+* vV = "_Name"
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames = ["fileNames"]  Is the names of the needed files to add this object. Attribute and Argument is not reqiured. ""=none "attribName|attribName"= [attribName,attribName] (pipe should be used for more than one.)
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* nLink = this is the file to open in the browser. Leaving it blank means to open a blank
+* nPath =  currently it's used for snipits,   Leaving it blank would means don't use
+* _Files: all types of files starting a letter to repersent the file 
+
+<z id="t" vV="Trash" tyNme="Trash" tyDes="_" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="a" vV="Archive" tyNme="Archive" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="5" vV="New PHP Snipit" tyNme="pSnp"  tyDes="php Snipit"  iMv="0" iAd="0" iUd="0" adNds="2|5" oSel="add" oOpts="addq0|delq0|namq0|onoq0" vI="" statusNum="1|0|9" statusNames="live&Naved|live|Trash"></z>
+<z id="openq0" vV="Open"></z>
+-->
+
+<script>function sdoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Site Directory Options (sdo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function sdeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Site Directory Elements (sde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+-->
+
+<script>function tdnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Templete Directory Nodes (tdn)
+q(Type)
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+
+* nLink = this is the file to open in the browser. Leaving it blank means to open a blank
+* nPath =  currently it's used for snipits,   Leaving it blank would means don't use
+* _Files: all types of files starting a letter to repersent the file 
+
+<z id="t" vV="Trash" tyNme="Trash" tyDes="_" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="a" vV="Archive" tyNme="Archive" iMv="0" iAd="0" iUd="0" adNds="2" oSel="add" oOpts="addq1" vI=""></z>
+<z id="5" vV="New PHP Snipit" tyNme="pSnp"  tyDes="php Snipit"  iMv="0" iAd="0" iUd="0" adNds="2|5" oSel="add" oOpts="addq0|delq0|namq0|onoq0" vI="" statusNum="1|0|9" statusNames="live&Naved|live|Trash"></z>
+-->
+
+<script>function tdoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Templete Directory Options (tdo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function tdeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Templete Directory Elements (tde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+
+<z id="txt1" vV="textMessage" vBF="txtMsg0" vIdn="" pIH="tdnTd4" vFN="" dataSource="" vOPT="Error:"></z>
+<z id="txt2" vV="textMessage" vBF="txtMsg0" vIdn="" pIH="tdnTd4" vFN="" dataSource="" vOPT="<br />Links Do not have or use a Layout.."></z>
+-->
+
+<script>function wdnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Directory Elements (wdn)
+q(Type)
+note: wdnq tag is use for when nothing is loaded in the Wui Directory
+* vV = Add Name
+* tyNme = "_typeName" Attribute and Argument is reqiured.  "_" = " "(is a blank space) 
+* tyDes = "_typeDescription" Attribute and Argument is reqiured. "_" = " "(is a blank space)
+* iMv = "isMovable" Attribute and Argument is reqiured. 0= it can't be moved, nor can anything move into it. 1= it can be moved but only into or above or below other objects with a 1 value. 2= it can be moved but nothing can be moved into it.
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* iUd = "isUsed" This is used during the building cycles, and set then. Attribute and Argument is reqiured. 0= no. 1=in use.(NOTE not used anymore, but keeping here so I can add a attrib quickly if needed.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vI = List of all it Propreties // not being used at the moment
+* dName = "defaultName" Attribute and Argument is reqiured.  "_" = " "(is a blank space)
+
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileFolderLocal: z=stacksite folder | u=user selected above the site root folder | 0orblank= not allowed anywhere
+* fileFolderName: b= border |  j= javascript | m= menu | s= snipit | t= templete | w= pages | *= user defined
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+* fileDupsTypes: html=htmlPage|c=copy|n=new
+* nLink = this is the file to open in the browser. Leaving it blank would mean to open a blank
+* uScripts = this is the scripts needed for this layout node object
+-->
+
+<script>function wdoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Directory Options (wdo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function wdeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Directory Elements (wde)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+
+<z id="inp0" vV="deleteYes" vBF="InputBtn" vIdn="" pIH="wdnTd4" vFN="wdnDelete('" vOPT="Ok" dataSource=""></z>
+-->
+
+<script>function wlnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Layout Nodes (wln)
+NEEDSCHANGE: vI to propertyGroups
+
+<nodes id="wln" vV="Wui Layout Nodes (wln)" vType="" iMv="0" cssSelectorNumType="0" vC="" iAd="0" adNds="c" oSel="addq0" oOpts="addq0" fileDelTypes="" fileNames="" fileNameTypes="" fileDups="" iFile="" nLink="" nPath="" wpnSetElm="" wgtDefaultValues="zz^1^01^0^DocInView" wgtSelectorNames="wgt_brand|n_on_off|n_type_num|n_sub_type|wgt_name" cssSelectorNames="" cssDefaultValues="" uScripts="" siblingIndex="1" dontSortChildren="yes">
+(q)type
+* id = is the type number
+* vV = Name
+* vType = Name of the visual types. Needs more explaining.
+* iMv = isMoveable value 0= it can not be moved, nor can anything move into it 1= it can be moved but only into or above or below other objects with a value of 1  2= it can be moved but nothing can be moved into it. 3 = it can only be moved up or down in it's parent 
+* vC =  (vC is not in use anymore, but it does show what classes and events R used, can be removed after development)
+* iAd = "isAddable" Attribute and Argument is reqiured. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+* adNds = ["addableNodeId"] addableNodes is a array of the allowed addable Libary Nodes to the selected node. Attribute and Argument is not reqiured. ""=none id"= "libNodeId" (pipe should be used for more than one.)
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* wpnSetElm = List of all wuiPropertyNodes which can be used with this wui Layout Node. Basically it the id of the wpn lib element with a "set" tagname
+
+* fileDels = these r the names of file that need to be deleted when deleting this node y=yes|c=if it's not bring shared
+* fileDelTypes: c=it's in the objects folder d=usally for the content page folder n=it's in the stacksite_snipit folder
+* fileDups: when Duplicating these R the files that need to be copied. blank=false anyvalue =true
+* fileNames:  these r names of file needed for to add this object
+* fileNameTypes:  rvw=Read,eVal and Write|rwm= Read, Write, Missing file|sge=Snipit & Get and replace code from the iFile, then Eval the sFile | rwi= Read, Write, Missing file
+
+* wgtDefaultSelector= default Object ID Rules
+* cssDefaultProps = Default CSS Rules for each prop in an array. If blank or has the cssSelectorNames then it has none
+* cssSelectorNames = These are the possible css Selector classes(.) id(#) and id(#) class(,) combinations 
+* cssSelectorNumType = 1>useCurrentElementNumber  2>useCurrentElementParentNumber 3>useCurrentElementParent + 1
+* oEvents = is for classes that use a:hover and etc (does not work in many browsers but maybe it should be worked in someday) 
+* uScripts = this is the scripts needed for this layout node object
+*  the following is a layouts id breakdown
+//newway
+(0)    wgtBrand  = q (this always goes in the front and must start with letters
+(1)   q1=on/off
+(2)   q1=type
+(3)   q1=objSubType
+(4)   q0= uniUse1 univerisalUse for the following: //NOTE maybe some uni's should be for numbers and others for textOnly
+        q0= snipitName (actually it's the snipit folder number)
+		q0= before breadcrumb  text (i.e. Location: )
+(5)   q0= uniUse2 univerisalUse for the following:
+        q0=breadcrumb menu separatorChar (> < : | )
+(6)   q0= uniUse3 univerisalUse for the following: 
+(7)   qborderType_11111111=borderImageSwitches_borderImageName
+(8)   q1=isItaCenterForHeightorWidth liqWidth
+(9)   q1=centerMenuObj liqHeight
+(10) q1=use menuArray 1 nArray
+(11) 1=start from menuArrayLevel at 1 nArrayLevStart
+(4 and up) q1= wgtName this is always at the end//errorhanding. Can be removed on production
+//oldway
+(1)q1=on/off(2)q1=type(3)q1=objSubType(4)q0=snipitName(5)q1=borderType(6)q0=borderImageName(7)q11111111=borderImageSwitches(8)q1=isItaCenterForHeightorWidth
+(9)q1=centerMenuObj(10)q1=use menuArray 1 (11)1=start from menuArrayLevel at 1 
+-->
+
+<script>function wloLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Layout Options (wlo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+-->
+
+<script>function wleLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Layout Elements (wle)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button label name 
+
+<z id="sel0" vV="addNode" vBF="Select0" vIdn="wdnAddElm" pIH="wdnTd4" vFN="wdnAdd(" dataSource="" vOPT="wdnq2|wdnq5|wdnqDup|wdnq4"></z>
+-->
+
+<script>function wpnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Properties Nodes (wpn)
+q(id)q(type)
+All values with a minus sign(-) means none
+<hidden id="wpnqHidden"> tags R not being used but R keep for Info and also if I decide to use them in the future 
+* vV = Name
+* oSel = "optionLibNodeDefault" Is the option libray node default id, and option for the currently selected Node. Attribute and Argument is reqiured. It needs to be the beginning of the option libray node's id before the q. 
+* oOpts = ["optionLibNodes"] Is the options libray node ids, and options for the currently selected Node. Attribute and Argument is not reqiured. ""=none "id|id"= ["id"|"id"](pipe should be used for more than one.)
+* vDPV= Use property values 0:Don't display but use default | 1:yes but like a option | 2:yes as a text value | 3: Display but use value | 4:borderImage Folder | 5: snipitFile | 6:yes but like a option for border images  | 7:display node but without propVal |  8:css value only | 9: Display as a word value but replace pipe(|) chars with a small L char  | 10: menuItem menuArray Folder number 
+* vDV= Default value
+* vOPT= the Proprety display values
+* wgtAttribute = the name of the Attribute on the WLN treeNode that holds the value
+* vCN= CSS property name
+* pIDAN = ID property number // when the var string is an array it is the array number used to find the value ie: 1_ // C= CSS straight  // C1 = uses the css value, but display a cssLang value for properties
+* pIH = put It Here // put the new element in this element 0=treenode, 1=parentTreeNode
+* idCn= ID property number  or CSS name. ("*"= Use nothing) ("num*"=ID property number) ("name"=CSS name)  
+* cssSelectorPropName = cssSelector Property Name. It's used to find the attribute name holding the css rules were this property needs to go  
+*  the following is a layouts id breakdown ********LASTEST WAY
+Changes
+// 5 and 6 is now univerisal used for what ever the object needs 
+//Moved 5 and 6 into 7
+(1)q1=on/off
+(2)q1=type
+(3)q1=objSubType
+(4)q0=univerisal_1 //snipitName 
+(5)q1=univerisal_2
+(6)q0=univerisal_3
+(7)q11111111=borderImageSwitches
+(8)q1=isItaCenterForHeightorWidth
+(9)q1=centerMenuObj
+(10)q1=use menuArray 1 
+(11)1=start from menuArrayLevel at 1 
+
+* refTagIncludes = this is any additional coding and/or actions needed. The value is a function's name that needs tobe called when the property is being updated and/or resetted 
+*  the following is a layouts id breakdown *******OLD WAY
+(1)q1=on/off(2)q1=type(3)q1=objSubType(4)q0=snipitName(5)q1=borderType(6)q0=borderImageName(7)q11111111=borderImageSwitches(8)q1=isItaCenterForHeightorWidth
+(9)q1=centerMenuObj(10)q1=use menuArray 1 (11)1=start from menuArrayLevel at 1 
+
+End RefProp elements
+* refLibElm is a group of single reference elements. It's basically to make the libary smaller, easier. and faster to work. 
+* refTag is a way to say, use this refTag instead.  It's basically to make the libary smaller, easier. and faster to work. 
+
+the follow needs to get working: qtxDec1  qlineHt1 txWrap1 txAlignH1 txAlignV1 
+Also Need font-weight , font-variant
+
+<gp vV="Align-Menu-Items" refTag="Gen1">
+<z id="algnH vV="Horizontal" refTag="txAlignH1" refTagIncludes="MarginAlign" cssSelectorPropName="cta"></z>
+<z id="algnV vV="Vertical" refTag="txAlignV1" cssSelectorPropName="cta"></z>
+</gp>
+<qgenMnuItmAlgnH vV="Horizontal" refTag="marginAlignH1" refTagIncludes="MarginAlign" cssSelectorPropName="cta"></qgenMnuItmAlgnH> MarginAlignHorV
+<qgenMnuItmAlgnV vV="Vertical" refTag="0" cssSelectorPropName="cta" refTagIncludes="MarginAlignHorV" vDPV="8" vDV="0" oSel="val" oOpts="valqdc|addq0" vOPT="|0px auto 0px 0px|0px auto|0px 0px 0px auto" vOPTprop="|_left|_center|_right" pIDAN="C1" vCN="margin"></qgenMnuItmAlgnV>
+
+<qgenMnuItmAlgnH vV="Horizontal" refTag="0" cssSelectorPropName="cta" refTagIncludes="MarginAlignHorV" vDPV="8" vDV="0" oSel="val" oOpts="valqdc|addq0" vOPT="|0px auto 0px 0px|0px auto|0px 0px 0px auto" vOPTprop="|_left|_center|_right" pIDAN="C1" vCN="margin"></qgenMnuItmAlgnH>
+<qgenMnuItmAlgnV vV="Vertical" refTag="txAlignV1" cssSelectorPropName="cta"></qgenMnuItmAlgnV>
+<qgenMnuItmSetNd vV="nav-directory" refTag="0" wgtAttribute="nNavDir" cssSelectorPropName="" vDPV="1" vDV="1" pIDAN="10" oSel="val" oOpts="valqid|addq0" vOPT="none|site|custom" vCN=""></qgenMnuItmSetNd>
+
+<z id="genPageBdiTL" vV="top-Left" refTag="BdcTL" cssSelectorPropName="cb" vCN="border-top-left-image"></z>
+<z id="genPageBdiTR" vV="top-Right" refTag="BdcTL" cssSelectorPropName="cb" vCN="border-top-right-image"></z>
+<z id="genPageBdiBR" vV="bottom-Right" refTag="BdcTL" cssSelectorPropName="cb" vCN="border-bottom-right-image"></z>
+<z id="genPageBdiBL" vV="bottom-Left" refTag="BdcTL" cssSelectorPropName="cb" vCN="border-bottom-left-image"></z>
+
+##### below here is currently some old stuff and can be deleted soon . ###
+ It was for wpnLib
+
+<z id="genBxContent" vV="General" vType="" vDPV="7" vDV="0" pIDAN="0" iMv="0" vCT="0" vC="0" iAd="0" adNds="1|2Kd|3Elm|bg|7bx|tx2|ma|pa|atv" oSel="val" oOpts="valq0|addq0" vI="" vOPT=""  vCN="0">
+</z>
+
+<z id="contentBody" vV="Content" vType="" vDPV="7" vDV="0" pIDAN="0" iMv="0" vCT="0" vC="0" iAd="0" adNds="1|2Kd|setng2|bg|tx2|align1|szpercent" oSel="val" oOpts="valq0|addq0" vI="" vOPT=""  vCN="0">
+</z>
+
+<z id="bfoBxMnu50" vV="Before" vType="" vDPV="7" vDV="0" pIDAN="0" iMv="0" vCT="0" vC="0" iAd="0" adNds="1|2Kd|setng7|0|bg|7bx|b|sz|tx2|ma|pa|atv1" oSel="val" oOpts="valq0|addq0" vI="" vOPT=""  vCN="0">
+</z>
+
+<z id="onCliBtn5" vV="onClick" vType="" vDPV="7" vDV="0" pIDAN="0" iMv="0" vCT="0" vC="0" iAd="0" adNds="bg|b|tx|ma|pa|atv1" oSel="val" oOpts="valq0|addq0" vI="" vOPT=""  vCN="0">
+</z>
+
+<z id="onCliBtn35" vV="onClick" vType="" vDPV="7" vDV="0" pIDAN="0" iMv="0" vCT="0" vC="0" iAd="0" adNds="1|2Kd|3Elm|bg|b|tx|ma|pa|atv1" oSel="val" oOpts="valq0|addq0" vI="" vOPT=""  vCN="0">
+</z>
+
+<z id="szbtn" vV="Size" vType="" vDPV="7" vDV="0" pIDAN="0" oSel="val" oOpts="valq0|addq0" vOPT=""  vCN="0">
+<z id="szbtnwd" vV="Width" vType="3" vDPV="1" vDV="1" pIDAN="8" oSel="val" oOpts="valqid|addq0" vOPT="_None|_Auto|_ex" vCN="*id"></z>
+<z id="szbtnht" vV="Height" vType="3" vDPV="1" vDV="1" pIDAN="9" oSel="val" oOpts="valqid|addq0" vOPT="_None|_Auto|_ex" vCN="*id"></z>
+</z>
+
+<z id="szpercent" vV="Size" vType="" vDPV="7" vDV="0" pIDAN="0" oSel="val" oOpts="valq0|addq0" vOPT=""  vCN="0">
+<z id="szpercentwd" vV="Width" vType="fs" vDPV="0" vDV="0" pIDAN="C" oSel="val" oOpts="valqfs|addq0" vOPT="%" vCN="width"></z>
+<z id="szpercentht" vV="Height" vType="fs" vDPV="0" vDV="0" pIDAN="C" oSel="val" oOpts="valqfs|addq0" vOPT="%" vCN="height"></z>
+</z>
+
+
+<z id="align1" vV="Align-Content" vType="" vDPV="7" vDV="0" pIDAN="0" oSel="val" oOpts="valq0|addq0" vOPT="" vCN="0">
+<z id="align1h" vV="Horizontal" vType="" vDPV="1" vDV="0" pIDAN="6_0" oSel="val" oOpts="valqid|addq0" vOPT="|_left|_center|_right"  vCN=""></z>
+<z id="align1v" vV="Vertical" vType="" vDPV="1" vDV="0" pIDAN="6_1" oSel="val" oOpts="valqid|addq0" vOPT="|_top|_middle|_bottom"  vCN=""></z>
+</z>
+
+
+<z id="tx3" vV="Text" vType="" vDPV="7" vDV="0" pIDAN="0" oSel="val" oOpts="valq0|addq0" vOPT=""  vCN="0">
+<z id="atvh" vV="Horizontal" vType="dc" vDPV="0" vDV="center" oSel="val" oOpts="valqdc|addq0" vOPT="|_left|_center|_right" pIDAN="C" vCN="text-align"></z>
+<z id="atvv" vV="Vertical" vType="dc" vDPV="0" vDV="0" oSel="val" oOpts="valqdc|addq0" vOPT="|_top|_middle|_bottom" pIDAN="C" vCN="vertical-align"></z>
+<z id="txlh" vV="line-Height" vDPV="0" vDV="0" oSel="val" oOpts="valqcss|addq0" vOPT="" pIDAN="C" vCN="line-height"></z>
+<z id="tx3cb" vV="Before Links" vType="" vDPV="0" vDV="0" oSel="val" oOpts="valqbgc|addq0" vOPT="" pIDAN="C" vCN="color"></z>
+<z id="tx3fc" vV="Color" vType="" vDPV="0" vDV="0" oSel="val" oOpts="valqbgc|addq0" vOPT="" pIDAN="C" vCN="color"></z>
+<z id="tx3ff" vV="Fonts" vType="ff" vDPV="0" vDV="0" oSel="val" oOpts="valqff|addq0" vOPT="" pIDAN="C" vCN="font-family"></z>
+<z id="tx3fs" vV="Size" vType="fs" vDPV="0" vDV="0" oSel="val" oOpts="valqfs|addq0" vOPT="%" pIDAN="C" vCN="font-size"></z>
+<z id="tx3dc" vV="Direction" vType="dc" vDPV="0" vDV="ltr" oSel="val" oOpts="valqdc|addq0" vOPT="_None|_ltr|_rtl" pIDAN="C" vCN="direction"></z>
+<z id="txws" vV="wrap" vType="dc" vDPV="0" vDV="0" oSel="val" oOpts="valqdc|addq0" vOPT="|nowrap" pIDAN="C" vCN="white-space"></z>
+</z>
+-->
+
+<script>function wpoLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Properties Options (wpo)
+q(Type)q(Version)
+* vV = Name
+* colNames= Colum Names. blank=false anyvalue=[array]
+* colNv = Colum Values. blank=false anyvalue=[array]
+* eElms = library elements to be used.  blank=false anyvalue=[array] 
+
+<z id="valqvt8" vV="_Value" colNames="~0q0" colNv="~0q0" eElms="selvt8"></z>
+<z id="valqms" vV="_Value" colNames="~0q0" colNv="~0q0" eElms="inp14|inp15"></z>
+-->
+
+<script>function wpeLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************Wui Properties Elements (wpe)
+q(Type)
+* vV = Name
+* vBF = Build Function // the function used to build the element
+* vIdn = ID Name // element id name and/or name for the new element
+* pIH = put It Here // put the new element in this element
+* vFN = Function Name // for the new element
+* dataSource = Where to find data on the node to get a value if needed
+* vOPT = Options for select menus or a button's label name
+* vSze = The Size of the element
+
+<z id="inp10" vV="MixedFs" vBF="MixedFsCss" vIdn="" pIH="wpnTd4" vFN="wpnProps(',5,0,1,1" dataSource="" vOPT="" vSze=""></z>
+<z id="inp14" vV="mixedSizeWithAuto" vBF="MixedFsCss" vIdn="" pIH="wpnTd4" vFN="wpnProps(',5,0,1,1" dataSource="" vOPT="" vSze=""></z>
+<z id="inp15" vV="btnMixedSizeWithAuto" vBF="InputBtn" vIdn="btnfield0" pIH="wpnTd4" vFN="wpnProps(',5,0,1,1" dataSource="" vOPT="_Ok"></z>
+<z id="inp0" vV="deleteYes" vBF="InputBtn" vIdn="" pIH="wlnTd4" vFN="wlnDelete('" vOPT="_Ok" dataSource=""></z>
+-->
+
+<script>function umnLib_Info(){}//this is here so I can just jump to it </script>
+<!-- ********************************************User Menu Node (umn)
+q(Type)q(Version)
+
+<z id="umnq1" vV="User" tyNme="admin"  tyDes="_" iMv="0" iAd="0" iUd="0" adNds="" oSel="0" oOpts="0q0" vI=""></z>
+-->
+</div>
+</body>
+</html>

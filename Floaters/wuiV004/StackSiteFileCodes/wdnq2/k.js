@@ -1,0 +1,1 @@
+'<!DOCTYPE HTML>\n<html>\n<head>\n<meta charset="UTF-8">\n<title>'+zLang._UntitledDocument+'</title>\n<script type="text/javascript" id="stacksitejs" src="'+wdfRelativeLinks+'stacksite/j/1/c.js" class="stacksitejsclass_'+ dnNum+'_'+tdnNum+'_stacksitejsclass"><\/script>\n</head>\n<body>\n</body>\n</html>'

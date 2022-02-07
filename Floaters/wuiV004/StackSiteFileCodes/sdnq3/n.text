@@ -1,0 +1,4 @@
+<x>
+<version>{dn.selNode.@n_version + "StackSite"}</version>
+<name>{dnName}</name>
+</x>

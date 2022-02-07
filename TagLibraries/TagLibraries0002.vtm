@@ -1,0 +1,5 @@
+<taglibraries>
+	<taglibrary doctypes="ASP-JS,ASP-VB,ASP.NET_CSharp,ASP.NET_VB,ColdFusion,HTML,DWTemplate,JSP,LibraryItem,PHP_MySQL,JavaScript" id="DWTagLibrary_html" name="HTML tags" tagchooser="html/TagChooser.xml">
+	  <tagref file="html/b.vtm" name="b" />
+	</taglibrary>
+</taglibraries>

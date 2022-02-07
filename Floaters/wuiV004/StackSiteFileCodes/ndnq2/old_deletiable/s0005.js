@@ -1,0 +1,1 @@
+"var qqSnp"+dnNum+"=setSnipit("+dnNum+ ",\""+iFileCode+"\");"

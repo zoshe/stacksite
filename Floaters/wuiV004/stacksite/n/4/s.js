@@ -1,0 +1,1 @@
+qSnpVar=qssSetSnipit(4,"");

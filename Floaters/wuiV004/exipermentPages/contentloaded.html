@@ -1,0 +1,110 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>dup2 test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style type="text/css">
+.test222 {background:blue}
+</style>
+<script>
+//alert("first2");
+var is_sa = false;
+//addJS("//");
+//addJS("getBottomTag();");// DOMReady
+// addJS("DOMReady();");// DOMReady
+//addDiv("DOMReady();");// DOMReady
+//addDiv("alert('adddiv');");// DOMReady
+//addDiv("alert(document.body)");// DOMReady
+addDiv("alert(document.getElementsByTagName('BODY')[0]);");
+
+//alert(document.documentElement.getElementsByTagName('BODY')[0]);
+
+function addDiv(thecode){//not used right now
+if(document.createElement && document.childNodes && !is_sa||is_saVer>=412.7){
+//alert("hhhhhh");
+var div = document.createElement('script');
+
+var sElm = document.createElement('script');
+sElm.innerHTML = thecode;// getBottomTag()
+//sElm.innerHTML = "<scri"+"pt>" + thecode +"</scr"+"ipt>;"// getBottomTag()
+//sElm.innerHTML = "getBottomTag();"// getBottomTag()
+//sElm.innerHTML = "alert('Hello World');"// getBottomTag()
+sElm.language='javascript';
+sElm.type='text/javascript';
+sElm.id = "qscr";
+//sElm.src = urlPath;
+//sElm.src = "../../"+urlPath;
+div.appendChild(sElm);
+//document.appendChild(sElm);
+//document.getElementsByTagName('BODY')[0].appendChild(sElm);
+//alert(sElm.innerHTML);
+//document.getElementsByTagName('head')[0].appendChild(sElm);
+document.getElementsByTagName('head')[0].appendChild(div);
+}
+}
+
+function addJS(thecode){//not used right now
+if(document.createElement && document.childNodes && !is_sa||is_saVer>=412.7){
+//alert("hhhhhh");
+var sElm = document.createElement('script');
+sElm.innerHTML = thecode;// getBottomTag()
+//sElm.innerHTML = "getBottomTag();"// getBottomTag()
+//sElm.innerHTML = "alert('Hello World');"// getBottomTag()
+sElm.language='javascript';
+sElm.type='text/javascript';
+sElm.id = "qscr";
+//sElm.src = urlPath;
+//sElm.src = "../../"+urlPath;
+document.appendChild(sElm);
+//document.getElementsByTagName('BODY')[0].appendChild(sElm);
+
+//document.getElementsByTagName('head')[0].appendChild(sElm);
+}
+//else{// sa1.0+? needs this
+//document.write("<sc"+"ript language='JavaScript1.2'type='text/javascript'sr"+"c='../../"+urlPath+"'></sc"+"ript>");
+//}
+}
+//var headElms = document.getElementsByTagName("head");
+//alert(headElms.length);
+
+function getBottomTag(){
+alert("body Length: "+ document.getElementsByTagName("body").length);
+//alert("getBottomTag function fired");
+//alert(document.getElementById("bottomTag").id);
+//alert(document.getElementById("qscr").innerHTML);
+//var X = document.getElementsByTagName("body");
+}
+function DOMReady(){
+  if (/(?!.*?compatible|.*?webkit)^mozilla|opera/i.test(navigator.userAgent)){ // Feeling dirty yet?
+    document.addEventListener("DOMContentLoaded", getBottomTag, false);
+  }else{
+alert("JJJJJJJJJJJJJ");
+(document.body)? getBottomTag() :  window.setTimeout(DOMReady,0);
+  }
+} 
+function onloadbody(){
+alert("hello onloadbody");
+}
+
+</script>
+</head>
+<body class="test222" onload="onloadbody()">
+<div id="qBody">
+<div id="content1">Hello World THis new</div>
+</div>
+<div style="display:none" id="bottomTag">
+</div>
+</body>
+<!--
+<script id="bottomScript">
+//alert(document.getElementById("bottomScript"));
+//headElms = document.getElementsByTagName("script");
+//headElms = document.getElementsByTagName("HEAD");
+//alert(headElms[1]);
+//alert(headElms.length);
+//alert(document.body.innerHTML);
+//alert(document.getElementById("noScript"));
+//alert(document.getElementById("bottomTag"));
+</script>
+-->
+</html>

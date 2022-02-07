@@ -1,0 +1,1 @@
+<test a={[lg._test].toSource()} b={helloWorld("hello2")} c={[{ name: lg._test,   age: 20 },].toSource()} d={["",4].toSource()} />

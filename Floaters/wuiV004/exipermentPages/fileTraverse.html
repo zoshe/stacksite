@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html style="background:blue;height:100%">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Untitled Document</title>
+</head>
+
+<body style="margin:0px;border:0px;vertical-align:bottom;height:100%">
+<script>
+var OPEN_ICON = "open.gif";
+var CLOSE_ICON = "close.gif";
+var FOLDER_ICON = "folder.gif";
+var MENU_TITLE = "Example Menu";
+var LINK_TARGET = "mainframe";
+var toggleScript = "";
+/*
+var toggleScript = "<scri     pt>function toggleMenu(id) { try {"+
+"var e = document.getElementById(id);if (e == null) return;if (e.style.display != \"none\") {"+
+"e.style.display = \"none\";var e = document.getElementById(\"sign\"+id).src = \""+OPEN_ICON+"\";"+		
+"} else { e.style.display = \"block\";var e = document.getElementById(\"sign\"+id).src = \""+CLOSE_ICON+"\"; }"+
+"} catch (exception) {} }</scri     pt>";
+*/
+
+function objectTag(){
+var folder = siteRoot.substring(0, siteRoot.lastIndexOf("/"));//	var folder = sel[0];
+if (DWfile.getAttributes(folder) != "D"){ // check if selection is a folder
+alert("error3");
+return;
+}
+var theFolder = new Folder(MENU_TITLE, folder);
+theFolder = list(theFolder);
+var menu_tree = createTree(theFolder, folder);
+//alert(menu_tree);
+DWfile.write(siteRoot+ "arrayx.html",menu_tree);
+return toggleScript + menu_tree;
+}
+
+function list(folder) {	
+if (DWfile.getAttributes(folder.url) == "D"){//if1		
+var theFiles = DWfile.listFolder(folder.url,"directorys");
+//alert(theFiles);
+		if (theFiles == null || theFiles.length < 1) return folder;	// don't operate on this folder if it contains no files
+		//theFiles = theFiles.sort();	// uncomment to sort names lexically
+		for (var i=0; i < theFiles.length; i++) 
+		{
+			var path = folder.url+"/"+theFiles[i];
+			if (DWfile.getAttributes(path) == "D") // recurse if file is a folder
+			{	
+				if (theFiles[i] == "_notes") continue;	// leave Dreamweaver folders
+				var f = new Folder(theFiles[i], path, theFiles[i]);
+				folder.files[folder.files.length] = f;	// add new Folder
+				list(f);
+			} else {
+				if (theFiles[i].indexOf("TMP") == 0) continue;	// leave temporary files
+				var f = new File(theFiles[i], path, theFiles[i]);
+				folder.files[folder.files.length] = f;	// add new File
+			}
+		}
+}//if1
+return folder;
+}
+
+function createTree(folder, base){
+var	theTree = "<mm:treecontrol>";
+//var	theTree = "<mm:treecontrol name='wdnPutInTreeElm' style='width:375px;height:300px' wdnPutInSel='' nName='' onChange=\"wFnctn(this,'wdnPutInOnChange(')\">"+"<MM:TREECOLUMN name='wdnPutInColumn1' width='200px' state='visible' value='Please choose the Folder to place it in'>";
+
+traverse(folder, 0, base);
+
+   function traverse(folder, id, base){
+//logFtn(traverse);
+		if (arguments[1] == null) {id = "0";}
+		var makePath= folder.url.replace( new RegExp(base), "");
+		theTree += folder.startTag + " value='"+folder.name+"' nLink='"+makePath+"'>";
+//    	theTree += folder.startTag + "value='"+folder.name+"'>";
+//		theTree += "<a href='javascript:toggleMenu(\"menu"+id+"\")'>";
+		if (folder.files.length >= 1) 
+		{
+//			theTree += "<img src='"+CLOSE_ICON+"' border='0' id='signmenu"+id+"'>";
+		}
+//		theTree += "<img src='"+FOLDER_ICON+"' border='0' id='foldermenu"+id+"'>";
+//		theTree += "<b>"+folder.name+"</b>";
+//		theTree += "</a>";
+		
+//		theTree += "<div id='menu"+id+"' class='menuContainer'>";
+		for (var i=0; i < folder.files.length; i++)
+		{
+			var f = folder.files[i];
+			if (f.type == 2) 
+			{
+				traverse(f, id+"."+i, base);
+			} else {
+				var path = f.url.replace("|", ".");
+				base = base.replace("|", "."); 
+				path = f.url.replace( new RegExp(base), "");				
+				theTree += "<a href='"+path+"' target='"+LINK_TARGET+"'>";
+				theTree += f.startTag+f.name+f.endTag;
+				theTree += "</a>";
+			}
+		}
+//		theTree += "</div>"; 	// enclonsing div menuContainer
+		theTree += folder.endTag;
+	}
+	theTree += "</mm:treecontrol>";
+	return theTree;
+}
+
+/**
+ * Two custom classes, File and Folder, are defined here. Using this two objects a complete directory
+ * structure can be modeled. We're using custom objects in the code instead of direct translastion into 
+ * HTML so that we can access the tree later. Or perhaps from a different application like Fireworks :)
+ */
+function File(name, url) {
+this.name = name;
+this.url = url;
+}
+
+File.prototype.type = 1;
+File.prototype.startTag = "<div class='menufile'>";
+File.prototype.endTag = "</div>";
+File.prototype.toString = function () { return "File "+this.url;};
+
+function Folder(name, url, text) {
+this.name = name;
+this.url = url;
+this.files = new Array();
+this.text = text;
+this.extended = false;
+}
+
+Folder.prototype = File;
+Folder.prototype.type = 2;
+Folder.prototype.startTag = "<mm:treenode icon='0'";
+Folder.prototype.endTag = "</mm:treenode>";
+Folder.prototype.toString = function () {return this.url;}
+
+/** 
+ * CSS used for the menu:
+ * menuFile --> margin-left:16px	// style for files
+ * menuFolder --> margin-left:15px	// style for folders
+ * menuContainer --> 	// style for menu's folder 
+ * menu --> // style for complete menu
+ */
+
+</script>
+</body>
+</html>

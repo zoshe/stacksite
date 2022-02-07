@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<panelset>
+
+  <application colorIcon="false" docView="code" maximize="false" rect="365 211 1601 1011"/>
+
+  <document maximize="false" rect="384 40 1919 1199"/>
+
+  <panelframe dock="floating" height="500" iconmodewidth="171" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="0" visible="false">
+      <panel height="0" id="validation" unconstrainedheight="936" unconstrainedwidth="936" width="0"/>
+      <panel height="0" id="btc" unconstrainedheight="936" unconstrainedwidth="936" width="0"/>
+      <panel height="0" id="reports" unconstrainedheight="936" unconstrainedwidth="936" width="0"/>
+      <panel height="0" id="ftp log" unconstrainedheight="936" unconstrainedwidth="936" width="0"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="115" visible="false">
+      <panel height="115" id="com.adobe.rc.operationalmessages" unconstrainedheight="240" unconstrainedwidth="240" width="240"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" floatilla="true" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="0" visible="false">
+      <panel height="0" id="objects" showLabel="true" unconstrainedheight="525" unconstrainedwidth="525" viewStyle="tabs" width="0"/>
+    </panelcontainer>
+    <panelcontainer expanded="true" height="285" visible="false">
+      <panel height="285" id="BusinessCatalyst" unconstrainedheight="0" unconstrainedwidth="0" width="240"/>
+    </panelcontainer>
+    <panelcontainer expanded="true" height="270" visible="false">
+      <panel height="270" id="database" unconstrainedheight="0" unconstrainedwidth="0" width="240"/>
+      <panel height="270" id="data sources" unconstrainedheight="0" unconstrainedwidth="0" width="240"/>
+      <panel height="270" id="server scripts" unconstrainedheight="0" unconstrainedwidth="0" width="240"/>
+      <panel height="270" id="server components" unconstrainedheight="0" unconstrainedwidth="0" visibleTab="false" width="240"/>
+    </panelcontainer>
+    <panelcontainer expanded="true" height="525" visible="false">
+      <panel height="525" id="assets" unconstrainedheight="525" unconstrainedwidth="525" width="525"/>
+      <panel height="525" id="snippets" unconstrainedheight="525" unconstrainedwidth="525" visibleTab="false" width="525"/>
+    </panelcontainer>
+    <panelcontainer expanded="true" height="180" visible="false">
+      <panel height="180" id="frames" unconstrainedheight="0" unconstrainedwidth="0" width="240"/>
+    </panelcontainer>
+    <panelcontainer expanded="true" height="180" visible="false">
+      <panel height="180" id="history" unconstrainedheight="0" unconstrainedwidth="0" width="240"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="136" visible="false">
+      <panel height="136" id="BL" unconstrainedheight="136" unconstrainedwidth="250" width="250"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" iconmodewidth="171" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="1139" visible="false">
+      <panel height="1139" id="linkchecker" unconstrainedheight="1139" unconstrainedwidth="1183" width="1183"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="0" visible="false">
+      <panel height="0" id="css styles" unconstrainedheight="661" unconstrainedwidth="539" width="0"/>
+      <panel height="0" id="apElements" unconstrainedheight="661" unconstrainedwidth="539" width="0"/>
+      <panel height="0" id="tag inspector" unconstrainedheight="661" unconstrainedwidth="539" visibleTab="false" width="0"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="240" visible="false">
+      <panel height="240" id="testpg" unconstrainedheight="240" unconstrainedwidth="240" width="240"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="1096" visible="false">
+      <panel height="1096" id="wuiV003" unconstrainedheight="514" unconstrainedwidth="514" width="514"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="418" visible="false">
+      <panel height="418" id="reference" unconstrainedheight="768" unconstrainedwidth="768" width="768"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="1118" visible="false">
+      <panel height="1118" id="wuiV004" unconstrainedheight="1118" unconstrainedwidth="352" width="352"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" iconmodewidth="171" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="1131" visible="false">
+      <panel height="1131" id="search" unconstrainedheight="1131" unconstrainedwidth="1736" width="1736"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" height="500" iconmodewidth="171" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="49" visible="false">
+      <panel height="49" id="properties" unconstrainedheight="49" unconstrainedwidth="820" visibleTab="false" width="820"/>
+      <panel height="49" id="propertiesMfc" unconstrainedheight="49" unconstrainedwidth="820" visibleTab="false" width="820"/>
+    </panelcontainer>
+  </panelframe>
+
+  <panelframe dock="floating" floatilla="true" height="500" monitor="1" width="100" x="10" y="top">
+    <panelcontainer expanded="true" height="0" maxRect="256 71 1811 1125" visible="false">
+      <panel height="0" id="site" unconstrainedheight="1118" unconstrainedwidth="1011" width="0"/>
+    </panelcontainer>
+  </panelframe>
+
+</panelset>

@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>TestPg</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<style>
+.hbox {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: stretch;
+ 
+	display: -moz-box;
+	-moz-box-orient: horizontal;
+	-moz-box-align: stretch;
+ 
+	display: box;
+	box-orient: horizontal;
+	box-align: stretch;
+}
+ 
+.hbox > * {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+	display: block;
+}
+ 
+.vbox {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: stretch;
+ 
+	display: -moz-box;
+	-moz-box-orient: vertical;
+	-moz-box-align: stretch;
+ 
+	display: box;
+	box-orient: vertical;
+	box-align: stretch;
+}
+ 
+.vbox > * {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+	display: block;
+}
+ 
+.spacer {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+ 
+.reverse {
+	-webkit-box-direction: reverse;
+	-moz-box-direction: reverse;
+	box-direction: reverse;
+}
+ 
+.boxFlex0 {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+ 
+.boxFlex1, .boxFlex {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+ 
+.boxFlex2 {
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	box-flex: 2;
+}
+ 
+.boxGroup1 {
+	-webkit-box-flex-group: 1;
+	-moz-box-flex-group: 1;
+	box-flex-group: 1;
+}
+ 
+.boxGroup2 {
+	-webkit-box-flex-group: 2;
+	-moz-box-flex-group: 2;
+	box-flex-group: 2;
+}
+ 
+.start {
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	box-pack: start;
+}
+ 
+.end {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+}
+ 
+.center {
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+}
+</style>
+</head>
+<body style=" width:100%;height:100%" view="testpg" >
+<!--
+<input type="range" style="-webkit-appearance:slider-horizontal;"><br/><br/>
+					<button style="-webkit-appearance:button;width:200px;height:30px;">gradient button</button><br/><br/>
+					<button style="-webkit-appearance:push-button;width:200px;">aqua button</button><br/><br/>
+					<input type="text" style="-webkit-appearance:searchfield;" value="kitten"></input><br/>
+<style>
+						#columns {
+						-webkit-column-count: 3;
+						-webkit-column-gap: 25px;
+						-moz-column-count: 3;
+						-moz-column-gap: 25px;
+						column-count: 3;
+						column-gap: 25px;
+						}
+					</style>
+					<div id="columns" style="height:100%">
+						<p>Column A</p>
+						<p>Column B</p>
+						<p>Column C</p>
+					</div>
+<input type="search" incremental="false" placeholder="Search!" autosave="searchboxdemo" results="10" />
+<br />
+
+<input type="search" incremental="true" placeholder="Search!" autosave="searchboxdemo" results="10" />
+<br />
+<input type=search> or <input type=number>
+<h1>The Wiki Center Of Exampland</h1>
+ <nav>
+  <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/events">Current Events</a></li>
+   ...more...
+  </ul>
+ </nav>
+ <article>
+  <header>
+   <h1>Demos in Exampland</h1>
+   <nav>
+    <ul>
+     <li><a href="#public">Public demonstrations</a></li>
+     <li><a href="#destroy">Demolitions</a></li>
+     ...more...
+    </ul>
+   </nav>
+  </header>
+  <div>
+   <section id="public">
+    <h1>Public demonstrations</h1>
+    <p>...more...</p>
+   </section>
+   <section id="destroy">
+    <h1>Demolitions</h1>
+    <p>...more...</p>
+   </section>
+   ...more...
+  </div>
+  <footer>
+   <p><a href="?edit">Edit</a> | <a href="?delete">Delete</a> | <a href="?Rename">Rename</a></p>
+  </footer>
+ </article>
+ <footer>
+  <p><small>© </small></p>
+ </footer>
+
+<form action="courseselector.dll" method="get">
+ <p>Which course would you like to watch today?
+ <p><label>Course:
+  <select name="c">
+   <optgroup label="8.01 Physics I: Classical Mechanics">
+    <option value="8.01.1">Lecture 01: Powers of Ten
+    <option value="8.01.2">Lecture 02: 1D Kinematics
+    <option value="8.01.3">Lecture 03: Vectors
+   <optgroup label="8.02 Electricity and Magnestism">
+    <option value="8.02.1">Lecture 01: What holds our world together?
+    <option value="8.02.2">Lecture 02: Electric Field
+    <option value="8.02.3">Lecture 03: Electric Flux
+   <optgroup label="8.03 Physics III: Vibrations and Waves">
+    <option value="8.03.1">Lecture 01: Periodic Phenomenon
+    <option value="8.03.2">Lecture 02: Beats
+    <option value="8.03.3">Lecture 03: Forced Oscillations with Damping
+  </select>
+ </label>
+ <p><input type=submit value="▶ Play">
+</form>
+<section>
+ <h2>Task Progress</h2>
+ <p>Progress: <progress><span id="p">0</span>%</progress></p>
+ <script>
+  var progressBar = document.getElementById('p');
+  function updateProgress(newValue) {
+    progressBar.textContent = newValue;
+  }
+ </script>
+</section>
+
+<menu type="toolbar">
+ <li>
+  <menu label="File">
+   <button type="button" onclick="fnew()">New...</button>
+   <button type="button" onclick="fopen()">Open...</button>
+   <button type="button" onclick="fsave()">Save</button>
+   <button type="button" onclick="fsaveas()">Save as...</button>
+  </menu>
+ </li>
+ <li>
+  <menu label="Edit">
+   <button type="button" onclick="ecopy()">Copy</button>
+   <button type="button" onclick="ecut()">Cut</button>
+   <button type="button" onclick="epaste()">Paste</button>
+  </menu>
+ </li>
+ <li>
+  <menu label="Help">
+   <li><a href="help.html">Help</a></li>
+   <li><a href="about.html">About</a></li>
+  </menu>
+ </li>
+</menu>
+<groupbox>
+  <caption label="Details"/>
+  <grid>
+    <columns>
+      <column flex="1"/>
+      <column flex="2"/>
+    </columns>
+    <rows>
+      <row>
+        <label value="User name"/>
+        <textbox id="user"/>
+      </row>
+      <row>
+        <label value="Group"/>
+        <menulist>
+          <menupopup>
+            <menuitem label="Accounts"/>
+            <menuitem label="Sales" selected="true"/>
+            <menuitem label="Support"/>
+          </menupopup>
+        </menulist>
+      </row>
+    </rows>
+  </grid>
+</groupbox>
+
+<tree>
+  <treecols>
+    <treecol label="Name" flex="1"/>
+    <treecol label="Size" flex="1"/>
+  </treecols>
+  <treechildren>
+    <treeitem>
+      <treerow>
+        <treecell label="Popcorn"/>
+        <treecell label="Large"/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="Root Beer"/>
+        <treecell label="Small"/>
+      </treerow>
+    </treeitem>
+  </treechildren>
+</tree>
+
+<textbox value="firefox"/>
+<richlistbox>
+  <richlistitem>
+    <image src="happy.png"/>
+  </richlistitem>
+  <richlistitem>
+    <image src="sad.png"/>
+  </richlistitem>
+  <richlistitem>
+    <image src="angry.png"/>
+  </richlistitem>
+</richlistbox>
+<menulist editable="true">
+  <menupopup>
+    <menuitem label="Elephants" value="Elephants"/>
+    <menuitem label="Kangaroos" value="Kangaroos"/>
+    <menuitem label="Bats" value="Bats"/>
+  </menupopup>
+</menulist>
+
+<colorpicker color="#FF0000"/>
+<input type="range" min="-100" max="100" value="0" step="10" name="power" list="powers">
+<datalist id="powers">
+ <option value="0">
+ <option value="-30">
+ <option value="30">
+ <option value="+50">
+</datalist>
+<p>
+ <label>
+  Enter a breed:
+  <input type="text" name="breed" list="breeds">
+ </label>
+ <datalist id="breeds">
+  <label>
+   or select one from the list:
+   <select name="breed">
+    <option value=""> (none selected)
+    <option>Abyssinian
+    <option>Alpaca
+    <!-- ... -->
+   </select>
+  </label>
+ </datalist>
+</p>
+
+<input type="url" name="location" list="urls">
+<datalist id="urls">
+ <option label="MIME: Format of Internet Message Bodies" value="http://www.ietf.org/rfc/rfc2045">
+ <option label="HTML 4.01 Specification" value="http://www.w3.org/TR/html4/">
+ <option label="Form Controls" value="http://www.w3.org/TR/xforms/slice8.html#ui-commonelems-hint">
+ <option label="Scalable Vector Graphics (SVG) 1.1 Specification" value="http://www.w3.org/TR/SVG/">
+ <option label="Feature Sets - SVG 1.1 - 20030114" value="http://www.w3.org/TR/SVG/feature.html">
+ <option label="The Single UNIX Specification, Version 3" value="http://www.unix-systems.org/version3/">
+</datalist>
+
+<div class="hbox center">
+    <div class="vbox center">
+        <div>...</div>
+        <div>...</div>
+    </div>
+</div>
+
+<form action="handler.cgi" method="POST" class="hbox">
+	<div class="vbox">
+		<label>First Name (required):</label>
+		<label>Last Name:</label>
+	</div>
+	<div class="vbox">
+		<input type="text" name="first"/>
+		<input type="text" name="last"/>
+		<input type="submit"/>
+	</div>
+</form>
+<div style="white-space:nowrap">
+Hello World 2<br />
+
+<fieldset>
+<input type="text" name="ac" autocomplete="off" value="a">
+<input type="text" name="ac" autocomplete="off" value="b">
+</fieldset>
+<p><label>Account: <input type="search" name="ac" autocomplete="on"></label></p>
+<p><label>PIN: <input type="password" name="pin" autocomplete="on"></label></p>
+
+<label>Homepage: <input name="hp" type="search" list="hpurls"></label>
+<datalist id="hpurls">
+ <option value="http://www.google.com/" label="Google">
+ <option value="http://www.reddit.com/" label="Reddit">
+</datalist>
+<select type="search">
+ <option contenteditable="true" value="http://www.google.com/" label="Google">
+ <option value="http://www.reddit.com/" label="Reddit">
+</select>
+<listbox type="search">
+ <listitem value="http://www.google.com/" label="Google">a </listitem>
+ <listitem value="http://www.reddit.com/" label="Reddit">b </listitem>
+</listbox>
+-->
+<!--
+<textarea />
+-->
+</div>
+</body>
+</html>

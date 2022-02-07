@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body>
+<div id="onemillion" style="display:none">
+</div>
+<script>
+/*
+function writeM(){
+var x = document.createElement('DIV');
+for(var i=0; i<1000000;){
+//var tx = i+" "+i+1+" "+i+2+" "+i+3+" "+i+4+" "+i+5+" "+i+6+" "+i+7+" "+i+8+" "+i+9+" ";
+var tx +=  i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ";
+var w = document.createTextNode(tx);
+//var w = document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ");
+x.appendChild(w);
+//alert(x.innerHTML);
+} 
+document.write(x.innerHTML); 
+//Joined by commas and not by spaces, mind you! We must not do all that work and still end up
+//paying the price of 1,000 string concatenations. 
+}
+*/
+function writeMXXX(){
+//var x = document.createElement('DIV');
+var x = document.createTextNode('Test:');
+for(var i=0; i<1000000;){
+//var tx = i+" "+i+1+" "+i+2+" "+i+3+" "+i+4+" "+i+5+" "+i+6+" "+i+7+" "+i+8+" "+i+9+" ";
+//var tx = "";
+var y = document.createTextNode("");
+for(var j=0; j<10;j++){
+y.appendData(i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ");
+//alert(y.value);
+}
+x.appendData(y.data);
+//x.appendChild(y.data);
+//var w = document.createTextNode(tx);
+//var w = document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ");
+//x.appendData(y.value);
+//alert(x.innerHTML);
+} 
+document.write(x.data); 
+/* Joined by commas and not by spaces, mind you! We must not do all that work and still end up
+paying the price of 1,000 string concatenations. */ 
+}
+function writeMXXX(){
+//var x = document.createElement('DIV');
+var x = document.createTextNode('Test:');
+for(var i=0; i<1000000;){
+//var tx = i+" "+i+1+" "+i+2+" "+i+3+" "+i+4+" "+i+5+" "+i+6+" "+i+7+" "+i+8+" "+i+9+" ";
+//var tx = "";
+for(var j=0; j<10;j++){
+var tx = i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ";
+eval("var y"+j+" ='"+tx+"'");
+//alert(tx);
+//eval("var y"+j+" = document.createTextNode('"+tx+"')");
+//alert(y.value);
+}
+
+x.appendData(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9);
+//x.appendData(y0.data+y1.data+y2.data+y3.data+y4.data+y5.data);
+//x.appendChild(y.data);
+//var w = document.createTextNode(tx);
+//var w = document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ");
+//x.appendData(y.value);
+//alert(x.innerHTML);
+} 
+document.write(x.data); 
+/* Joined by commas and not by spaces, mind you! We must not do all that work and still end up
+paying the price of 1,000 string concatenations. */ 
+}
+function writeMXXXX(){
+var div1 = document.getElementById('onemillion');
+//alert(div1);
+
+var x = document.createElement('DIV');
+//var x = document.createTextNode('Test:');
+var y0;var y1;var y2;var y3;var y4;var y5;var y6;var y7;var y8;var y9;
+for(var i=0; i<1000000;){
+//var tx = i+" "+i+1+" "+i+2+" "+i+3+" "+i+4+" "+i+5+" "+i+6+" "+i+7+" "+i+8+" "+i+9+" ";
+//var tx = "";
+for(var j=0; j<10;j++){
+//eval("var y"+j+" ='"+ i+" "+i+++"'");
+//i++
+eval("y"+j+" =document.createTextNode('"+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+"')");
+
+//eval("y"+j+" ='"+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+"'");
+//eval("y"+j+" ='"+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+"'");
+//eval("var y"+j+" ='"+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+"'");
+//var tx = i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ";
+//eval("var y"+j+" ='"+tx+"'");
+//alert(tx);
+//eval("var y"+j+" = document.createTextNode('"+tx+"')");
+//alert(y.value);
+}
+div1.appendChild(y0,y1,y2,y3,y4,y5,y6,y7,y8,y9);
+
+//x.appendChild(document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9)+ document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9));
+//x.appendChild(document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9),document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9));
+
+//x.appendData(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9);
+//var y = document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9);
+//x.appendData(y0.data+y1.data+y2.data+y3.data+y4.data+y5.data);
+//x.appendChild(document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9+y10+y11+y12+y13+y14+y15+y16+y17+y18+y19+y20+y21+y22+y23+y24+y25+y26+y27));
+//var w = document.createTextNode(tx);
+//var w = document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ");
+//x.appendData(y.value);
+//alert(x.innerHTML);
+}
+div1.appendChild(x);
+//document.body.appendChild(x);
+
+//document.write(x.innerHTML); 
+/* Joined by commas and not by spaces, mind you! We must not do all that work and still end up
+paying the price of 1,000 string concatenations. */ 
+}
+
+function writeM(){
+var div1 = document.getElementById('onemillion');
+//alert(div1);
+
+//var x = document.createElement('DIV');
+//var x = document.createTextNode('Test:');
+//var y0;var y1;var y2;var y3;var y4;var y5;var y6;var y7;var y8;var y9;
+for(var i=0; i<1000000;){
+//var tx = i+" "+i+1+" "+i+2+" "+i+3+" "+i+4+" "+i+5+" "+i+6+" "+i+7+" "+i+8+" "+i+9+" ";
+//var tx = "";
+//for(var j=0; j<10;j++){
+//eval("var y"+j+" ='"+ i+" "+i+++"'");
+//i++
+div1.appendChild(document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+ i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "));
+//}
+//div1.appendChild(y0,y1,y2,y3,y4,y5,y6,y7,y8,y9);
+
+//x.appendChild(document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9)+ document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9));
+//x.appendChild(document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9),document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9));
+
+//x.appendData(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9);
+//var y = document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9);
+//x.appendData(y0.data+y1.data+y2.data+y3.data+y4.data+y5.data);
+//x.appendChild(document.createTextNode(y0+y1+y2+y3+y4+y5+y6+y7+y8+y9+y10+y11+y12+y13+y14+y15+y16+y17+y18+y19+y20+y21+y22+y23+y24+y25+y26+y27));
+//var w = document.createTextNode(tx);
+//var w = document.createTextNode( i+" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" "+i+++" ");
+//x.appendData(y.value);
+//alert(x.innerHTML);
+}
+//div1.appendChild(x);
+//document.body.appendChild(x);
+
+//document.write(x.innerHTML); 
+/* Joined by commas and not by spaces, mind you! We must not do all that work and still end up
+paying the price of 1,000 string concatenations. */ 
+//div1.style.display="none";
+}
+
+t0 = new Date(); 
+writeM();
+var uu = document.getElementById('onemillion');
+t = new Date() - t0;
+uu.appendChild(document.createTextNode(" time ="+t));
+uu.style.display="block";
+
+//alert("time ="+t);
+//document.write('<p>time = ', t, '</p>'); 
+</script>
+</body>
+</html>

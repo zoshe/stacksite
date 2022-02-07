@@ -1,0 +1,984 @@
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine5.0//floater">
+<!-- This is code that is scraped from wui builds. Basically it's old code that could be reused again or it's code that was experiments that could work in the furture. It's mostly stuff that will never be used, but I'll keep it around :
+-->
+<html>
+<head>
+<title>Wui</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<!--  DOCTYPES:
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//floater">
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//pi">
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//dialog"> 
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//floater"> 
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//pi">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/xml; charset=UTF-8">
+<meta http-equiv="Content-Type" content="application/xml; charset=UTF-8">
+-->
+<style>
+/* the following is for macosx only
+input[type=checkbox]{margin:-6px 0px} 
+input[type=text]{margin-top: -6px;  margin-bottom: -6px} 
+input[type=button]{ margin:-5px -1px -5px -4px; border: 0px} 
+.wdbtn input[type=button] { width:20px}
+!important maybe needed to over ride dreamweavers settings
+input[type=button]{ margin:-5px -1px -5px -4px; border: 0px !important} 
+.wdbtn input[type=button]{ width:20px !important} 
+.wdbtnXXX select{width:200px}
+.wdbtnXX select{margin:-2px -1px -6px -4px; position:relative}
+textarea{ margin-top: -6px; margin-bottom: -6px} 
+img{margin-top: -6px; margin-bottom: -6px} 
+.style1{font-size: 10px}
+*/
+</style>
+
+
+<SCRIPT LANGUAGE="javascript">
+
+/*
+#####
+This is a better way to check if a var is defined
+>>> if (typeof somevar !== "undefined"){result = 'yes';} 
+
+######
+time testing using dates, I already have something but this could be usefull
+t0 = new Date(); 
+2	var i; 
+3	for(var i=0; i<1000000; i++); 
+4	t1 = new Date(); 
+d = document; 
+2	d.write('Without local variables = ', t1-t0, '<br />'); 
+3	d.write('With local variables = ', t2-t1, '<br />'); 
+
+
+
+//Computer System Language // I don't think app.sysLang will be needed. Some people may install eng ver on
+// computers that use a different lang
+var sysScript = dw.systemScript ||  false;
+app["sysLang"] = (!sysScript)? "en" : (sysScript.indexOf('en_US')>-1)? "en_US" : false;
+if(!app["sysLang"]){logFtnError(new Error("Lang:"+sysScript+ " Not Supported "));}
+//alert("app.sysLang:"+app.sysLang);
+
+var isWIN = (navigator.platform == "Win32");//notused
+var isWIN_98 = (navigator.winOSname == "Win98");//notused
+var isWINXP2K = (navigator.winOSname == "WinXP2K");//notused
+var isWINNT = (navigator.winOSname == "WinNT");//notused
+var isMacPPC = (dreamweaver.appVersion && dreamweaver.appVersion.indexOf('MacPPC') != -1);
+
+
+
+function findElmWithID(lookhere,tagname,eleID, theattribute){ // find and return element with this Id  // not being used
+var elms = lookhere.getElementsByTagName(tagname);
+var elm = false;
+for(var c=0; c < thetag.length; c++){
+(elms[c].getAttribute("id") == eleID)? elm = elms[c] : null;
+}
+return elm;
+}
+
+function disabledTaskBarBtns(X){ // not being used
+document.UnDo.setAttribute("disabled",X);
+document.ReDo.setAttribute("disabled",X);
+}
+
+//might work better for class using regEx ***************************
+ * Alphanumeric character or . followed by :
+ 
+var $RELATIVE = /^[\w\.]+[^:]*$/; 
+//END VAR RELATIVE
+
+// not going this way, better to put menu info may need for importing
+////var wdfUrl = dw.browseForFileURL("save","Select Page",false,true, false);
+////var edfUrlIsBlank = isBlank(wdfUrl);
+///alert("wdfUrl: "+wdfUrl + " edfUrlIsBlank: " + edfUrlIsBlank);
+//alert(dnAddSelValue);
+// close the following tables // wrapping them in a div maybe better, so a table can set style to a 100% width
+//alert(dnAddSelValue);
+
+
+*/
+
+// misc old code
+//dreamweaver.setFocus("document");
+//dw.getDocumentDOM();
+//dreamweaver.openFileFromSite() to get the DOM of the document
+// var theNewURL = MMNotes.localURLToFilePath(theURL); // converts a file:///D to D:\   
+// undocumented functiom
+// dw.getConfigurationPath() // it's return the path to the DW apps Configuration folder
+// dw.closeOtherFiles() closes all docments accept the selected one
+// var selectedSiteRoot  = dw.getSiteConfigurationPath();// Might be good for something Not documented functiom
+//var siteName = site.getCurrentSite();
+//var siteRoot = site.getLocalRootURL(siteName);
+//MM.setBusyCursor(); // shows function running
+ //MM.clearBusyCursor(). 
+// var menuXMLPath = dw.getMenuFile(); // might be good to use
+//  documented Functions
+//var brAddress = dreamweaver.getPrimaryBrowser();
+//var testClose = dw.closeAll();
+//dw.goToNextDocument()
+//dw.goToPrevDocument();
+//dreamweaver.setFloaterVisibility("Wui");
+//dreamweaver.minimizeRestoreAll(true);
+//dreamweaver.getActiveWindow();
+//FWLaunch.bringDWToFront()
+// ones not in the api list 
+//dw.resultsPalette.openInEditor()
+//site.canExpand();
+//site.expand();
+//site.isExpanded();
+//site.canSetLayout()
+//dw.moveToNewWindow(); // mac only
+//var dwInstallDIR=dreamweaver.getRootDirectory();
+//var snippetTree = dw.getSnippetsTree(dw.getMenuFile());
+//var snippetTree = dw.getFileTree(siteRoot);
+
+
+/* 
+var focus = dw.getFocus(true); 
+if (dw.getFocus(true) == 'html' || dw.getFocus() == 'textView') {
+dw.getDocumentDOM().refreshView('code');
+dw.getDocumentDOM().runValidation('auto-implicit',false);
+}
+if (dw.getFocus() == 'document' && dw.getDocumentDOM().getFocus() == 'body') {
+dw.getDocumentDOM().refreshView('design');
+}
+if (focus == 'textView')
+{dw.setFocus(focus);
+}
+
+var focus = dw.getFocus(true); 
+if (dw.getFocus(true) == 'html' || dw.getFocus() == 'textView') { 
+dw.getDocumentDOM().refreshView('code'); 
+} 
+if (dw.getFocus() == 'document' && dw.getDocumentDOM().getFocus() == 'body') { 
+dw.getDocumentDOM().refreshView('design');
+ }
+ if (focus == 'textView') { 
+dw.setFocus(focus);
+ }
+
+// take any relative link off the page location
+for(var i = 1; i< ndnPathSplit.length; i++){ // add the relative link to the loaderpath // first is any page in the site folder // second is for relative path in folders // the last is for anything below the root folder I think the last one can be removed
+jsLoadersPath = (ndnPathSplit[i] != "")? "../" + jsLoadersPath :  jsLoadersPath;
+}
+*/
+/* 
+
+// take any relative link off the page location
+for(var i = 1; i< wdfPathSplit.length; i++){ // add the relative link to the loaderpath // first is any page in the site folder // second is for relative path in folders // the last is for anything below the root folder I think the last one can be removed
+jsLoadersPath = (wdfPathSplit[i] != "")? "../" + jsLoadersPath :  jsLoadersPath;
+}
+for(var i = 0; i< wdfPathSplit.length; i++){ // add the relative link to the loaderpath // first is any page in the site folder // second is for relative path in folders // the last is for anything below the root folder I think the last one can be removed
+jsLoadersPath = (targetPathSplit[i] == wdfPathSplit[i])? jsLoadersPath : (i <=  targetPathSplit.length)? "../" + jsLoadersPath : "/" + jsLoadersPath;
+//alert(jsLoadersPath);
+}
+
+// Basic Var Name**************
+// *rfd rootFolder // maybe Not needed
+// *cfd ConfigFolder // maybe Not needed
+// *fdr Folder // maybe Not needed
+// *Idx = indexFile
+// *Hfn=HyperFunctionFile
+// *Nme=nameFile
+// *Str=stringFile
+// *Jsc=javaScriptFile
+// *Css=cssFile
+
+//This came from the File_Save.js
+// this file has a lot of info about saving, and how to use APIs 
+// For the sake of speed, we say we don't need the DOM.  Later on, if it turns
+// out we actually do need it, then we will call dom.synchronizeDocument().
+function isDOMRequired()
+{
+  return false;
+}
+
+dw.getActiveWindow().browser.pluginsEnabled = !dw.getActiveWindow().browser.pluginsEnabled; if (dw.getActiveWindow().getDesignViewMode() == 'live') dw.getActiveWindow().browser.refreshPage();
+
+
+function reverseStrings(a, b)
+{
+   if(a > b){
+   alert("-1");     //a comes after b, alphabetically
+      return(-1); //so sequence it earlier
+	  }
+   if(a < b){   //a comes before b, alphabetically
+    alert("1"); 
+      return(1);  //so sequence it later
+	  }
+    alert("0"); 
+   return(0);
+}
+
+*/
+/*
+//find the last log file used and delete all the files except the last two active files
+var logFileName = ["ftn.text"];
+function xxxx(){
+logFileName = "null.txt";// it can't be blank// it needs a fake file name so the logFtns can work
+var logFolder = dw.getUserConfigurationPath() +"stacksite_log/";
+var logFiles=(DWfile.exists(logFolder))?DWfile.listFolder(logFolder+"*.txt","files"):false;
+var logFileLength=(logFiles)?logFiles.length:-1;
+for(var i=0;i<logFileLength;i++){//for1
+if(i==logFileLength-1){
+logFileName = logFiles[i];
+}
+else if(i < logFileLength-2){//d
+DWfile.remove(logFolder + logFiles[i]);
+}
+}//for1
+}
+
+*/
+/*
+// The following was vars and a ftns to test for speed. I replaced with logFtn, but I'm keeping it in srcaped code just in case it will be needed again. 
+
+logFtnSpeed(ftnName,false,2);
+
+var logFtnSpeedVal = "SpeedTest ::::::\n";
+var logFtnSpeedOn = false;
+
+//timeTest // this part can be placed at the end of stacksite reset 
+if(logFtnSpeedOn && !isBlank(logFtnSpeedVal)){
+logFtnSpeedVal = "ftnSpeed ::::::\n";
+//alert("TIME-TEST:::: \n" + logFtnSpeedVal);
+writeTestingPage(false,"timeTest.txt",logFtnSpeedVal);
+}
+
+function logFtnSpeed(ftnObj,isOn,numOrder){//log Function
+if(!logFtnSpeedOn|| !isOn){//if1 if it's off don't run
+null;
+}//if1
+else{//else1
+var d = new Date();
+var m = d.getMinutes();
+m = (m>9)? m : "0"+ m.toString();
+var s = d.getSeconds();
+s = (s>9)? s : "0"+ s.toString();
+var k = d.getMilliseconds();
+k = (k>99)? k : (s>9)? k.toString() + "0" : k.toString() + "00";
+var useCarRtn = "/r";
+var t = m+":"+s+":"+k;
+
+var ftnCaller = (ftnObj.caller)? ftnObj.caller.name : ftnObj.name;
+if(numOrder == 1){
+logFtnSpeedVal =  logFtnSpeedVal + "ftn:"+ftnObj.name+ " ftnCaller:"+ftnCaller+"\n"+"("+numOrder+") "+ t + "\n";
+}
+else{
+logFtnSpeedVal =  logFtnSpeedVal +"("+numOrder+") "+t+"\n";
+}
+}//else1
+}
+
+
+*/
+/*
+function isNumberOLDWAYXXXX(valu){// returns true if it's a Number (interger or with a decimal)
+//NOTE the above function should work faster
+var decimalPointQty = 0;
+if (isBlank(valu)&&!valu.length){return false;}
+for(var i=0;i<valu.length;i++){//for1
+var charX = valu.charAt(i);
+(charX ==".")? decimalPointQty++ : null;
+//alert(parseInt(charX));
+if(isNaN(charX)&&decimalPointQty>1){ // NaN might not work 
+return false;
+}
+}//ENDfor1
+return true;
+//MIsc:
+//var isNumRegEX = /(^\d+$)|(^\d+\.\d+$)/;
+//var isNum = isNumRegEX.test(parseInt(sizeX))
+}
+*/
+/* The following did not work in DW8 but maybe it will work in there newxt version
+// TEST IF A NEW OBJECT CAN BE USED TO HOLD DOM IN
+// I believed I tried this all ready and it did not work on tree nodes, but maybe it can use divs and then convert the divs to treenodes// this does not work it  just makes a 
+//document.newObjTest = new Object();
+//newObjTest.document = new Object();
+//document.newObjTest.innerHTML = "<div><div></div></div>";
+//alert(document.newObjTest.outerHTML);
+ ///newObjTest.innerHTML = "<iframe><div></div></iframe>";
+ //var newObjTestDivs = newObjTest.firstChild.getElementsByTagName("div");
+// alert(newObjTest.firstChild);
+// makeIframe();
+ 
+ function makeIframeXXX(){// did not work
+     
+      IFrameObj.document.location = new Object();
+      IFrameObj.document.location.iframe = document.getElementsByTagName("iframe")[0];
+	  document.getElementsByTagName("iframe")[0].src = "wui0158.html";
+alert(document.getElementsByTagName("iframe")[0].outerHTML);
+//      IFrameObj.document.location.iframe = document.getElementById('RSIFrame');
+//      IFrameObj.document.location.replace = function(location) {
+//        this.iframe.src = location;
+//      }
+}
+ IFrameObj = new Object();
+      IFrameObj.document = new Object();
+function makeIframeXX(){// did not work
+      // This is for IE5 PC, which does not allow dynamic creation
+      // and manipulation of an iframe object. Instead, we'll fake
+      // it up by creating our own objects.
+      iframeHTML='\<iframe id="RSIFrame" style="';
+      iframeHTML+='border:0px;';
+      iframeHTML+='width:100px;';
+      iframeHTML+='height:100px;';
+      iframeHTML+='"><\/iframe>';
+      document.body.innerHTML+=iframeHTML;
+      IFrameObj = new Object();
+      IFrameObj.document = new Object();
+      IFrameObj.document.location = new Object();
+      IFrameObj.document.location.iframe = document.getElementsByTagName("iframe")[0];
+	  document.getElementsByTagName("iframe")[0].src = "wui0158.html";
+alert(document.getElementsByTagName("iframe")[0].outerHTML);
+//      IFrameObj.document.location.iframe = document.getElementById('RSIFrame');
+//      IFrameObj.document.location.replace = function(location) {
+//        this.iframe.src = location;
+//      }
+    }
+*/
+
+/*
+function editSelFixXXXX(cat1,cat2,cat3,eTagNum){// for double click bug fix on 
+//NOTE this did not work
+// This is a bug fix, and it needs to be blank with a return
+// the onMouseDown fixes the double click bug. After editing in a editable select menu, a button with a onclick would require two clicks. The bug only happens if the editable select menu was edited. The first click seems to give focus to the button.  By putting an additional event, like a onMouseDown, the button seems to gain the focus it needs to fire the onclick event.
+//var testForTimeOut = (window.E)? true : false;
+//if(testForTimeOut){
+//clearTimeout(window.E);
+//return;
+//}
+
+////var elm = vFormElmWitchFiredTheEvent;
+/////elm.name = elm.name;
+alert("editSelFix");
+//return;
+}
+
+
+function buildSelect15BUGGIEXXx(cat1,cat2,cat3,eTagNum){// before breadCrumbs
+// it's a editiable select menu that works but the has a double click bug when used with a ok button
+// if I can fix the event firing problem maybe this can be used someday
+//After editing in a editable select menu, a input button next to this select rlrmrnt with a onclick would require two clicks. The bug only happens if the editable select menu was edited. The first click seems to give focus to the button.
+// Divider uni2
+var eLib = getLib(cat1,cat2,cat3);
+var eTag = getTag(eLib,eTagNum);
+var nodeTree = getTree(cat1+cat2+"n");
+var node = nodeTree.selectedNodes[0];
+var nodeLib = getLib(cat1,cat2,"n");
+var nodeTag = getTag(nodeLib, node.nTypeNum);
+var nodeTagOpts = getTagPropArray(nodeLib,nodeTag,"vOPT","|");
+var nodeTagOptLength = (nodeTagOpts)? nodeTagOpts.length : 0;
+var nodeIdRuleIsBlank = isBlank(node.nIdRule);
+var nodeIdRule = (nodeIdRuleIsBlank)? " " :  node.nIdRule;
+//alert(node.nIdRule +"||||"+ nodeIdRule);
+var putItHere = eval("hForm."+eTag.pIH);
+
+//create a editable select menu
+var newSelect = createSel("SELECT");
+newSelect.name = eTag.vIdn;
+newSelect.setAttribute("onChange","wFnctn(this,'"+eTag.vFN+")");
+newSelect.setAttribute("editable","true");
+newSelect.setAttribute("editText",nodeIdRule);
+
+
+// loop the options and check the selected option
+for(var i=0; i< nodeTagOptLength; i++){//for1
+var newOption = createOptn();
+newOption.text = getLangVal(nodeTagOpts[i]);
+newOption.value = newOption.text;
+}//ENDfor1
+
+putItHere.innerHTML = putItHere.innerHTML + newSelect.outerHTML;
+//var newInput = createInp();
+//newInput.type = "button";
+//newInput.name = "btnfield0";
+//newInput.size = eTag.vSze;
+//newInput.value =  "OK1";
+//newInput.value =  getLangVal(eTag.vOPT);
+//newInput.setAttribute("onClick","wFnctn(this,'"+eTag.vFN+")");
+////////(newOption.text == nodeIdRule)? newOption.selected = true : null;
+//putItHere.innerHTML = putItHere.innerHTML+newInput.outerHTML + newSelect.outerHTML ;
+//putItHere.innerHTML = putItHere.innerHTML+ newSelect.outerHTML+"<br />" +newInput.outerHTML ;
+//putItHere.innerHTML = putItHere.innerHTML;
+return true;
+}
+
+function buildInputBtnWithEditSelXXXX(cat1,cat2,cat3,eTagNum){// all type of uses
+// NOTE these fixes did not work  in dw8+? for macs
+// buttons don't work in dw8+? for macs
+// this Function includes a fix when using a button with a editable select menu.(did not work)
+//NOTE these bug fixes did not work
+
+var eLib = getLib(cat1,cat2,cat3);
+var eTag = getTag(eLib,eTagNum);
+var putItHere = eval("hForm."+eTag.pIH);
+var newInput = createBtn();
+newInput.type = "button";
+newInput.name = eTag.vIdn;
+newInput.size = eTag.vSze;
+newInput.innerHTML =  getLangVal(eTag.vOPT);
+//newInput.value =  getLangVal(eTag.vOPT);
+//NOTE this bug fix did not work
+//(did not work) the onMouseDown fixes the double click bug. After editing in a editable select menu, a button with a onclick would require two clicks. The bug only happens if the editable select menu was edited. The first click seems to give focus to the button.  By putting an additional event, like a onMouseDown, the button seems to gain the focus it needs to fire the onclick event.(did not work)
+//newInput.setAttribute("onMouseDown","editSelFix(this,'"+eTag.vFN+")");// double click bug fix
+//newInput.setAttribute("onMouseUp","wFnctn(this,'"+eTag.vFN+")");
+//newInput.setAttribute("onMouseDown","editSelFix(this,'"+eTag.vFN+")");// double click bug fix
+//var useFnc = "editSelFix('";
+//newInput.setAttribute("onFocus","wFnctn(this,'"+useFnc+")");// double click bug fix
+newInput.setAttribute("onClick","wFnctn(this,'"+eTag.vFN+")");
+putItHere.innerHTML = putItHere.innerHTML + newInput.outerHTML;
+return true; //NOTE  I don't think the return is needed
+}
+
+function buildInputBtnWithEditSelXXXX(cat1,cat2,cat3,eTagNum){// all type of uses
+// NOTE these fixes did not work  in dw8+? for macs
+// this Function includes a fix when using a button with a editable select menu.(did not work)
+//NOTE these bug fixes did not work
+
+var eLib = getLib(cat1,cat2,cat3);
+var eTag = getTag(eLib,eTagNum);
+var putItHere = eval("hForm."+eTag.pIH);
+var newInput = createInp();
+newInput.type = "button";
+newInput.name = eTag.vIdn;
+newInput.size = eTag.vSze;
+newInput.value =  getLangVal(eTag.vOPT);
+newInput.setAttribute("onClick","wFnctn(this,'"+eTag.vFN+")");
+//NOTE this bug fix did not work
+//(did not work) the onMouseDown fixes the double click bug. After editing in a editable select menu, a button with a onclick would require two clicks. The bug only happens if the editable select menu was edited. The first click seems to give focus to the button.  By putting an additional event, like a onMouseDown, the button seems to gain the focus it needs to fire the onclick event.(did not work)
+//newInput.setAttribute("onMouseDown","editSelFix(this,'"+eTag.vFN+")");// double click bug fix
+//newInput.setAttribute("onMouseUp","wFnctn(this,'"+eTag.vFN+")");
+//newInput.setAttribute("onMouseDown","editSelFix(this,'"+eTag.vFN+")");// double click bug fix
+//var useFnc = "editSelFix('";
+//newInput.setAttribute("onFocus","wFnctn(this,'"+useFnc+")");// double click bug fix
+putItHere.innerHTML = putItHere.innerHTML + newInput.outerHTML;
+return true; //NOTE  I don't think the return is needed
+}
+
+*/
+//var xmlDoc = new Object;
+//xmlDoc.outerHTML="<xml src='wui/xml/lang_eng.xml' name='xmlname' id='xmldso' async='false'></xml>";
+//xmlDoc.src="wui/xml/lang_eng.xml";
+//xmlDoc.src = document.xmlname.XMLDocument;
+//alert(xmlDoc.innerHTML);
+
+function saveWpnCssRuleMozAlignXXXX(wpn,wpnTag,wpnLib){
+var wpnParent = wpn.parentNode;
+var wpns = wpnParent.getElementsByTagName("MM:TREENODE");
+var wpnsLength = wpns.length;
+var wpnLib = getLib("w","p","n");
+var wpnCssSelectorPropName = getTagRefVal(wpnTag,"cssSelectorPropName","w","p","n")+"moz";
+var wln = getTree("wln").selectedNodes[0];
+
+//Clear the wln cssSelector values
+wln.setAttribute("q"+wpnCssSelectorPropName,"");
+//alert("q"+wpnCssSelectorPropName);
+var wlnCssRulesNew = "";
+
+for(var i = 0; i < wpnsLength; i++){//for1
+var wpnX = wpns[i];
+var wpnTagX = getTag(wpnLib,wpnX.nTypeNum);
+var wpnXcssSelectorPropName = getTagRefVal(wpnTagX,"cssSelectorPropName","w","p","n");
+if(!isBlank(wpnX.nCssRule)){
+var useColen = (isBlank(wlnCssRulesNew))? "" : ";" ;
+//ns and ff only need to use -moz-  with  text-align, vertical-align does not work, but the standard way does
+var useMoz = ((wpnTagX.vV).indexOf("V")>-1)? ":" : ":-moz-"; // vertical can't use -moz-, and text-align does
+wlnCssRulesNew += useColen + getTagRefVal(wpnTagX,"vCN","w","p","n") + useMoz +wpnX.nCssRule;
+//wlnCssRulesNew += useColen + getTagRefVal(wpnTagX,"vCN","w","p","n") + ":-moz-" +wpnX.nCssRule;
+}
+}//for1
+//alert(wpnCssSelectorPropName);
+wln.setAttribute("q"+wpnCssSelectorPropName,wlnCssRulesNew);
+//alert(wln.getAttribute("q"+wpnCssSelectorPropName));
+}
+
+function saveWpnCssRuleMarginAlignXXXX(wpn,wpnTag,wpnLib){
+var wpnCssSelectorPropName = getTagRefVal(wpnTag,"cssSelectorPropName","w","p","n");
+//var wpnCssSelectorPropName = getTagRefVal(wpnTag,"cssSelectorPropName","w","p","n")+"moz";
+var wln = getTree("wln").selectedNodes[0];
+var wlnCssSelectorProp = wln.getAttribute("q"+wpnCssSelectorPropName);
+
+var wpnCssRule = wpn.nCssRule;
+var useVal = (wpnCssRule == "center")? "margin:0px auto" : (wpnCssRule == "right")? "margin-left:auto": (wpnCssRule == "left")? "margin-right:auto" : "";
+//ns and ff only need to use -moz-  with  text-align, vertical-align does not work, but the standard way does
+//var useMoz = ((wpnTagX.vV).indexOf("V")>-1)? ":" : ":-moz-"; // vertical can't use -moz-, and text-align does
+var wlnCssRulesNew =  (isBlank(wlnCssSelectorProp))? "" : wlnCssSelectorProp+";" +useVal;
+//wlnCssRulesNew += useColen + getTagRefVal(wpnTag,"vCN","w","p","n") + useMoz +wpnX.nCssRule;
+//wlnCssRulesNew += useColen + getTagRefVal(wpnTag,"vCN","w","p","n") + ":-moz-" +wpnX.nCssRule;
+////////////}
+///////////}//for1
+//alert(wpnCssSelectorPropName +"|||"+ wlnCssRulesNew);
+wln.setAttribute("q"+wpnCssSelectorPropName,wlnCssRulesNew);
+//alert(wln.getAttribute("q"+wpnCssSelectorPropName));
+/*
+var wpnCssRule = wpn.nCssRule;
+
+var useVal = (wpnCssRule == "center")? ";margin:0px auto" : (wpnCssRule == "right")? ";margin-left:auto": (wpnCssRule == "left")? ";margin-right:auto" : "";
+
+return useVal;
+*/
+}
+
+function saveWpnCssRuleMarginAlignPageHV1XXXX(wpn,wpnTag,wpnLib){//
+// it helps set the classes for the extra td cells needed , so the page object can be vertically aligned
+// Basically it set the margins of the table, hights of the top and bottom td cells. It may also include textAlign to fix ie quirkmode which does not understand margin auto
+var wln = getTree("wln").selectedNodes[0];
+var wpnLib = getLib("w","p","n");
+//alert(wln.outerHTML);
+var wpnPropVal = wpn.propVal;
+var wpnPropNum = 0;
+var wpnTagProps = getTagPropArray(wpnLib,wpnTag,"vOPTprop","|");
+var wpnTagPropLength = (wpnTagProps)? wpnTagProps.length : 0;
+var wpnTagCssRefSelectorProp  =  "q"+getTagRefVal(wpnTag,"refSelectorPropName","w","p","n");
+//alert(wpnTag.vOPTprop+"||||"+ wpnTagProps);
+for(var i = 0; i< wpnTagPropLength; i++){
+var wpnTagProp = getLangVal(wpnTagProps[i]);
+//alert(i +"|||||"+ wpnPropVal +"|||||"+ wpnTagProp);
+if(wpnTagProp == wpnPropVal){
+wpnPropNum = i;
+break;
+}
+}
+
+if(wpnPropNum){
+// text align will be needed to support quirk mode in ie if I decide to support it? Another option is to put tds on the side, and set their widths. I think the tds is better because it would not require using a ton of extra classes to use textAlign
+///var useCssTextAlignOpts = ["","text-align:left","text-align:center","text-align:right","text-align:left","text-align:center","text-align:right","text-align:left","text-align:center","text-align:right"];
+
+// top margin // it sets a height in a blank td space.
+var useCssOptTd0s = [0,0,0,0,50,50,50,100,100,100];
+// top margin // it sets a height in a blank td space.
+var useCssOptTd2s = [0,100,100,100,50,50,50,0,0,0];
+
+var useCssOptTd0 = useCssOptTd0s[wpnPropNum];
+var useCssOptTd2 = useCssOptTd2s[wpnPropNum];
+//alert(getTree("wpn").innerHTML);
+
+// this is the page height // it needed to figureout what % will be needed for the top and bottom cell spaces
+// The height info is required from the vForm, because all the cssProps held on the hForm selected treenode have already been cleared to prepair it for a update
+var vwlnTree = vForm.wlnTreeElm;
+var vwln = vwlnTree.selectedNodes[0];
+var vwlnSzHtRealNum = "";
+var vwlnSzHtRealVal = vwln.getAttribute(wpnTagCssRefSelectorProp+1);
+if(vwlnSzHtRealVal.indexOf("height:") > -1){
+vwlnSzHtRealVal = vwlnSzHtRealVal.split("height:");
+vwlnSzHtRealVal = vwlnSzHtRealVal[1];
+vwlnSzHtRealNum = parseInt(vwlnSzHtRealVal);
+}
+//alert(vwlnSzHtRealVal+"|||"+vwlnSzHtRealNum+"|||"+useCssOptTd0 +"|||"+ useCssOptTd2+"|||"+ vwln.outerHTML);
+
+if(isBlank(vwlnSzHtRealVal)||vwlnSzHtRealVal=="auto"||vwlnSzHtRealNum=="0"){//if2 auto or blank use defaults
+//alert("align to defaults");
+var wlnCssSelectorPropTd0 = wln.getAttribute(wpnTagCssRefSelectorProp+0);
+var wlnCssRulesNewTd0=(useCssOptTd0)?"height:"+useCssOptTd0+"%":"";
+wln.setAttribute(wpnTagCssRefSelectorProp+0,wlnCssRulesNewTd0);
+var wlnCssSelectorPropTd2 = wln.getAttribute(wpnTagCssRefSelectorProp+2);
+var wlnCssRulesNewTd2=(useCssOptTd0)?"height:"+useCssOptTd2+"%":"";
+wln.setAttribute(wpnTagCssRefSelectorProp+2,wlnCssRulesNewTd2);
+}//if2
+
+else if(vwlnSzHtRealNum>=100){//if3 height greater or higher than 100%
+//alert(" height greater or higher than 100%");
+wln.setAttribute(wpnTagCssRefSelectorProp+0,"");//top
+wln.setAttribute(wpnTagCssRefSelectorProp+2,"");//bottom
+}//if3
+else if(useCssOptTd2==100){//if4 align to the top
+//alert("align to the top");
+var td2Ht = 100 - vwlnSzHtRealNum;
+wln.setAttribute(wpnTagCssRefSelectorProp+0,"");//top
+wln.setAttribute(wpnTagCssRefSelectorProp+2,"height:"+td2Ht+"%");//bottom
+}//if4
+else if(useCssOptTd0==100){//if5 align to the bottom
+//alert("align to the bottom");
+var td0Ht = 100 - vwlnSzHtRealNum;
+wln.setAttribute(wpnTagCssRefSelectorProp+0,"height:"+td0Ht+"%");//top
+wln.setAttribute(wpnTagCssRefSelectorProp+2,"");//bottom
+}//if5
+else if(useCssOptTd0==50 && useCssOptTd2==50){//if6 align to the middle
+//alert("align to the middle");
+// maybe allowing it have a floating point(ie 12.5%) will work needs testing
+var tdHt = (100 - vwlnSzHtRealNum)/2;
+var td0Ht = Math.floor(tdHt);
+var td2Ht = Math.ceil(tdHt);
+td0Ht = (td0Ht)? "height:"+td0Ht+"%" : "";
+td2Ht = (td2Ht)? "height:"+td2Ht+"%" : "";
+wln.setAttribute(wpnTagCssRefSelectorProp+0,td0Ht);//top
+wln.setAttribute(wpnTagCssRefSelectorProp+2, td2Ht);//bottom
+//alert("td0Ht:"+td0Ht+"td2Ht:"+td2Ht);
+}//if6
+else{// can be removed on final build
+alert("itMissedChangeError");
+}
+
+}
+return "";
+
+//NOTSURE if height is set to 0 then clear the setting// not sure this will be needed at all
+//////if(vwlnSzHtRealNum=="0"){
+//////wln.setAttribute(wpnTagCssRefSelectorProp+1,"");
+////////hForm.wpnQGENPAGESZHTREAL.setAttribute("propVal","");
+////////}
+
+///var useCssTextAlignOpts = ["","vertical-align:top;text-align:left","vertical-align:top;text-align:center","vertical-align:top;text-align:right","vertical-align:middle;text-align:left","vertical-align:middle;text-align:center","vertical-align:middle;text-align:right","vertical-align:bottom;text-align:left","vertical-align:bottom;text-align:center","vertical-align:bottom;text-align:right"];
+
+//var tdHtTest1 = parseFloat(tdHt); // test if it's a float
+//var td1Ht = (tdHtTest1)?  math.tdHt +.5  :tdHt;
+//var td2Ht =  (tdHtTest1)?  math.floor(tdHt) :tdHt;
+
+//THIS WORKS TOO but I like getting the info from the vform because it won't break the libray if libray tagnames get changed
+//var vwlnSzHtRealVal = hForm.wpnQGENPAGESZHTREAL.propVal;
+//vwlnSzHtRealNum = parseInt(vwlnSzHtRealVal);
+//var wpnCssPropForTd1 = getTagPropVal(wpnLib,wpnCssPropForTd1Tag,"propVal");
+
+//var wlnCssSelectorPropTd1 = wln.getAttribute(wpnTagCssRefSelectorProp+1); //genPageSzHtReal
+//var wlnCssSelectorPropTd1Test1 = wlnCssSelectorPropTd1.indexOf("height:") > -1;
+//var wlnCssSelectorPropTd1s = (wlnCssSelectorPropTd1Test1)? wlnCssSelectorPropTd1.split("height:") : "";
+//var wlnCssSelectorPropTd1Num = (isBlank(wlnCssSelectorPropTd1s))? "" : parseInt(wlnCssSelectorPropTd1s[1]);
+
+//alert(vwlnSzHtRealNum+"|||"+vwln.outerHTML);
+//alert(vwlnSzHtRealNum+"|||"+ wpnCssPropForTd1+"|||"+wpnCssPropForTd1Tag.outerHTML);
+
+//if(!isBlank(useCssOptsTd0[wpnPropNum])&&useCssOptsTd0[wpnPropNum]}{
+//var wlnCssRulesNewTd0=(isBlank(wlnCssSelectorPropTd0))?useCssOptsTd0[wpnPropNum]:wlnCssSelectorPropTd0+";"+useCssOptsTd0[wpnPropNum];
+
+//var wlnCssRulesNewTd2=(isBlank(wlnCssSelectorPropTd2))?useCssOptsTd2[wpnPropNum]:wlnCssSelectorPropTd2+";"+useCssOptsTd2[wpnPropNum];
+}
+
+/*
+function buildSelectBdiXXXX(cat1,cat2,cat3,eTagNum){ // Borders with images
+//NOTE this was the old way that used both a id and css to define a background border
+// not in use but keeping it around just in case I need it for something
+var eLib = getLib(cat1,cat2,cat3);
+var eTag = getTag(eLib,eTagNum);
+var nodeTree = getTree(cat1+cat2+"n");
+//alert(nodeTree.innerHTML);
+var node = nodeTree.selectedNodes[0];
+var nodeLib = getLib(cat1,cat2,"n");
+var nodeTag = getTag(nodeLib, node.nTypeNum);
+var nodeTagOpts = getTagPropArray(nodeLib,nodeTag,"vOPT","|"); // I might want to put this in wpe somehow
+var nodeTagOptLength = (nodeTagOpts)? nodeTagOpts.length : 0;
+var nodeCssRule = (node.nCssRule)? node.nCssRule : "";
+var nodeCssRules = nodeCssRule.split(" ");
+var nodeIdRule = node.nIdRule;
+var isItCSS = node.nRuleType == "CSS";
+//alert("nodeIdRule:"+nodeIdRule+" nodePropVal:"+nodePropVal);
+var v0 = (isItCSS &&nodeCssRules[0])? nodeCssRules[0] : "";
+var v1 = (isItCSS &&nodeCssRules[1])? nodeCssRules[1] : "";
+var v2 = (isItCSS &&nodeCssRules[2])? nodeCssRules[2] : "";
+var selMenu0Num = (isItCSS && nodeCssRule)? 2 : (nodeIdRule=="1")? 1 : 0; // thr line below might be the right way
+//alert(selMenu0Num +"*******"+nodeIdRule);
+//var selMenu0Num = (isItCSS && nodeIdRule)? 2 : (nodeIdRule=="1")? 1 : 0;
+var displayValue = (isItCSS &&selMenu0Num)? "" : "display:none"; // the default setting // this should be invisable
+//alert(displayValue);
+var putItHere = eval("hForm."+eTag.pIH);
+/////var cssHolder = ""; // holds the form elements for building
+
+//Build the option Menu
+var newSelect = createSel("SELECT");
+newSelect.name = "selMenu0";
+newSelect.setAttribute("onChange","wFnctn(this,'"+eTag.vFN+")"); // I think just using the ok button maybe better
+//newSelect.setAttribute("onChange","wFnctn(this,'wpnProps(',8,1,2,3)");
+//newSelect.setAttribute(fnType,"wFnctn(this,'"+eTag.vFN+")");
+//create options menus
+for(var i=0; i< nodeTagOptLength; i++){//for3
+if(nodeTagOpts[i]!=""){
+var newOption = createOptn();
+newOption.value = i;
+newOption.text =  (i!=0)?getLangVal(nodeTagOpts[i]):getLangVal('_None');
+(i == selMenu0Num)? newOption.selected = true : null;
+}//ENDfor3
+}
+putItHere.innerHTML = putItHere.innerHTML + newSelect.outerHTML;
+putItHere.innerHTML = putItHere.innerHTML + "<br />"; //<span name='cssspan'"+displayValue+">";
+//Build the color elements
+var newInput = createInp();
+newInput.type = "mmcolorbutton";
+newInput.name = "colorswatch0";
+newInput.value = v0;
+newInput.setAttribute("onChange","wFnctn(this,'"+eTag.vFN+")");
+//newInput.setAttribute("onChange","wFnctn(this,'wpnProps(',8,1,2,3)"); // may want no onchange
+//newInput.setAttribute("onChange","wFnctn(this,'wpnProps(',8,1,2,3)"); // may want no onchange
+//newInput.setAttribute("onChange","wFnctn(this,'"+eTag.vFN+"')");
+newInput.style = displayValue;
+putItHere.innerHTML = putItHere.innerHTML + newInput.outerHTML;
+
+//Build the 2nd color element
+var newInput = createInp();
+newInput.type = "text";
+newInput.name = "textfield0";
+newInput.size = "10";
+newInput.value = v0;
+newInput.style = displayValue;
+putItHere.innerHTML = putItHere.innerHTML + newInput.outerHTML;
+
+
+// Find and Build the line type element
+var lineTypes = ["solid","dash"];
+var selectedOption = 0;
+for(var ii=0; ii< lineTypes.length; ii++){ // for1 find the selected option
+(lineTypes[ii] == v1)? selectedOption = ii : null;
+}//ENDfor1
+var newSelect = createSel("SELECT");
+newSelect.name = "selMenu1";
+newSelect.style = displayValue;
+newSelect.setAttribute("onChange","wFnctn(this,'"+eTag.vFN+")"); // I think just using the ok button maybe better
+///newSelect.setAttribute("onClick","wFnctn(this,'wpnProps(',8,1,2,3)"); // may want no onchange
+for(var iii=0; iii< lineTypes.length; iii++){ // for1 build the option elements
+var newOption = createOptn();
+newOption.value = lineTypes[iii];
+newOption.text =  getLangVal("_"+lineTypes[iii]);
+(iii == selectedOption)? newOption.selected = true : null;
+}//ENDfor1
+putItHere.innerHTML = putItHere.innerHTML + newSelect.outerHTML;
+
+//Build the size elements
+var getNumber = parseInt(v2);
+var sizeNumber = (isNaN(getNumber))? "" : getNumber ;
+var sizeTypes = ["px","ex"];
+var selectedOption = 0;
+for(var i=0; i< sizeTypes.length; i++){ // for1 // find sizeType
+(v2.indexOf(sizeTypes[i]) > 0)? selectedOption = i : null;
+}//ENDfor1
+var newInput = createInp();
+newInput.style = displayValue;
+newInput.type = "text";
+newInput.name = "textfield1";
+newInput.size = "5";
+newInput.value = sizeNumber;
+putItHere.innerHTML = putItHere.innerHTML + newInput.outerHTML;
+
+var newSelect = createSel("SELECT");
+newSelect.style = displayValue;
+newSelect.name = "selMenu2";
+newSelect.setAttribute("onChange","wFnctn(this,'"+eTag.vFN+")"); // I think just using the ok button maybe better
+//newSelect.setAttribute("onChange","wFnctn(this,'wpnProps(',8,1,2,3)"); // may want no onchange
+for(var i=0; i< sizeTypes.length; i++){ // for1 build the option elements
+var newOption = createOptn();
+newOption.value = sizeTypes[i];
+newOption.text =  sizeTypes[i];
+(i == selectedOption)? newOption.selected = true : null;
+}//ENDfor1
+putItHere.innerHTML = putItHere.innerHTML + newSelect.outerHTML;
+
+//Build the ok elements
+var newInput = createInp();
+newInput.style = displayValue;
+newInput.setAttribute("onClick","wFnctn(this,'"+eTag.vFN+")");
+//newInput.setAttribute("onClick","wFnctn(this,'wpnProps(',8,1,2,3)"); // may want no onchange
+newInput.type = "button";
+newInput.name = "btnfield0";
+newInput.value = getLangVal('_Ok');
+putItHere.innerHTML = putItHere.innerHTML + newInput.outerHTML;
+return true;
+}
+*/
+function getTag0001(lib,tagNam,testNum){
+var etag = (lib)?  lib.getElementsByTagName("q"+tagNam)[0] : false;
+(etag)? null :  logFtnError(getTag);//errorChecking
+return etag;
+}
+
+/*
+function getRefTagXXXXX(nNode){
+var etag = (nNode)?  lib.getElementsByTagName("q"+tagNam)[0] : false;
+//(etag)? null : alert(lib.name +" |||| "+ "q"+tagNam);
+(etag || isBlank(tagNam) || )? null : (isBlank(tagNam) || )? null : logFtnError(getTag);//errorChecking
+//(etag)? null :  logFtnError(getTag);//errorChecking
+return etag;
+}
+*/
+
+/*
+function getSplitArrayXXXXX(valToSplit, splitWith){ // not in use anymore
+if(!isBlank(valToSplit) && valToSplit != false){
+var arrayX =(valToSplit.indexOf(splitWith)>-1)?valToSplit.split(splitWith) : eval("['"+valToSplit+"']");
+return arrayX;
+}
+else{// has no value return false
+return false;
+}
+}
+*/
+
+</SCRIPT>
+</head>
+<body style="display:block; margin-top:-30px" view="wui">
+</body>
+<!-- this can maybe used for working into borders for css3 specs
+<q7p  vV='Border'  vType='bdi' vDPV='7' vDV='0' pIDAN='0' oSel="val" oOpts="valqbdi|addq0" vOPT='_n_||_Line' vCN='border'>
+<q6bx vV='ImageSet' vType='7' vDPV='4' vDV='' pIDAN='6' oSel="val" oOpts="valqsnn|addq0" vOPT=''></q6bx>
+<q7p0 vV='Top'   vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='_n_|_Image|_Line' vCN='border-top'></q7p0>
+<q7p1 vV='Bottom'   vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='~q7p0' vCN='border-bottom'></q7p1>
+<q7p2 vV='Left' vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='~q7p0' vCN='border-left'></q7p2>
+<q7p3 vV='Right' vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='~q7p0' vCN='border-right'></q7p3>
+<q7p4 vV='top-Left' vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='_n_|_Image|' vCN=' '></q7p4>
+<q7p5 vV='top-Right' vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='~q7p4' vCN=' '></q7p5>
+<q7p6 vV='bottom-Left' vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='~q7p4' vCN=' '></q7p6>
+<q7p7 vV='bottom-Right' vType='bdi' vDPV='6' vDV='0' pIDAN='7b' oSel="val" oOpts="~q7p" vOPT='~q7p4' vCN=' '></q7p7>
+</q7p>
+-->
+
+<!--**************************Not in use************************************************-->
+<nName vV='nName' labelName="'name'" aString="preFix+eval(preFix02+'nNum')"></nName>
+<nNum vV='nNum' labelName="preFix02+'nNum'" aString="eval(preFix02+'nNum')"></nNum>
+<nPath vV='nPath' labelName="preFix02+'nPath'" aString="eval(preFix02+'nNum')+'/'+ eval('nfileNames['+preFix02+'nTag.nPath]')"></nPath>
+
+<nName1 vV='nName' labelName="name" aString="preFix+ndnNum"></nName1>
+<nNum1 vV='nNum' labelName="name" aString="nNum"></nNum1>
+<nPath vV='nPath' labelName="name" aString="nNum+"/"+nfileNames[nTag.nPath]"></nPath>
+
+<!--****************************************************************************-->
+
+<SCRIPT LANGUAGE="javascript">
+// readFile
+// retrieves the contents of a local file as a JS string.
+// NS4 requires Java enabled.
+// Works in Mozilla 0.9.5 +
+
+function readFile(url)
+{
+  var req;
+  if (document.all){
+    req = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  else if (netscape){
+    if (document.getElementById){
+      req = new XMLHttpRequest();
+    }
+    else {
+      req = new NS4HttpRequest();
+    }
+  }
+  req.open("GET",url,false);
+  req.send(null);
+  return req.responseText;
+}
+
+function NS4HttpRequest()
+{
+  this.url = "";
+  this.responseText = "";
+}
+NS4HttpRequest.prototype.open = function(method,url)
+{
+  this.url = url;
+  this.method = method||get;
+}
+NS4HttpRequest.prototype.send = function()
+{
+  // thank you Mr. Pemberton
+  if (this.url=="") return false;
+  var line,buffer;
+  this.responseText = "";
+  buffer = new java.io.BufferedReader(new java.io.InputStreamReader(new java.net.URL(this.url).openStream()));
+  while ((line = buffer.readLine())!=null) this.responseText+=line + "\n";
+  if (buffer!=null) buffer.close();
+  return true;
+}
+
+///////////////////////////////////////
+//
+//  Generic onload by Brothercake
+//  http://www.brothercake.com/
+//
+///////////////////////////////////////
+
+
+
+//onload function
+function generic()
+{
+	alert('Generic onload function');
+};
+
+
+function buildTimeOnLoad(){
+//setup onload function
+if(typeof window.addEventListener != 'undefined')
+{
+	//.. gecko, safari, konqueror and standard
+	window.addEventListener('load', generic, false);
+}
+else if(typeof document.addEventListener != 'undefined')
+{
+	//.. opera 7
+	document.addEventListener('load', generic, false);
+}
+else if(typeof window.attachEvent != 'undefined')
+{
+	//.. win/ie
+	window.attachEvent('onload', generic);
+}
+
+//** remove this condition to degrade older browsers
+else
+{
+	//.. mac/ie5 and anything else that gets this far
+	
+	//if there's an existing onload function
+	if(typeof window.onload == 'function')
+	{
+		//store it
+		var existing = onload;
+		
+		//add new onload handler
+		window.onload = function()
+		{
+			//call existing onload function
+			existing();
+			
+			//call generic onload function
+			generic();
+		};
+	}
+	else
+	{
+		//setup onload function
+		window.onload = generic;
+	}
+}
+}
+
+// addEvent and removeEvent
+// cross-browser event handling for IE5+,  NS6 and Mozilla
+
+function addEvent(elm, evType, fn, useCapture)
+{
+  if (elm.addEventListener){
+    elm.addEventListener(evType, fn, useCapture);
+    return true;
+  } else if (elm.attachEvent){
+    var r = elm.attachEvent("on"+evType, fn);
+    return r;
+  } else {
+    alert("Handler could not be removed");
+  }
+} 
+
+function removeEvent(elm, evType, fn, useCapture)
+{
+  if (elm.removeEventListener){
+    elm.removeEventListener(evType, fn, useCapture);
+    return true;
+  } else if (elm.detachEvent){
+    var r = elm.detachEvent("on"+evType, fn);
+    return r;
+  } else {
+    alert("Handler could not be removed");
+  }
+}
+
+function changeColor(){
+var d = fdo('myDiv');
+var pattern = /(background:)(#[0-9a-f]{3}|[0-9a-f]{6})(;)/i;
+var newColor = '#036';
+d.style = d.style.replace(pattern, '$1' + newColor + '$3');
+alert(cssstring.match(/.tabs(\S+).*\{(.*)color\:\1\}/));
+}
+</SCRIPT>
+</html>

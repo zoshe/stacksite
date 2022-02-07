@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<!-- ********NOTE**************
+this is for text size button experiments
+-->
+ <html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>7</title>
+<meta http-equiv='Content-Type' content='text/html' charset='' />
+<!-- ********NOTE**************
+-->
+<!--<iframe src='../stacksite/array/1/c.html?hhhh' id='qIfSnp' style='border:none;width:0px;height:0px'frameborder='0'></iframe>
+<script language='JavaScript1.2' type='text/javascript' id='testjspage' src='testjspage.js' ></script>-->
+<style>
+.simple {
+width: 100%;
+height: auto;
+position: inline;
+background:url("img/png/t.png") top repeat-x, url("img/png/b.png") bottom repeat-x, url("img/png/l.png") left repeat-y,  url("img/png/r.png") right repeat-y, url("img/png/tl.png") top left no-repeat, url("img/png/tr.png") top right no-repeat, url("img/png/bl.png") bottom left no-repeat, url("img/png/br.png") bottom right no-repeat
+}
+</style>
+<script language='JavaScript1.2' type='text/javascript' id='stacksitejs'>
+function fontSize(direction){
+var qBodyElm = document.getElementById('qBody');
+switch (direction){
+case "up":
+/*if (document.body.style.fontSize == ""){
+document.body.style.fontSize = '100%';
+}
+document.body.style.fontSize = parseInt(document.body.style.fontSize) * 1.1 + '%';
+*/
+if (qBodyElm.style.fontSize == ""){
+qBodyElm.style.fontSize = '100%';
+}
+qBodyElm.style.fontSize = parseInt(qBodyElm.style.fontSize) * 1.6 + '%';
+break;
+case "down":
+/*if (document.body.style.fontSize == ""){
+document.body.style.fontSize = '100%';
+}
+document.body.style.fontSize = parseInt(document.body.style.fontSize) * .9 + '%';
+*/
+if (qBodyElm.style.fontSize == ""){
+qBodyElm.style.fontSize = '100%';
+}
+qBodyElm.style.fontSize = parseInt(qBodyElm.style.fontSize) / 1.6 + '%';
+break;
+default:
+break;
+}
+document.cookie = "gwmicrotextsize=" + qBodyElm.style.fontSize + ";expires=Thursday, June 28, 2007 12:58:37 AM";
+}
+
+function setTextSize(){
+var textSize = getCookie('gwmicrotextsize');
+if (textSize){
+document.getElementById('mainTable').style.fontSize = parseInt(textSize) + '%';
+document.cookie = "gwmicrotextsize=" + textSize + ";expires=Thursday, June 28, 2007 12:58:37 AM";
+}
+}
+
+function getCookie(name){
+var dc = document.cookie;
+var prefix = name + "=";
+var begin = dc.indexOf("; " + prefix);
+if (begin == -1){
+begin = dc.indexOf(prefix);
+if (begin != 0) return null;
+}
+else{
+begin += 2;
+}
+var end = dc.indexOf(";", begin);
+if (end == -1){
+end = dc.length;
+}
+return unescape(dc.substring(begin + prefix.length, end));
+}
+</script>
+</head>
+<body onLoad="setTextSize();">
+<div id="qBody">
+<p>
+Safari table:inline-table td:inline-block // text scaling is still a bit buggy<br/>
+ie table:inline-table td:inline-block // text scaling is still a bit buggy<br/>
+
+</p>
+<table style=" background:green" width="0%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<table style="display:inline-table; background:yellow" width="0%" height="0%" border="0" cellspacing="0" cellpadding="0">
+  <tr style="display:inline-block">
+    <td style="display:inline-block">AAAAAAAAAAAAA</td>
+    <td style="display:inline-block;background:red" align="right"><div>BBBBBBBBBBBBB</div></td>
+    <td style="display:inline-block">CCCCCCCCCCCCCCCCCC</td>
+    <td style="display:inline-block">DDDDDDDDDDDD</td>
+    <td style="display:inline-block">EEEEEEEEEEEEE</td>
+    <td style="display:inline-block">FFFFFFFFFFFFFF</td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+<br />
+<br />
+
+<table style="display:inline-table; background:yellow" width="10%" border="0" cellspacing="0" cellpadding="0">
+  <tr style="display:inline">
+    <td style="display:inline">AAAAAAAAAAAAA</td>
+	  </tr>
+<tr style="display:inline">
+    <td style="display:inline-table; background:red" align="right">BBBBBBBBBBBBB</td>
+	  </tr>
+<tr style="display:inline">
+    <td style="display:inline">CCCCCCCCCCCCCCCCCC</td>
+	  </tr>
+<tr style="display:inline">
+    <td style="display:inline">DDDDDDDDDDDD</td>
+	  </tr>
+<tr style="display:inline">
+    <td style="display:inline">EEEEEEEEEEEEE</td>
+	  </tr>
+<tr style="display:inline">
+    <td style="display:inline">FFFFFFFFFFFFFF</td>
+  </tr>
+</table>
+<br />
+<br />
+<DIV STYLE="background: #BDB2D6; border-left: 1px #230E75 solid; border-right: 1px #230E75 solid; text-align: center; font-size: 130%; padding: 4px;"><B STYLE="color: #230E75;">Text Size:</B><HR><SPAN onClick="fontSize('down');" STYLE="cursor: pointer;"><IMG SRC="/images/text_size_down.jpg" ALT="Decrease Text Size"></SPAN> <SPAN onClick="fontSize('up');" STYLE="center; cursor: pointer;"><IMG SRC="/images/text_size_up.jpg" ALT="Increase Text Size"></SPAN></DIV>
+ <!-- skip links for text browsers -->
+    <span id='skiplinks' style='display:none;'>
+      <a href='#main'>skip to main </a> |
+      <a href='#nav'>skip to nav</a>
+	  <a href='#main'>skip to sections</a> |
+    </span>
+<div>
+<br />
+<br />
+<a href="/">
+<h1 id="bxtt" style="font-size:100%" lastHeight="0" lastWidth="0">Text Sizing Experiments</h1><br />
+<div class="simple">Text Sizing with cookies onload</div>
+<ul style="display:inline">
+<li style="display:inline">HelloXXXXXXX</li>
+<li style="display:inline">Hello2</li>
+<li style="display:inline">Hello3</li>
+</ul>
+</a>
+</div>
+<br />
+<br />
+
+<div id="bread">
+				<h2>You are in</h2>
+				<ul style="display:inline">
+					<li style="display:inline;background:pink"><a href="/"><div style="display:inline-table;width:12em">Home</div></a></li>
+					<li style="display:inline"><a href="/">What we do</a></li>
+					<li style="display:inline">Website review lite</li>
+				</ul>
+			</div>
+
+<br />
+<br />
+<a href="/"><div style="display:inline-table;width:12em;background:pink">Home</div></a>
+<a href="/"><div style="display:inline-table;width:12em;background:pink">HomeX</div></a>
+<a href="/"><div style="display:inline-table;width:12em;background:pink">HomeXX</div></a>
+
+<img id="imgObjtop" src="tab_silver.jpg" border="0px" style="display:table; width:50px; height:10ex"><br />
+
+<div id='qBody' style="font-size:100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td width="50%" style="background:red"><div><img id="imgObj" src="tab_silver.jpg" border="0px" style="width:100%; height:10px"><br /><div href="index.html" id="content" style="position:relative; margin-top:0; text-align:center; background:transparent;Xline-height:0px;cursor:pointer;cursor:hand;overflow:hidden">X.....ipXXXXXXXXXXXXXXX<br /> H
+		gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg
+				gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg gggggg
+
+		
+		</div></div>
+</td>
+    <td>2nd td</td>
+    <td width="50%"></td>
+  </tr>
+</table>
+px divided by 7.6 = em<br>
+<div id="sizeInfo"></div>
+<button onClick="getSize()">test</button>
+<!--
+    <td><img src="Untitled-2.gif" style='width:5em; padding:2em; margin:2em'><div style="position:absolute; top:0px; width:5em; padding:2em; margin:2em;border-left:#0000FF solid 2em">Hello</div>
+</td>
+
+<img src="Untitled-2.gif" width="200" height="200" border="0" style="width:2em" onerror="imageError(this)">-->
+
+
+<a href="index.html">XXXXXXXXXXXXXXXXXXXXXXXXX</a></div>
+<p>
+</p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
+<script language='JavaScript1.2' type='text/javascript' id='stacksitejsXX'>
+//var e = document.getElementById("xmlData");
+//alert(e.childNodes.item(0).text);
+// when using multi-browser this will put the browser version on the web page's title
+showBrowserVer();
+function showBrowserVer(){
+var is_sa = false;
+if (document.all || is_sa)
+//alert(navigator.userAgent.toLowerCase().indexOf(string) + 1);
+{
+	var detect = navigator.userAgent.toLowerCase();
+	var browser,thestring;
+	var version = 0;
+
+	if (checkIt('msie') || is_sa) 
+	{
+		browser = "IE "
+		browser += detect.substr(place + thestring.length,3);
+	
+		document.title = (is_sa)? document.title + " Safari": browser + ' - ' + document.title;
+	}
+}
+
+function checkIt(string)
+{
+	place = detect.indexOf(string) + 1;
+	thestring = string;
+	return place;
+}
+}
+
+</script>

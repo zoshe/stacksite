@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>bug with caret in string</title>
+<script>
+  alert("a^b^c");       // correct  (should  = a^b^c)
+  alert("4^4^4");       // correct   (should = 4^4^4)
+  alert("3^3^3");       // wrong   (should = 3^3^3)
+  alert("2^2^2");       // wrong   (should = 2^2^2)
+  alert("1^1^1");       // wrong   (should = 1^1^1)
+  alert("0^0^0");       // wrong   (should = 0^0^0)
+  alert("3^5");          // correct   (should = 3^5)
+  alert(3^5);            // correct   (should = 6)
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+These r a collection of regEx I use in the dreamwaever find and replace.
+1. Find any end tag 
+<\/.+>
+
+2. find a search tag
+('|")[^ ]*stacksite/j/?
+".[^stacksite]*stacksite/j/
+src+[\\W]*\\=[^/]+\\/
+src+[\\W]*\=[^/]+\\/
+'.[^stacksite]*stacksite/j/
+var re =(wdfCode)?  new RegExp("stacksite/loader/index.js"+ "[\\W]*\\?[^>]+\\>", "i") : false; 
+src[^&gt;]*[^/].(?:jpg|bmp|gif)(?:\&quot;|\')
+<script language='JavaScript1.2' type='text/javascript' id='stacksitejs' src ='../stacksite/j/1/c.js?'  class='stacksitejsclass_1__stacksitejsclass'></script>
+<script language='JavaScript1.2' type='text/javascript' id='stacksitejs' src="../stacksite/j/1/c.js?"  class='stacksitejsclass_1__stacksitejsclass'></script>

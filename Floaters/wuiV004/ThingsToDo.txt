@@ -1,0 +1,665 @@
+﻿<!-- 
+ThingsToDo.txt
+THINGS TO DO:
+NOTE : IE5 can no longer be supported it  has to many bugs and a mess of other problems
+Supported Browser goal is based on browsers that support ajax. 
+Ajax supported browsers:
+Internet Explorer 5.5 and higher // ajax has some problems
+Firefox 1.0 and higher // 1.0 still needs testing/ but 1.5 and up works
+Safari 1.2 and higher (3.0 beta has problems) 1.0 to 1.1 is posible but it lacks getstyle and ajax 
+Netscape 7.0 and higher // 7.0 and higher support ajax
+Mozilla 1.0 and higher
+Camino 1.0 and higher 
+Opera 8.5 and higher // opera 7.6 or 8 and higher support ajax not sure // but it does not support using b elements for nesting in as arrays  
+Konqueror 3.2 and above supports ajax
+iCab version 3.0b352 and above supports ajax
+
+Browser Quirks: 
+// Note char that might be allowed in the id attribute ie: [a-zA-Z0-9.-:_] Underscore don't work well in some old browsers and some of the other characters may not work in CSS or id too
+// ID and NAME tokens must begin with a letter ([A-Za-z]) and may be followed by any number of letters, digits ([0-9]), hyphens ("-"), underscores ("_"), colons (":"), and periods (".").
+
+
+The best doctype to use is:
+1. <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+1. (Done) At some point I believe id=lastelmid being used on divs may be better to add the css using js
+2. (Done) class backNoneDoc needs to go. should use Javascript to add these css valves to the element that needs this. This will allow browsers that don't need to use this margin and background color wrapper with little fuse to the code. it should make event firing response faster too. It's will be a long time until this happens, but better to plan for it now.
+3. (Done) Adding this char to the pointers on pull down menus instead of images would be better &#x25BC; = v(down) I need to find the up and right and left chars, etc this should be put into the properties of doc objects that need it. Not sure if I should be added  to the menuItem or make a document object . Some cools things could be done with this to make them more active and like color change. For now I'm adding them into the code to get ride of the old image method. What was I thinking using a background images for this. It made no sense. Actually css content insert or text could put this text in, and a image if need be. Lots of stuff can be done. Lets put css :before class in here too. Yes Css is the way to go. It should use these chars ◤ ▲ ◥ ◀ ▶ ◣ ▼ ◢ Actually it should use the new arrows found later on in the thing to do list. A hover over the these buttons should explain what they do. This can be done with the title attribute. Title Attribute doe not work in floaters.
+4. (closed) In compliant mode is_ie6c box is sized by the inside so is safari and most likely Konq too
+// I think a better way would be to test the box-sizing of the hidden qsizeBox div to see each time what box model is being used. I think going to the chrome plugin this will be set to use one box model size and that will be that.
+5. (close) Move snipits to a single file level with web pages. Maybe make folder like zsnipit01-name // the downside is that the homepage will need to be put in it's own folder //ie7 but that's a small trade off, for all the benefits like php pages and such can now load as snipits. Also the iframe can go to, unless I use the homepage as a ?pagename- and etc 
+6. (Done) MAYBE Put the CSS right and bottom props on the nested div for the dropmenu box. This will help find the the offset sizes quicker and easier with out needing to turn off the top and left props on the padding and stuff. This would also get rid of a lot of the extra css code and some crazy js code
+ 7. (Done) There is still a bug in SA that get the position wrong when hovering over buttons fast. Needs a fix.
+ 8. (OPEN) DropMenu boxes show scroll btns when adding drop menuitems. Should this do this or should it be a options if they really want scrolling by adding scroll buttons?
+ 9. (OPEN) A span needs to go around the pointers to shrink them down by at least 50% . Also the pointer needs to be added to wpn menu so they can choose colors for it maybe it should just be the same color of the font being used 4 now
+10. (OPEN) :visited and :link need to be added to the body, also should this be added to crumbitems and other boxes to allow for individual settings, also do they work in all browsers, I'm thinking the body should over ride all text colors globally, nothing else. Then crumb items should have the body class put in front of crumbs 
+11. (Done) Need to remove some of the relative link info for snipits
+12. (OPEN) Dropdown menus needs overlapping added and also add better lining up of dropmenu boxes that have padding and borders. Relative Widths needs to be added to drop menu boxes
+13. (Done) Snipits don't need tobe put in a div anymore, they can stay in a var where they can use innerHTML on add
+14. (Closed) sa adds a top space in body when using a strict doctype. Not sure why, but it could be the iframe or document.write's or something else. Needs a lot of testing to find the problem. It does work in trans and quirks modes . Going with html5 no need to fix this.
+15. (Done) used b tag instead The p tag with a link needs tobe finished. This should be done after a solid build with linking. Try putting it in a separate group/ ot file name, so the p tag does not get mess with up indents and stuff when the user runs the code cleaning command
+-->
+16. (Done) In wui the delFiles has some underscores used, not sure that is correct like here in <q2 vV='New HTML Page' tyNme='_html_'  tyDes='_Page'  dName="_unNamed" MV='1' vM='0' vU='0' vAC='2|5|Dup|4' oSel='add' oOpts='addq0|delq0|layq0|linq0|movq0|namq0|onoq0' dupFiles="p.js" delFiles='_|p.js' delFileTypes="d|c"  fileNames='pFile'  fileNameTypes='rvw' pFile="p.js" nLink="" nPath="" vI=''></q2> This also shows a * which means everything should be deleted in the file. It would be best to find each file in the folder and then start the delete process on items with errors. 
+17. (done) in the wui file a getFolder() is needed // if a folder is missing it should create one or pass an error, this should replace the DWfile.listFolder(), then it can say if it need an error. Something like what I did with the getFolder ftn.
+18. (Done) //NOTE the snipit i.html file can go back to it's normal location and out of the stacksite_snipits 
+19. (Done) newNode.nPath is mostly not going to be used, if so it needs to be removed from the lib and in functions using it.
+20. (Done) else if(docDelType=="d"){// usually for the content page in the delete function needs a way to find the true file path to it so it can be deleted. 
+21. (Done) setWDNtree needs to put the inuse on the mdn nodes
+22. (Done) [did something else] function mdnOptMnu(){//Note could be named onSelectOptMnuMDN and all others with OptMnu could be named this way too. 
+23. (Done) saveLogFileUjs may need to be taken out of some save functions to cut down on updates
+24. (Done) Snipits should open using the name of the file, not the num. 
+25. (OPEN) Opacity needs to be considered, both tested and done if possible
+26. (OPEN) Menu Dividers for wdn, so drop down menus can have them.
+27. (OPEN) Box shadows needs to be considered, tested and done if possible
+28. (withDrawn) Not using anymore. isResizable() it does not work in dw8, but it should be worked in or build a function that does the same thing
+29. (Done) Get it to work without a iframe
+30. (OPEN) A way to manage and update javascripts for each layout and the loader 
+31. (OPEN) needs a updateSDN function
+32. (OPEN) need to try the add script to header to see if it can load a script into wui, so it can set SDNTREE and etc.. this would not work, but it could readin a file and use eval or e4x. I think this will not be needed but it's good to know it's a option.
+33. (Done) Change name of ftn with log in them to start with the name log. ie logWrite and logError
+34. (Done) setWLN() needs a setWPN at the end and other functions need to be change to reflect this change
+35. (Done) functions that R shared should start with a underscore(_) so they can be group together
+36. (Done) saveLogFileUjs() needs to be change the name to saveLoadFileUjs was changed to saveUfileLoader
+37. (Done) All col text header values need to be check for correct lang and use of _
+38. (Done) The 1st cols need to be set in the update function
+39. (Done) Change the Lang on Items that will show after onload in the onprogramload ftn.
+40. (Done) Get the lang being used by DW, and load the lang lib in the head of the wui floater
+41. (Done) remove none selected col from dwChangeFileInTab Ftn and make the update Ftns handle this action 
+42. (Done) Check if msgTag can someway be eliminated
+43. (Done) q999 for errors on wln should be change to qe It now e
+44. (Done) maybe mmnSitesRefresh should be named setProgram and mmnSitesRefresh should point to it.
+45. (Done) names in col 1 needs tobe set, updated and/or changed with the use of update ftns via the nName attribute 
+46. (Done) the _dnNameOk ftn needs to be change to reflect the change in 45
+47. (Done) (results no gain) size="1" theControl="20" on trees need to check if they r slowing down innerHTML speed
+48. (Done) setSDN needs work to clean up the ftn code
+49. (Done) The libs need to change the tagnames to qzq and move the tagname to a name attribute.
+50. (Done) on program load the libs need to change the langs and also sort them and some attributes a to z .  
+51. (Done)add testing var to the program that reads out the ftn name with the time
+52. (Done)multi log files that r no more then 200k each, and set by date, and cleared out of the folder when the programs loads when it is not the current date
+53. (Done) wpnName should change to wpnId and wgts should use wgtId . This should be for all ftns throughOut the program. The wpnName ftn could be used to replace nName and vName . I'm fixing so n_id_rule is called n_wgt_rule and make sure everything follows this naming scheme all throughout the wui file. nodeIdRule to wpnWgtRule wpnPropRule to wpnRule,  wlnIdRule to wlnRules or ?   ||| prop_val to n_rule 53a. (OPEN) wpnRuleType = "Oid"; to wpnRuleType = "wgt"; pss would be better than calling it wgt actually, wss makes more
+54. (Done) wpnTag1.elmNum = "tree";//NN this could be done on the program load 
+wpnTag1.childQty = 0; //NN this could be done on the program load
+Program onload could set these values and the langVals and etc , not sure this would speed anything up. Needs testing. 
+55. (Done) Breadcrumb has a bug, with sa and maybe others. 
+TypeError - Value undefined (result of expression selNavArrayElm.getAttribute) is not object.
+file:///Users/PutYourUserNameHere/Library/Application%20Support/Macromedia/Dreamweaver%208/Configuration/stacksite/a/1/c.html?1
+TypeError - Undefined value
+file:///Users/PutYourUserNameHere/Library/Application%20Support/Macromedia/Dreamweaver%208/Configuration/stacksite/a/1/c.html?1
+55. (Done) report bug
+// Bug Name: dreamweaver appName extension bug
+// Bug Description: dw10 can't recognize a program without giving it an extension 
+// dw10 developers build 3960 bug fix work around
+56. (Done)dwChangeFileInTab opens the messagepage twice from site to page change screens
+57. (Done) Name change in dwChangeFileInTab ftn is needed. openDocTabDom // openDocTabURL // openDocTabs // lastOpenDocTabNum // currentOpenDocTabNum
+58. (Done) Both wui and other js files need to put in nulls on var after they r used in functions to make sure memory leaks don't happy . This when getting the domObject of a open page. This could happen in the dwChangeFileInTab Ftn.
+59. (Done) Put the snipit and menu setup into the head
+60. (Done) Rewritting the treecontrol seems to make it redraw much faster. This could help on the setTrees, to give the program more speed. Not sure this will help when the scroll position is needed, or it could just use select node to make it scroll to that position.
+61. (Done) remove wdnTree.LastTagName because it was not being used
+62. (Done) [keep it the same]nTypeNumSub should be changed to type and types should be called kind
+63. (Done) it did not work adding the state . Went with something else]state on tree node needs to be defines to collapsed or open something so it can fix the bug when the first one is open on a redraw.. This could or could not be a fix but still needs trying
+64. (Done) macBugFix0001 function may not be needed in dw10 .. Needs testing......
+65. (Done) wpnProps() function needs the arrays to be used to get rid of some of the evals
+66. (OPEN) Need to check if any of the css and js and etc... files R open, and close them before updating. This is needed because live view will not update, nor will the files be changed. This could be closed and reopened, but that's alot of flashing, and it seems silly since they should not have them open in the first place. This is a problem because some user may have dreamweaver's link file open, and this will need to be pdated. DW has a ftn for that called refreshRelatedFiles(), and I'll try to make that work.
+67. (Done) bug, deleting document wln doe not seem to refresh the live view?
+68. (Done) change the getLib to except val as one. i.e. (prefix) instead of this a,b,c,
+69. (Done) put a id on every Lib elm
+70. (Done) change anything using the eval("hForm to use getHformElmById unless it's needed
+71. (Done) saveWpnCssRuleMarginAlignPageHV2 functions code needs cleaning 
+72. (close) move tlfHolder into functions to buggy
+73. (Done) I'm changing the about(adn) to zdn 
+74. (Done) it's crashing alot now when a browsercontrol has a url and gets innerHTML used on it. Nothing seems to relieve the problem and some way of removing them and adding them back in will be needed. 
+75. (Done) dwChangeFileInTab should always go last on most multi function calls. Why it needs to go first will need looking into. I rather they all go last. I believe I did this so it could perform faster, but that creates more problems then it is worth.
+76. (Done) (this will be done on a later build. Sticking with the old way for now, until I can figure what's the best way.)  getting ride of the mm bar and making each screen have there tool bar at the top. Much better because it can change to the needs of the treenodes and much easier to program stuff up there that have settings..
+jan2009
+1. (Done) I'm changing the about(adn) to zdn 
+2. (Done) it's crashing alot now when a browsercontrol has a url and gets innerHTML used on it. Nothing seems to relieve the problem and some way of removing them and adding them back in will be needed.  The problem happen on treenodes being selected the first time that is not the first node. If any other node is selected the first time, stacksite becomes buggy and crashes. I believe some type of hack will be needed to fix this. Maybe setting the selected node on the treecontrol when it first loads. The open in browser function seems to effect it. Moving the ftn to the end seems to help it. Maybe this ftn should run after the vform is updated.  Moving made it only better on some. I'm going to try other things and possible moving the browser update after the vform update..
+3. ((closed) almost done) dwChangeFileInTab should always go last on most multi function calls. Why it needs to go first will need looking into. I rather they all go last. I believe I did this so it could perform faster, but that creates more problems then it is worth.
+4. (Done) wFnctnPart2 and wFnctnPart3 needs to be fixed. a Set timeout that passes from 1 to 2 to 3 instead of having to functions called from 1.
+5. (Done) Changing anything needed to use a browser control to load the the visual form stuff.
+Note: I didn't change tdnTree.selectedNodes[0] to getHformSelectedTreeNode("tdn") because some ftn reset and re-get the select node with the same ftn. These ftns will need to be fixed and some others too if they do the same thing..
+6. (Done) lib needs to start using id instead of name 
+7. (Done) (this will be done on a later build. Sticking with the old way for now, until I can figure what's the best way.)  getting ride of the mm bar and making each screen have there tool bar at the top. Much better because it can change to the needs of the treenodes and much easier to program stuff up there that have settings..
+8. (Done) fix logging: Really need a place to dumpCode and to see functions running and stuff. I need to build something at the bottom of the page that is always showing. maybe a textarea or a browser control. Actually. I decided to redo the logging and use a dump method. I made it so it can log by a start ftn, then middles, then a end ftns. The start function will will clear a text page, then the middlr ftns will append logs, then the end ftns will dump it. If a error happens before the end ftns, then it will log the error, stop the remaining ftns, display a report error option screen, do a recover back to where they were before the start ftns. If it can't do the latter, then maybe some type of revert.
+9. (Done) buildTreeColumns1 ftn should be named buildTreeColumnsRtn
+10. (Done) logFtn need to be put in every ftn at the beginning. A check box in the floater needs to turn it on or off is needed.
+11. (Done) reSetVForm01 need to be changed to the name reSetVForm and reSetVFormPart1 reSetVFormPart3
+12. (Done) logFtnTime need to be redone time testing code. ftn logging need a new way with it in the logftn stuff
+13. (Done) getHform and getVform need to be changed to getHhElm and getVvElm . Maybe getHide and getView
+14. (Done) it seems getAttribute will be needed. Using obj.whatever does seem buggy in dw's browser control. Not sure if I should use a function and return a object with the values, or write in the getAttribute on each line. Needs thinking. I prefer keeping each line because it's easy to make changes right now. More thinking will be needed. It looks like setAttribute will need to be done too... A few elms R unable need to use setAttribute.  
+15. (Done) var sdnTag = getTag(sdnLib,sdnTagNum);
+(sdnTag)? null : sdnTagNum = 2;
+The getTag should not throw a error when it can not find a site type. It will need it's own code instead of using the getTag here 
+16. (Done) var des = getTagPropArray(doTag,doTag,"eElms","|"); seems wrong it seems to be missing doTag
+17. (OPEN) the "in" operator should be used to test if a prop is in a object. This may come in handy on some code, so when I get the chance, and test if the "in" operator works, and it's faster, then it should be used in the code instead of isBlank() ftn in some cases. I haven't had any luck so far with using the "in" operator to replace some of the is blank stuff.
+18. (Done) Initialize the lib more on program load by changing the id on tags so getLib can be less used or eliminated. This way getElementById can be used. i.e.  change the id to sdn_lib_(lib owner id)_(lib version)_(item number) It get the last info off the tag it self or it's parentNode if there is alot of tags. Something like that or maybe a XML file in a browser control if that will work. need more thinking....
+19. (Done) Add Err argument to some ftns. On ftns like isBlank and others so it will throw a error if it should not be blank, or have a val and etc. isBlank(value to test, rePortError) //  if rePortError is left out the default is not to report an error. This could be done on many ftns ie getElementsByTagName needs a ftns // and a error reporting arg and many more so more errors can be found This will be a big job, and will require a lot of time
+buildTreeControl may not be needed anymore when building the wpntree. I don't think the browsercontrol cares
+20. (Done) IMPORTANT Find away to add the custom tag mm: to the hform browsercontrol page should be posible. I'll need to test all way and if it will impact the speed when giving a namespace to these tags. Currently I'm using a replace method to add on ending tags before putting code into the hform page. I'm guessing I'll need to load a blank page with the property code in the dtd and mine type. Basically it needs to be valid xhtml. Loading a page did not work, or changing a DTD. So I'm sticking with the replace method
+21. (Done) [no need for a tbody] All elements in the v and hform need to be xhtml. tbody need to be added to the tables and elements need to use all lower case because tag names r case sensitive.
+22. (Done) When comparing a tagname it should be set to lower case first before comparing the string. 
+23. (Done) [i'm removing bdn and background border images] setBDN inUseQty I believe is not working.
+24. (Done) wln treenode's id attribute needs to use a random number. It is needed because it to difficult to keep track of nodes when added or deleted or updated or set. plus some objs have the same type. Also this needs to be done on the set and add ftns.
+26.(Done) undefined="wpnTreeElm" this keeps get added to the treecontrol, need to track down where it getting added and fix it. It needed to use the setArib stuff. 
+27. (Done) this will need thinking and if I decide to set the lib Items onload wpnParentTag.childQty = (wpnParentChildQty +1);////NN this could be done on the program load
+28. (Done) remove name attrib from columns and all other using a name attribute
+
+1. (Done) !important, It is having trouble with innerHTML into the vForm. Select menus do not get updated before innerHTML grabs it. This could a problem with many elements. I'm going to try some hacking to see if it can be fixed. It should be able to be fixed by checking all the select menus and setting the selected on the options. I can also try to add event listeners to the wFnctn ftn. So far adding html does not trigger the event listener maybe asking it to go to a # url will work found the problem. It was a coding error in funtn2 ftn . Although it does make more sense to use an event listener here.
+
+2. (Done)  (already started, it will be done as I go through the code.) Need to test on windows to make sure it will work. Changing some lines of code to condition || condition i.e. the following could be this isBlankRtn(mmn.getAttribute("mmoSel") || mmnTag.mmoSel  instead of this (!isBlank(mmn.getAttribute("mmoSel")))?mmn.getAttribute("mmoSel"):mmnTag.mmoSel
+3. (Done) border="0" cellspacing="0" cellpadding="0" on tables needs to be set in the loadProgram
+4. setAttribute and getAttribute needs to be done on anything that will be change in the hForm. ie elm.xxx will need to be setAttribute instead on everything. 
+5. (Done) I'm going to remove the logFtnSpeedTest. LogFtn is good enough for speed testing. If needed, I can add extra logFtns in parts of a ftns, which will give roughly the same results. It just to messy having both.. 
+6. (Done) I'm going to get rid of the showCode textarea. It just not being used anymore since I built and use writeTestFilrFtn
+7. (Done) get rid of anything still using .name now
+8. (Done) build a getHformTree which returns an array with the common objects and values needed.. This will also help with getting rid of the getAttributes from treenodes in Hform
+9. (Done) build the intil for the lib and change the tag names to z, and the form elms to lib. the libs should carry the id and a prefix name on it. 
+10. (Done) almost) ( I removed it from WPN, but it's still in wln) vType attribute in the lib does not seem to be doing anything, will need looking into, and why it is there, and if it should stay or go. Put it in the not used section of libAttribInfo List.
+11. (Done) the qzq tags need to be changed to z, but I'll need to look at how I have the tags nested structure setup.
+12. (Done) mmn and it's others should create a menubar for each window, sharing it is limited. It's a big change but will be worth it.
+13. (Done) change attribute using ' to " on elements in the hform and in the library.
+14. (Done) getLangVal will need tobe remove from alot of places since this will get done on intil in the programLoad ftn 
+15. (Done) mmoSel="" I believe needs to be changed to oSel and I think mmos="" may need to change to something else too.
+16. (Done) vFN="wdnAdd(" and vFN="wdnDelete(" may need to be change to "wdnAdd('"  and "wdnDelete('"
+17. (Done) [this attribute does not exist anymore] vAC="" is blank on some, and others have a "0" value. I believe those with 0 should be blank, or will need to be change. They all could have a value of 0 or -1 or a crazy char like (option+o = ¯) or (option+shift+O = ÿ) needs thinking. All attributes with a "" or " " or "0" or "-1" note those with 0 or -1 will need to be checked if that is the value it needs to use, and that is does not mean false when used.
+17. (Done) change lib ids to be the prefix name. ie wpnLib to wpn.
+18. (Done) change ids in lib to a shorter nested structure. using a inherit structure from their parents.
+19. (Done) lines marked. Need to be done on the load //NN this could be done on the program load
+20. (OPEN) refGr="wpn_body_tx" could be used to reference the innerHTML to place in it, when intil the lib on loadProgram. This would save me alot of time. It could also append these elements, incase some R there already. 
+21. (Done) Any lib item that is a liquidWidth, needs to have a ID as liWd and liHt and also changing any item with a regular height and with needs to change to htReal and wd  and the same for width too.
+22. ((Done) maybe) [thinking to just keep it as is for now] cssSelectorPropName is way to long. Change it to something shorter. Need to do this after the ids get done.
+23. (Done) vV="BeforeCrumbs"  refTag="Gen1" vAC="1|2Kd|3Elm|bg|b|tx|ma|pa|atv1" I don't think vAC is being used. I may have left it here for a reason, or I left it. Same for this one to  vV="onClick"  refTag="Gen1" vAC="bg|7bn|tx|ma|pa|atv1">. I'm sure there is more. Need to look for more in the wpnLib.
+
+1. (Done) get the the set functions working again
+2. (Done) get lib is not being used anymore. Will need to make all the changes to using the new ids in lib.
+3. (Done) .nView does not seem to be used anymore. Needs looking into to see if it can be deleted or kepted
+4. (OPEN) fileDups="*" in the lib needs looking into. I believe it will need a file, that was going to be for the drop down menus that I have not done yet for it. 
+5. (Done) colNv needs to be changed to colNvs in the lib
+6. (Done) wpn lib attribute "adNds" Some items have it, but I don't think it's being used at all and can be removed. Unless I plan to have it as a default attribute when getting a treecontrol. I really believe it can go, and after the program is running again, it can be removed.
+7. (OPEN) on any getHformNode or getHformTree or getLibNode an "*" should call and get all attributes. Needs thinking if it will be needed.
+8. (Done) some functions still have getLang and will need to figure out how to set these on load. ie _preview is one in a ftn.
+9. (Done) I'm going to get rid of using q in the the ids. This will be hard but  I think it will be worth it. The lib can assign the id to the right id without the q. The question will be if it can read the id with a number. It can read these and set these id's on the loadprogram ftn.  If it can't, then a attribute with a number can be added to every lib node, an
+10. (Done) id="Dup" in all lib should be changed to id="dup" . Also other ids with a cap in the beginning should be made to a lowercase.
+11.(Done)  All trees may need a third state. 00 and 01 and 02,
+  00 = is used for building the trees, and when no sdn is available and when the selected sdn is not a stacksite site.
+  01 = is used when the tree has nodes and none of the treenodes is selected.
+  02 = is when the selected sdn is a stacksite site, but has no treenodes
+12. (Done) the id 999 in wln lib was change to e for wgts that have an error to match all the other libs using "e" this way. The javascript loader will need to make the necessary changes to it files to reflect this change.
+13. pIH in the libs could return the object maybe from the getLibNode ftn 
+14. (Done) updateDn uses an eval and this area needs more thinking bc it uses alot of extra steps to run. Just needs thinking for now
+15. (Done) Put the library into a global XML object.
+16. (Done)a setLibAttrib ftn could be consider and needed
+17. (Done) I need to create a logFtnReturn to put at the end of each ftns. This will help with finding errors when the programs craps out in the middle of a ftns. It's done up to the getHform() functions. I'll finish it later.
+18. (Done) The logFtnReturn needs to find and mark the the logFtn to show it was completed with a green mark. This Can be done with using a var logFtn=LogFtn(); and the LogFtnReturn(logFtn,1,1,1,1,1,logftn) to find it. 
+19. (Done) [I made then all runFns instead bc I felt that was better for many reasons] var name should be changed to runFtn.
+20. (OPEN) ftnOrder in logFtn can be removed it's not being used anymore.
+21. (Done) Use something else above NEEDED a way to put a speed test on ever function it will need a call at the end of ever function maybe, I will see how this work ie : if(XXXX){ftnObj.startDate = Date().valueOf();}
+22. (Done) need to put hForm into a xml var, and take it out of the browser control. The vform will end up in a browser control in version 2, and maybe version one.
+23. (OPEN) double click bug is a problem on the first time a controltree is selected. I think it would be better to turn off the treecontrol on the first click and all others to, after it has copy it to the hform. I'm, not sure DW has something that does that, like form elements. Needs testing to see if it's possible. 
+24. (Done) Put the library into a XML var. This will hopefully speed up the load time.
+25. (Done) passing XML elements has a memory price to pay. It would seem better to pass and return XML id's in Libraries, when ever possible. Also trimming it down with ex4 special ftn to take out it's inners might help too.
+26. (Done) fix any for loops that may have a memory leak for a missing var.
+27. (Done) put the hForm into a global xml var
+28. (OPEN) needs to be done later, and given thought. Maybe change wdn to pdn. P would stand for page. 
+
+
+1. (Done) put trees into lib and add a hash array to the lib element attribs using the the elements id or element position number. 
+2. (Done) vText file and nText file can be combined into a single file, and use ex4 to get the info form it.
+3. (Done) put ifile names and other file name in the lang file. ie iFile should change to _iFile and the lang file can show it like _iFile: "i.html"
+4. (OPEN) Maybe putting in {} into lib for options tags to process the updates would work better, and getting rid of all the col split stuff would be much cleaner.
+5. (Done) loadProgram will not be a function, so logFtn and LogError will need to remove the ftn.obj from it attributes.
+6. (OPEN) refTag in Lib should be called refElm or refNode
+7. (OPEN) statusNum="1|0|7|9" statusNames="Visual|Hidden|Locked|Offline|Trash" is not being used in the lib, maybe it's time to remove it.
+8. (Done) iUd i think it come off the lib and be set in the the coding. I did not remove it bc something else will probably be needed as an attrib. So I'll keep it here for a few builds. Move it to the not used section of attribListInfo..
+9. (Closed) make loadProgram into a var so it can be called and nulled
+10. (OPEN) if a error happens on program load, maybe it should bring up a screen to download and install the program to default or something like that.
+11. (Done) assigning a hash number when comparing a array does not work, need some way to compare arrays to assign the same hash number and have a single hash value for all that r the same.
+12. (Done) it can't I use error object instead. lineNumber is a prototype in error for mozilla in js1.6 , must be a way to call this in the function caller object. Needs looking into,
+13. (OPEN) permission to write log file failed in logFtn and logerror, will need to throw an error and maybe try to rewrite permission to writ to file or it could write to the users local website folder. needs thinking.
+14. (OPEN) Maybe put an *~ in front of of all attribute values on the elms with a requiredAttribs attribute. It will cancel any attribute required in the loop, so these attributes don't get used but R there only to help describe the element like vV in some nesting of elements. This will make the hash Array smaller since these values do nothing, and the hash pointer number can be replaced with a blank value. (.*~) = just the element. (..*~) = parent and all it's children. I'll do this later after the lib gets fully built again, and is stable. Maybe it would be better to just put a _ at the end of any attrib name so it does not show up in the hash array. ie vV= would put it into the hash array and vV_ would not. 
+15. (Done) when reporting a error it could limit the msg to a certain amount of chars. This will help when passing a msg to logError ftn of a xmlstring. Maybe a cap of 250 chars should be enough. If I really need to see the whole thing. I could dump the complete msg to it's own page and point to it in the msg. 
+16. (Done) Opening up a log file, from the pull down menu should close it if it's currently open, before opening it.
+17. (Done) cFile and others like it should change to fileC. If later on it can have it point to fileC as _fileC instead, and get rid of the attributes would be pretty cool. This should be done after the lib is done, and the functions R running again did something else on things to do.
+18. (Done) the "all" tag in the wpn lib ned to change to something else. DW seem to color it as some type of special color, and maybe bc JS or DW is using as a reserved name or namespace. I think changing it to <set> makes sense.
+19. (Done) vType attribute in the wpn lib, need to see if it can be removed and if it's being used. Currently it used on wln lib, which is needed, but the wpn lib only has two elements using it.
+20. (Done) The vDV attribute in the wpn lib is going to be the default value, but it seems I never ended up using it. If I don't use it, it will need to go. One problem with it uses both numbers and text, but it looks like making it a string would be ok.
+21. (Done) remove attrib adNds from the wpn lib. It not used. It uses nesting, like everything else will.
+22. (Done) nest wln lib and remove attrib adNds.
+23. (Done) Looking for refTag may need to be put into a while loop to find the refTags going backwards more than one refTag. For now I'm just going to go one refTag, bc it seem it could get messes and hard to debug, and build new items to the lib.
+24. (Done) vI= List of all it Properties // not being used at the moment accept in wln, which points to the wpn set tag.. Should remove the vl (vi)if it not being used on other libs.
+25. (OPEN) it could be better to create ftns in the en.js file instead of vars. This would return the val it's looking for and it would lock the values into security. 
+26. (Done) Move the stacksite log folder files into the wui folder.
+27. (Done) make wuiLogFolder a var
+28. (Done) Put forms into a closer
+29. (Done) put a green dot next to the testing bar that turns red if a error happens. Dw does not allow colors changes on text. Instead I'll change the open Test File to display the word **ERROR when a error happens.
+30. (OPEN) put a line of code at the beginning of every function that checks if the hasError var is true or false. If it has error then it needs to stop the code and return false. 
+31. (Done) set some of the treecolumn attributes needed in loadprogram ftn. 
+32. (Done) I don't think the z=z thing on column elms will be needed, but it will need to be added on the load program last so it's at the end of the elm. So I'll remove it from the forms and add it to the elm when the programs loads.
+33. (Done) getHformTree ftn should be named getLibTree and reSetVForm01 should be setVForm()
+34. (Done) I think stopLoad() can be moved into the logError Ftn. Then ever ftnThat returns false, and check the stopLoad var, if the program should stop and return false. This will add aLot of checks, and slow the program down some. Maybe use something like this on var if it works ftn call || return false; // needs testing. Could also look into having the error Ftn return a return with false if it's possible at all. No big hopes on return eval("return false") but worth a try.
+35. (Done) I think preFix is not really needed. I think it's much better to glue the cat1 cat2 cat3 together at the receiving ftn. Will need thinking, before removing. I put it into a const global array.
+36. (Done) NOTE _n_ = "" does not seem to be used anymore in Lang. Maybe it can be removed. Only one item uses it, and it could use _s_=" " . When it is called it may end up showing as undefined. In the compiler I fixed errors it had. If I do remove it, it can be removed from the compiler too.  
+37. (Done) Change all xml node attributes names to lowercase. This is nessary bc html sees all it's elm attrib names as lowercase. I'm not sure if it's better to put in a _ or just make all to lower case. ie ty_name or tyname or typename or ty$name . Can underscores be used in a attrib name. This is going to take awhile. So being done will happen at the end of this build.
+38. (OPEN) valq0 and 0q0 in lib wpo might be wrong. 0q0 should always be for the treecontrol when it is blank. So the other element should not ref to it i believe. or maybe as a default. Not sure, I'll look at it when I get to that part of the build.
+39. (OPEN) in wpo lib, onoq0 is not being used. Maybe or maybe not, it can be removed. I can always add it back later.
+40. (Closed) treeControl.@n_type_num really needs to be sel_type_num and maybe it should hold sel_subtype_num . I believe i did this to cut down on code, and when treecontrol had two library tags. But it's to confusing now, and the update ftn really only uses this info.  No longer putting this info on the tree.
+41. (OPEN) a function is needed to create a preFix + random number for treenode's id. I think it will be used for all treenode;s id. 
+42. (Closed) The following Needs to be more intuitive. It's confusing to figure out what is what. 
+ treeControl.@n_type_num ="00";
+treeControl.@o_sel="0";// most be closed so it can show false
+treeControl.@unclicked="0";
+treeControl.@sel_node_id="n"; // not needed here because it gets done on the set ftns, but I'll keep it here for now.
+I believe instead of having this mess above, it would be better to just say  selected or current or view. I like current. Or it can have both current and selected. It should be "n-" and n+ or 00 
+selected_type_number = this really needs to change to selected selected_obj_type_number or selected_item_number. Maybe it would be best to decrib them like items, like so:
+selected_item_vendor = "z" and etc
+selected_item_kind = "3"
+selected_item_type = "3"
+selected_opt_vendor = "z"
+selected_opt_catagory = "add" or "move" or etc
+selected_opt_number  = z_add_1 or z_none_0 or z_noneandhasnodes_0
+
+so:
+//selected_item_vendor = "z" and etc
+selected_item_catagory = "3"
+selected_item_number = the id of the node selected or "none" if none is selected or "nonebuthasnodes" if none selected but hasTreeNodes.
+
+selected_opt_vendor = "z"
+selected_opt_catagory = "add" or "move" or etc
+selected_opt_number  = z_add_1 or z_none_0 or z_noneandhasnodes_0
+
+43. (OPEN) hash.val should be broken up into two cats. One for keyvalues and one for attribKeys. The keys points to the keyvalue. This should cut down on the size of the zHash array. This should also increase the search speed. 
+44. (Done) setLang in complier works. But I rather write something that trav the arr at any level, and not stop at two levels as it does now.
+45. (Done) I think it would be much less code to pass a xmlstring in ftns that use split("$$$"). for timeout to pass a arr of stuff. I'll change this later or not if splitting seem better. Actually it could toSource then new Array when passing it.
+46. (Closed) pIH needs to be put into and array so it can find the elm in the zform much easier. ie sdnTd4 is now sdn|td|4 
+47. (Done) wFnctnPart3 ftn needs to get ride of eval. setTimeOut does let you put together a ftn name and set the settimeout to 0. I can take advantage of this, and pass and array using toSource
+48. (Done) I think making  wFnctnPart2 and wFnctnPart3 into one ftn will work now. Build wui0274 will be the last build to use both. This will happen but I'm going to also put an array in all the vFn attribs of all the Lib elements. In wFnctn I'm going to put ever thing into e4x so it will not need to use eval. It just makes sense, or I can keep eval and this will be find to, but ex4 might be safer. I decided to pass a catg with a{} array so I can eliminate [] brakets. So it should go like this, catg.a catg.b catg.c and catg.pFix , This makes sense and would be easy to convert it over to e4x if needed. I think catg lib will need to make libraries for options and elements. Other wise it will not work on some ftns like getLibNode. ie sdo and sde and so on will need their own. or maybe it's only lib Node. In that case then calling it with cat, is fine.
+49. (Done) remove firedElmId from anywhere it is not needed
+50. (Done) remove useNode in updateJDN and from updateTree . It's not being used and so by by.
+51. (Done) nTypeNum = "00" to all treecontrols in the lib. It may not be needed but I think it should be put in so it make sense later on when ever looking at the code and lib. This is really the id attribute and it can't be changed to 00 bc it is set to the cats ie: bdn and so on. It's would require making the ftns look for those ids in catg which is posible by saying if sel_id == "00" && ctg.pF . But I think it's better to just stick with what it has already. So for now I'm not going to change it's logic unless it's needed. 
+52. (Done) in all libs I have n_type_num in some attribs, I think this was something I made a mistake on or  it's the start of changes. Very important to fix it. See next fix.
+53. (Done) wgtAttributes in lib will need to change to lower case and underscores so e4x does not mess up when innerHTML only reads and provides attrib names as lower case only. 
+54. (Done) zztreecontrol elements in zForm have some attribs not being used anymore and they should be removed. Attribs like sdnSel and mmoSel needs to be removed. Also some of the attrib names have and use uppercase, which is wrong and need to be change to use lowercase and the use of underscores.
+55. (Done) zztreecontrol in zForms need to put and attribute with and arr attribute like b|d|n this will help with finding things and help the loadProgran ftn. I named it cat_id and it's all three cats in one combined string.
+56. (Done) I still have  size="1" theControl="20" on some treecontrols, I think these can be set in the loadProgran ftn, and removed from the element. Not going to use the theControl attribute. Size could go into the column update. It really seems to have no effect not using it bc the column elements seem to count how many is being used at any given time, so I'm removing it, and if needed it can be set during column updates. For now, I'm removing the size attribute. 
+57. (OPEN) repair on optmnus may be wrong. It might be better to say error and the second select menu say 'action". Then it can give chooses like "try to repair it" or "delete it" and "help". The help; can point to stacksite or open liveview or something. 
+58. (closed) with drawn BC sel_node_lib_id is no longer used.  sel_node_lib_id seem ok to put on the treecontrol is ok but it could just get the number from selNode.@n_type_num. But this does allow this info to be seen at the getTree ftn which could test if it has and error on getLibNode and pass it much sooner to the caller. The n_type_num has been replaced by sel_node_lib_id and the n_type_num should be the tree control actually number which is "00" or the three letter. It can be taken out of the getTree loop for Attributes and  sel_node_lib_id put into it place. Until this build is finish I'll remove it then.
+59. (Done) build ftns need to pass the tree inf and object array
+60. (Done) Change the tree opnMnus so they have the duplicate and error added to the xx0 libs. This one is hard to explain so I'm just going to do it.
+61. (Done) oSel could be removed if oOpts sets the default alway to the first one. This is ok bc it currently sorts the order of the opts each time the menu is built in upDate. If the sorting will be done in the compile it will not work. Then it alway knows the first one is the default. I really really need to think this out before making a choice. For now, I'm going to do a loop in updateTree that find the default and the selected item. After the loop I see if it found a select match, and if is does not then it uses the default. I sorted in the lib, so I did something else.
+62. (Done) adNds could be removed if elms in the wln library were nested to their add order. Or better yet adNds could be defined the type of ad structure. ""= nested default, 1 =  not nested. It should be called adStructure. Actually the values could be none() or parent(p) or children(c). 
+63. (Done) vFtn attrib value needs to be redone. 
+64. (Done) if possible the getStringArraySplit ftn needs to get rid of the eval and reduce the code.
+65. (OPEN) I think it will be needing a getE4xTreeNodeById which returns blank or false if not found, bc filters seem to get errors sometimes. 
+66. (OPEN) Since putting the duplicate into optmenus the add_DN and setTree will have problems with checking for jdn missing and adding. It would be better to deal with making these changes when I get to adding items. So it skips the jm check in se_DN for now. Also at some point I'll need to make a maintenance tree that reports a list of missing files, updates, errors and so on. 
+67. (Done) getPathInSS needs thinking. I think checking for site can be done on sdnOnChange and the wFnctn. So I do not think it will need to check for any error unless to write a folder that maybe missing. 
+68. (Done) getFileSubStrArray has an eval, and should try to get rid of it.
+69. (Done) setWDNtree append need to be reduced some and maybe it would be faster to append the elms directly into the zForm. I believe it will always be fast to build with in the ftn then send it all elms later, which what it is now.
+70. (Done) vFn wpn lib needs thinking on how to pass it number values.
+71. (Done) put for each on set and update forms in the setProgram and sdnOnChange.
+72. (Done) iAd has two settings, it needs to have three settings. * iAd = "isAddable" Attribute and Argument is required. 0= It can not be added. 1= It can only be used once in it's parent. 2= It can be used muiltable times in it's parent.
+73. (Done) [removing bln from stacksite so it will not be needed] bln lib needs a error node.
+(##############################
+74. (Done) wgtDefaultValues- I think using ^ is ok, and using it as a array is ok too. I can use the join ftn to put it back as a string when needed. The only thing that really needed it to be not a pipe was breadcrumb, and I think it would be better to use css's insert before or inset after. I need to check if all the browsers support it now. If I go with googles plugin then it should be ok. 
+75. (Done) I believe getTree needs to have a .selNodeExist, this is needed bc some ftns will make the selNode a treecontrol when no selNode exist. So it makes sense to do it, but it could be very confusing. Maybe have a isTreeControlSelected. Needs a lot of thinking.
+76. (Done) wgtAttributes, which is the name of the attributes put on the wln nodes needs to be put to lowercase and underscored.
+77. (OPEN) Need to go throughout the required elements and get the blank and errors right in the ref arrays for the ref lib Compiler.
+78. (Done) May want to put lib vL  @v_L on newnode in the setWLN bc it would make building the setWPN better and use less memory and hopefully will be faster. Only WLN lib uses this attrib name and it would be better to change it's name to @css_set or wpn_set or lib_set. Almost all the other libs has the vl attrib on it, and not in use. This attrib needs to be removed from these libs. This will be called lib_set and libSet; For now I'm keeping them in all the libs just in case I want to use it for something else. The name should be changed after the build.
+79. (almost) [nodes sort now, but attribute R not done yet] A way to pre-sort the names of wpn nodes during the compile will be needed. Maybe sortOrder attribute will be need, so items that need to be at the top can be at the top. The sort will need to sort the nodes, and then put them back. It will need to be done after the lang loop and before the removing the attribs in the compile. Also some attributes values will need this done to. It would be very cool to have different user types someday to be compiles this way too. But that is far off and to much to think about right now.
+80. (Done) need to put a logOff btn on the byuildBar so it can load Faster and I can work faster. It will be checked on load. It should only turn off logFtn, I only need to see errors most of the time. log ftn is much better to help after it finds and error or I need to find where it's running slow.  Also need to make better log names for id ftns and var.
+81. (OPEN) the onClick tree fix works, which happens when a tree is first selected, still selects the first item when clicking on the open image icon. It may need to select and unselect a item when the sdnOnChange ftn runs. Needs more thinking, but I believe this should fix it. So far the time delay only works when the treenode is selected on any portion that is not the open image. Hopefully fixing it from the sdnOnChange will work. Need to try it.
+82. (Done) id attrib values on trees need to be fixed. All directory treenodes need to use the tree's category prefix plus their unique file folderNumber. Trees that R not a directory and do not have a file folderNumber, they will use a the prefix plus a random number and/or the loop number. Currently the n_num(node_Number) is the attrib name that holds the folderNumber. On trees that do not need a folderNumber, the n_num should be removed. If a directory is an error and does not havs a file folder number then it should use "e" plus the loop number, and if it does not have a loop number then it should be "e" plus a random number.  On sdn it will use the prefix plus the site name, if sdn has an error it will use "e" plus loop or random.
+83. (OPEN) The global var correctionNeeded is an array that will be created on the wFnctn. It will add ftns that will need to be called before refreshing the vForm.  correctionNeeded will be a false bolean when not in use. When created each time within wFnctn it will check if it's being called from. This will need a lot thinking and how best to call ftns to correct errors. Actually the html page scripts can handle a lot of these errors and missing stuff, so this will be just a way to correct it, even though the scripts will need to kept checking and correcting these errors.
+84. (Done) Need to put a hash_val on each treenode. In many cases this will help in not needing to look up the libNode first to get the hashVal. I find that at some point a way to have a multi libId will be needed to. I'll explain this on the following thing to do.
+85. (Done) A method to find a libNode from a treenode using a attribute is needed. The attribute will be named libNestingId. The attribute would use "." or "-" to break down where it is in the xml nesting. ie: libId= "wln" libNestingId = "v.gen.set"  If the node has no nesting then it would be blank. Actually I'm thinking each libnode should have it own unique id since a node exist for it already. So just having the compiler build a unique libId for each node seem find with me. ie libId="win.v.gen.set" This will load the hash array bc it would make a lot of the wpn nodes have it own hash array, and could double the hash code.  This is a hard thing to solve. I could leave the libId out of the hash array, and put this info on the id. When writing the the ufile and cfiles I could make it so each cat number assign's a lang and e4x location  field to match the  number. IOnly wpn needed this si I created a count number during compiling.
+86. (Done) when doing for each loops on dom elements they will need to test for 0 on the getElementsByTagName(), otherwise it will cause the for each to run once. Basically test for 0 and then change it to false bc 0 means there r no elements, This does not work on the dw browsercontrol element.  So I used a regular for loop to work around the problem with the browsercontrol element.
+87. (Done) the opt tree menus, is somewhat confusing and it seems mad to use many lib nodes to deal with the few different add views of the trees. Basically the site tree should alway have add when it has no nodes and when it does and when it has a selected node. If it has no nodes or no node is selected then it should only show add. The other trees will need various add views depending on if a site is selected, if it will need a node selected, if it's a stacksite or a non-stacksite, and etc... Instead of going crazy with what view is needed by creating many different opts lib nodes, I'm going to handle what  view at the update ftn which will have two global views of selected node or no selected node, and have the ftn that builds the opt and add menu handle the rest. The add ftns can test if it has a stacksite or non-stacksite selected. If none is selected then it does not build the add menu, and the update ftn makes a blank opt menu. The NoneSelected in the col name attribute has a big effect on the add views, this alos need to be put into the update ftn and added at then. It make no sense to have extra lib nodes to deal with it. I'll start a new to do below here, but they both will get done at the same time. So far all I believe the opt treecontrol lib node should make it so it gives a no option status for them all. During the tree update it can change  the dn.oOpts depending on if it hasSelNode and or hasNodes and hasRoot. Having it set to 0q0 all the time works too, and it seems I may just keep it this way until I can decide. I decided to remove 0q0 . It needed to change the oSel attributes in the libs to work. It needs to add the q and what ever follows it. ie oSel="add" is wrong oSel="addq0" is correct.
+88. (Done) Remove and/or change the lib nodes and code needed to put the *None selected column into the update ftn. This will need a const var named zLang and gets it's values from the bLang during the complier. *None Selected and preview r two words that will be needed among others. 
+89. (Done) getTree needs a hasSelNode prop.
+90. (Done) refTag="0" seem to be wrong and should be blank or have no refTag attribute at all. Other tags maybe set this way and all of them will need to be fixed and or corrected. <gp id="algn" vV="Align" refTag="Gen1">
+<z id="HV" vV="Page" refTag="0" cssSelectorPropName="cta" refTagIncludes="MarginAlignPageHV2"
+91. (Done) in the wpn nodes many of the padding and margin's the vCN attribute can be removed and use the refTag.
+92. (Done) I don't like the third blank column in the wdn tree. I originally did this so it was easy to resize the columns. If possible I would like to get rid of it, and go back to two columns. Needs testing, and I think it can stay for version one, bc it will not be used in version 2. 
+93. (OPEN) //NEEDED improving the compiler. This should be done last bc it will required the compiler to do many loops, and that would slow development.  A way to remove the refGroup in the wpnLib. The hashLib item they create maybe shared by others at some point it will be hard to remove that part. In one loop. If I every allow plugins or something like that for stacksite, I may need to create two compilers. The program compilers will need to make many loops over everything, and the plugingpluging compiler will need to do this in one or as few loops as possible. Also this will help if ref(~) stuff could have a ~parent ref to another ~parent ref bc it would fill in all the ref first then loop to build the hash and so on. Basically the compiler will need to improve over time, where can reduce the code of everything, including parsing the scripts. Rhino may have some open source stuff to help with the later. Needs looking into.
+94. (Closed) The adNds is a string. But I think adNds could be an array again that includes combining some related attribs, like isAddable. 
+95. (Done) delete treeControl..zztreenode; has a bug with bln. It seem to not delete all the zztreenodes. I thinking it should only delete .zztreenode as childs not the ..zztreenode deep nesting. It could be it needs to return the treecontrol bc it deleting nodes from it, or the program need to be restarted bc it crashed.It was the ".." it needed to be "." .
+96. (half Done)	 only did wpn, but this will need more thinking for the other trees. It seems using a set tag would work the best maybe for all trees, and using a pointer to it's options and elements. The problem came about when trying to get wpn set tag. The set tag which is called <set> in the wpn could use the refTag attrib to point to it's parent using ~parent. This would allow sets to be created in the options and element trees. Every Item then can point to a set num. Right now on wln the attribute name is called vl, but a better name would be the preFix + Set ie wpnSet. Then any ftn can just use the ctg or catg var to look up that set and get it's nesting. This will make the library larger, but it will make the code a little smaller and maybe faster . I do like this bc it's more flexible, but it will be a little more complicated. This will be a new build, if I decide to do it. The only other way is to have the code point to the set tag in wpn and make the set tag the treecontrol. This seems crazy and will get all mixed up, so I'm going to make groups and the groups will have there own craziness.   The compiler will need to be updated, and I'm sure something can be done later on to get the lib smaller. For now I'm only going to put wln and wpn into sets. It make sense since these will be the only ones that will need it and it only requires changing the getlibnode ftn and a few lines of code in the set ftns. But it still worth thinking about, because I could use ~root.setName.itemNum to ref to one that R similar. The hashVal would all have the same values and even the id would be the same. In wpn it could have a css set witch would be helpful when content is included. I'll think about it.  
+97. (Done) elmLibId in the getLibNode ftn should be named nodeLibId.
+98. (Done) the update ftns can all be made into one, and use the catg. method. The updateDN ftn can change it's name to updateTree.
+99. (Done) The set_DN can be called setTree and it can use the catg. method. All of the setTrees can point to this one ftn and the one ftn can point to setWDN. This will make coding easier. 
+100. (Done) wFnctn2 may want to have it only pass the string for ctg and not the array.
+101.(Done) buildSelect9 the select menu may want to put a (none) with the brakets for the text value when it's blank. I could get this value from the zLang["_NoneWbrakets"] This value is already in the zLang and I think users would prefer seeing it.
+102. (close) referred it. lang in the wpn needs work. ie buildSelectBdr show line name as english. I believe at some point the wpn lib will need another attribute so it can display css in the wpn colum in langs. The attribute name could be vCssName of css. It needs a lot of looking into, and it's a big change. This be done after this build. If vCssName is false it will use the normal css name, if not it will display it in the current lang. 
+103. (OPEN) All build ftns will need to be tested for errors. This can be done by making the tree.selNode.@n_css_val into a forced error with selNode.n_css_val and some other vals forced to create an error. It should force css value to show blank, others could be fixed. Not sure how I want to handle all errors, but css should come up blank, not show undefined as a value. The biggest problems R negative numbers or 0 or a undefined. I think typeof will be needed, or build a ftn that gets all the attribute values from a selNode. It can be called selNodeAttribute.XXXX . A ftn named getNodeAttributes() is needed. It would return and array of the attribute on that node. The hash array can hold the string of attribute names. The hashArray name can be wpnAttributeNames and so on. 
+104. (Closed) the buildSelectBdi ftn is not finished, it needs to be finished. This will require building a media tree. Getting rid of background borders
+105. (Closed) [not going to have background borders] Background image Folder should have a [none] on the select menu.
+106. (Done) wpn padding and margin settings R showing a line option and not showing the correct elements on menuBox. Maybe others too. Ok, this is being caused by id's with the same number. A hash number search is no good either, maybe put a running number across the all.  I think ever lib item is going to need it's own unique ID within a set or including the set. This is going to be hard and cause some very long id numbers. This needs to get done right away. I actually put a counter that create a unique id for every elements within every set element. For building the program only I create a attribute name oldid to put the id in before give a unique number the counter. On beta and final public builds of the program the oldid will not exist. The original id values should always exist. I created the oldid attribute only for the purpose to help in the building of the program.
+107. (OPEN) the refTags in the wpn needs to be delete, and their hashes in the lib. This needs to be done after the above in the compiler. removing the hashes is tricky because it will mess up the order of the hash keys. A couple of things can be done. I could leave the hash blank with nothing in it. I could make a separate array to temp hold the reftag hash, which can be deleted later. Shifting all the hash numbers is to much and to many errors. It needs more thinking and can be done when I work on the compiler to make it faster and stuff. The compiler does not get the refTag attribute values from it's hash, which would be faster. This could be good because I could test if the lib element is a reftag and continue the for each loop when it gets to putting it into the hash array. Then I can just delete the lib nodes. The downside would be if the compiler needs to build and add the the lib when users turn on DW and it points to sets, it will be slow. Actually it would need to be a different compiler altogether because this compiler is way to slow as a start up compiler. I think adding a attribute on elements in the <set id="reftag"> and testing if it has a attribute named i_am_a_reftag="1" then before the adding to the hash array I can use continue.
+108. (OPEN) line-Height in wpn does not work. The wpo valqcss . I don't believe I have built the css line-height for any wpn.
+109. (Done) iAd and adType should be named  addableAllowQty and addableToo. addableAllowQty value should be 0 or blank for none and 1 for 1 and u for unlimited. I'll deal with the name changes after the build, but i will do the iAd qty . 
+110. (Done) add page in wdn should show the add menu when no treenode is selected and has node showing. 
+111. (OPEN) adNds has c for child and p for parent but it might be better to include s for siblings. The s could tell it where the addable item would go or is allowed to go. For a drag and drop tree this would be something needed, and it could help with the compiler if it needs to create attribute to make drag and drop work. Needs thinking. Maybe a third addable attribute will be needed. A addable to were attribute. But the the p sort of does this now. So it would seem c an p are find for now, but a little thinking about won't hurt, and it could be needed, so I'll get thinking about it.
+112. (OPEN) The default site array id number from 3 to 2.  Actually this needs to stay at three to match sdn type number. I don't no why I did this. It make no sense now. Default menu array needs to exist all the time. I think having a custom menu or page menu array and default as the only choices, would be the right way to go.  2 was the site menu array for a non-stacksite site, which match the sdn type number. This is nuts, and users may want to get a custom menu from a db or json and so on. For naving the site, this would be impossibly wrong to do, but for a custom menu this could work. So, for nav it will always be default, default will alway keep track of current pages and links for a navigation global site menu array. 
+for default menu array it would display
+vV: (default),  type: site menu, description : "array"
+for custom menu arrays it would display
+vV:  name,  type: page menu, description : "array"
+When creating the add menu in wdn it should read the name and type in the pull down menu.
+ I'm wondering if it would be better to just have them build the page menu array in the layout templete. 
+This will need a lot of thinking still. I'll do this towards the end of this build, bc I'll need to figure out how I'll be dealing with page menu arrays, if they will be done on the page level, and other stuff too.
+113.(done) put the dwChangeFileInTab back in, and get it working. It needs to also change it's name to openView or openChange. The dwChangeFileInTab10plus and dwChangeFileInTab ftn need to be put into one ftns. It needs to take the last attribute stuff off the treecontrol and move it to the select element. It should also include the last_ctg bc some forms have a few trees and or views. This could be hard and require some of the forms have different rules. For now I'll just set it all to the first tree in every form. Snipit has no extension at it's end and it causes an error screen. This ftn should catch this, or at least check if it has and .xxx or .xxxx This should have a message of the missing page. The snipt nlink needs to be fixed for now so it shows the page in the view.
+114. (OPEN) updateMM() should be named mmOnChange();
+115. (OPEN) maybe wdn could be pdn, and wdn could be reserved for widgets since that could be something witch might be added to the program someday. Widgets could be something users build and or add to to the program and or each site.
+116. (Done) tree option menus needs to be finished so they can display other things then add.
+117. (Done) vOpt will probably need a way to have too values or another attribute vOpt and tOpt . One is for the text of a option element and the other is the value of the option element.  When building these selects a sort can straighten out the order. Select 4 needs this bc various langs, there will be no way to tell what type of delete, unless I make another value to the option menu. WPN already has something. It has a vOptProp attribute. I think a more global solution is needed for vOpt. Maybe a eval is needed in the compiler to build and array . Something like vOpt = [[lang,val],[lang,val]] This is dangerous if I port my program to the web.
+118. (closed) The lib will need to put all of attributes with arrays into and array with {} around it so javascript can process the lang. This is hard bc it will not understand [] brakets and may need to use ""+ signs. This could make impossible and messy. Maybe each one can use a eval. ie attribute={eval([zLang._Add])} or maybe attribute={[zLang._Add].toSource()]} .This will need to be one after this build. I believe it's already on the do list.
+119. ( (OPEN) Part of it) [I only did the wFnctn] ctg on some ftns being called from the wFnctn r missing and need to be put in. This will help later when merging some ftns. Also all ftns calling other ftns need to pass the perfix I believe so it's much more secure. Not sure about the latter will be needed. It could be really slow getting the catg on every ftn
+120. (OPEN) OnOff needs to be called turnedOn or On. 
+121. (Done) on some xml ..zztreenode the two dots r not needed, it may be faster to put one dot if the treenodes r not nested. I left the two .. it doesn't seem to care.
+122. (OPEN) the add ftn needs to be separated from dup and dup needs it's own ftn. 
+123. (Done) the zx dcnu number attributes will need to go to lower case everywhere. The tag file in dw, which let's dw know to cache links on attributes with a zx attribute will need changing and any js files too in jdn.
+124. (OPEN) the qmdnStackSite() ftn in the ufile needs to be converted to a array. All uFiles needs to be changed to array. This will require jdn file to be change too. This is a big change and needs to be done after this build. It also needs a lot of thinking if that's is what I want to do. Something else may end up being used, if ajax can make a call to these files, but I really think ajax will be more messy and not as good as this. A array will make it much easier, faster and much much more. 
+125. (OPEN) live view needs to be fix, it does not keep the live view on, when selecting a wdn node.
+126. (OPEN) dn.addNodeLib could build what is needed from looping and attribute on the nodeLib called eAdd elements. This would loop and build the elements needed when the add element is pull down on. 
+127. (OPEN) maybe wdnPutIn treecontrol needs to be called wfn, have it's own library, so it can use the getTree() and getLibNode ftn. The problem with this is the logic of it. It's really a element called from a e lib node.
+128. (Done) a vForm ftn is needed that returns array of the vForm element( vForm.elm and also the menu info and other stuff that maybe needed.
+129. (Closed) I think all runFns can be put into array some how. ie [ftn,ftn,ftn,] Then toSource can somehow be used to keep track of undos if a ftn fails. This is just a thought to help build a undo redo feature. It would be interesting to see how it writes the ftn arr. I'm thinking it will have problems with objects being passed in ftns. If that is the case then ftn arr will all need to pass strings, and or return strings. The return string can be the a string of a ftn needed to do a undo. 
+130. (OPEN) when adding a new page it needs to check for illegal chars in the folder name field. Is also needs to add the layout menu and menu image item. The HTML5 URL input needs to see if it exist. This would work in the the safari browsercontrol. Maybe the wdn add menu needs to have a add home page | add web page || add hyper link || add blog page || add store page || add contact page || add news page || add pdf page || add media page || and so on... the later needs more thinking. 
+131. (OPEN) saveLogFileUjs ftn needs to be put into a for each loop to gain speed and to decrease it's size. The uFile it self needs to be put into an array maybe. It's in a string and then split bc it was being past to the iframe on the search url. No longer use iframe, so an array is possible now if it's going to call a ftn. I'll keep the current method and decide to go with an array after this build.
+132. (Done)when saving the mFileNodes it needs to clean up the xml code so it does not have that pretty crap returns and blank spaces.
+133. (Done) dwChangeFileInTab, I'm not sure releaseDocument will be needed. It would need to test if the new page to open is different. If it is different then it should release the document, otherwise it would be a waste, and slower when the page is the same. So it would need to test and I'll do this on a later build. And should it do it at the end of the ftn or where I have notes of using it in the ftn.
+134. (Done) some option elements write select attribute the old html way. This attribute needs to write it as select = "true" . Also a ftn is needed to get the selected option element in the zForm which is XML. So a loop will be needed because e4x XML in DW does through an error when a attribute does not exist on the element. The later is important bc I would like not to go to the vForm to get select element value and etc. This would also require finding the select element in the zForm too, which will need a ftn too. Actually when a select element is change it creates this old fashion way. I could put a ftn on every select element that would change the select to the new way every time it changes. But the replace method I use now seem to work ok. I could put on select elements, this.options[this.selectedIndex].setAttribute('selected','true'); On the treecontrol it could do the same, but the treecontrol has had problems with finding the selected node when it's the first element selected, but it is worth a try. Again the replace method seem to work well and version two will be using the browsercontrol frame. Also, I'm not sure if the onChange will fire in the right order all the time on the element. Anyway, the code on for the treecontrol would be: this.selectedNodes[0].setAttribute('selected','true');  this did not work unless I used outerHTML and outerHTML code would slow it down some
+// another way would be to put the selectedIndex number into the select element using an attribute and setting the selected option element's attribute in xml. This could work for treecontrols too.
+135. (Done ng) Maybe one way of fixing the treenode first click bug would be to set the selectedNode[0] object to selectedNodes[-1] somehow. did not work.
+136. (Done) dw takes out the white spaces in the mm:treenode element when grabbing it with innerHTML. It could be doing this when I write it to refresh vForm in the setVForm using new XML object. Copy maybe better here. I'll need to check, but if it is DW cleaning up the cod, I'll need to put them back in before placing it into a XML vform. This can be done with the an extra replace method which or a for each loop that adds in the white space. I like the for loop method bc regEx replace method will need to be complex and could be very slow. It seems XML.prettyPrinting takes out the white spaces. I'll need to set this globally off, if not it will need to be set in each ftn. Setting XML.ignoreWhitespace works too. Goballt does seem to work. So this does seem like the simple way to go. Maybe mm namespace works now too, since this is the public version. Anyway I set prettyPrinting to false globally and it working so far.
+137. (Done) Maybe mm namespace works now since I'm using the public version needs testing. It does not work.
+138. (OPEN) Home Page in wdn. Maybe it's id should be 2 and the html page's id 3. I may some day want 1 to be a root folder or 1 a subroot page. Currently I set the homepage to 1 so I would not need to deal with changing the javascript that much. Actually I think alot of numbers will change, so I'll keep it at one for now.
+139. (OPEN) A attribute maybe needed so the program can know where to put a new page. ie home page would go into the root folder. A new page would go in it's own folder placed anywhere by the user. writePageToo="root" or "inFolderPlacedByUser"
+140. (Done) the name nFile and version vFile could be put into one xml file. 
+141. (Done) need to make all for each loops of e4x element have a continue check for non elements so it does not pick up blank spaces if it has no children elements.
+142. (Done) I may want to pass the ctg to the open in browser ftn and then test if the current toolpanel is open.  But I may want to also have the browser screen to say please wait while we make some changes, while it adds or delete a node. The problem comes when I delete a node and it has a associate file open in the browser and it needs to be saved before it can be deleted. The delete ftn currently uses the open in browser to save and close any open associate file. I'm thinking it could pass the ctg and url of the file to open, and this ftn can test ii's tool panel is open. I think it does that now, just need to make sure, but it could be better telling this ftn what ctg to use from the start. It's better the floater shows a progress-bar.
+If no ctg is supplied it could just go for the current panel. Also the dwChangeFileInTab() needs to be called setBrowserViewFor() or setBrowserView() . This names fit's better because sometime it will be setting and/or reseting the browser view for some toolPannels which R not currently be view because the user is not and or working with pannel at the moment. This happens when a user deletes a treenode item in the showing toolpanel, and the item removes a a treenode item from a tree in a pannel not showing.  The more I think about the better it will be to pass the ctg to the open in browser.
+143. (OPEN) ctg = catg[ctg] || logError(new Error()); needs to go before logFtn in all ftn this way it can detect any errors.
+144. (Done) setVForm needs to accept the ctg.pF and then get the ctg.a to change the wants needed and etc.
+145. (Done) getFileSubStrArray() needs to return false when an error occurs. Presently it's crashing on something, and needs to be fixed. It seems not to be return false when it encounters an error. Actually I decided to add something called global error, and it will have a global var called logErrorGobally. gobalError is only needed and should be used to only stop the program forward progress. All others should just report an error happen, and try to fix the problem automatically or set the item to a error item and let the user delete it or try to repair it. No i think it would be better to have a second argument passed to logError and use the logError reported to stop the forward process instead.
+146. (Done) There R problems with dwChangeFileInTab. I might want to have it close the file first then open the next file. When a user deletes a file in the file systen that's currently open in a tab browser there is no way to get to that tab again. The reason I open the tab first then close is the browser will open the the tab browser not in the same location if there is only one tab showing. It's a little hard to decide what to do here. I really like to close the file first, then open a file. I hate that this needs to open a file first then go backed to close and open just because DW can't open a browser tab with only one showing without losing it placement on the screen.  I'll need to deal with this after this build. One way to test the browser ftn is to delete a file from the file system, then delete a file from wdn and see how it handles the missing file. Or in the delete ftn, move it so the remove file goes before it calls the the dwChangeFileInTab. 
+147. (OPEN) where to put the trash folder for deleted files, is somewhat hard to decide. I believe moving them to a folder in the stacksite folder called "r" for remove. I'm not sure what to do, needs more thinking. 
+148. (Done) a getVformSelectElm ftn should be used to get rid of the other ftns. This ftn will return an array of the elm with the node, selNode, selNodeValue, selNodeText. It will use false if these array items don't exist.
+149. (OPEN) var dnFolder or wdnFolder and so on get used alot, may want to put it in the getTree ftn. ie wdn.wuiFolder
+150. (OPEN) maybe var logFtn could be called var ftn and it could return and array of the arguments and if they r true r not. ie
+ftn.useNodeId or ftn.ctg.a
+151. (OPEN) I think all the stacksiteFileCode stuff can be put into a single XML file, then it could be called as one. Big change, so it should be done after this build, but it will work, and a single xml file can be put into each folder which holds it name and version ond stuff.
+152. (OPEN) ndn onchange should run a save bc a user could close and save a document without updating it. Or maybe it could be a quirk, and when they load a site in sdn it could run a test to see if any of the saved file is not the same and flag it as not updated. Maybe a better way would be to also put a note on the ndn screen and or using a timeout ever time they r on the ndn screen to check if this file needs to be saved. dwChangeFileInTab handles alot of this, but it can't tell when the user closed and save the file on their own. 
+153. (Done) on adding wln items, it will need a place of order in the tree. ie the head element goes before body element in the tree. Also drop down menu needs this too, if the box will have two scroll buttons. Some other items may need this too. In the lib I could give these Items a attribute named siblingIndex, the lower the number the higher it is placed within it's sibling index. If all the siblings have the same index number, then it will insert the page item at the top it's siblings when added. 
+154. (Done) The arrays in lib item will need a 4th var that describes the split char. ie: "|" or "_" or "^" or "-"
+155. (Done) the wgtDefaultSelector and wgtDefaultProps do not match <z id="20" vV="MenuBox" vType="" iMv="2" vCT="1" vC="c"  iAd="u" adNds="c" oSel="addq0" oOpts="addq0|delq0|movq0|onoq0" vI="mnuBx" wgtDefaultSelector="zz^1^20^0^0^0^0^1_0_00000000^2^1^0^0^navBox" wgtDefaultProps="zz|1|20|0|0|0|0|1_0_00000000|2|1|navBox" wgtAttributes="wgt_brand|n_on_off|n_type_num|n_sub_type|uni_use_1|uni_use_2|uni_use_3|n_bg_border|liq_width|liq_height|wgt_name" cssSelectorNames="cy|cymoz|cm|ck|cb1|cb2|cb3|cb4|cb5|cb6|cb7|cb8|cb9|cb|cp|cz" cssDefaultProps="" siblingIndex="1"> 
+I think at some point these two attributes overlap and one is only needed. As for now I'm strictly using wgtDefaultProps attribute. I also went ahead and added a 4th attribute to lib items that r arrays. ie "|" and etc. It not being used, and maybe it will not be needed and can be removed. I believe this will end up being needed. I will probably be making a ftn that gets nodes attribute values, which will be called getNodeAttribute(ctg,nodeId,attribName) if this is the case, then this will be needed. Also, uniCode type maybe needed in lib items. ie does it need to filter out some type of chars and so on...
+156. (Done) //NEEDED maybe change tcfCode to cssCode and tlfCode to wgtCode. Basically, tcf prefixes should change to using css and anything using the tlf prefix should change the prefix to wgt or wss
+157. (Done) need to use setWLN in using XML object to set the b elements. Putting it in a holding element makes no sense. Better to to create a XML object out of the b elements. 
+158. (Closed) I hate that I use this "^"  as the splitting char on layout templetes, it should be using three chars like this "Z^@" and test for any chars that get put in here or I could ad a another attribute to hold info which the user provides, ie zu="site crumbZ^@> needs thinking.
+159. (OPEN) to cut down on code I believe using the triple !!! to test for false could reduce some code. ie !!!wln.selNode.zztreenode[0] and etc need testing if this will work but from here on out I be using, on a few things to test if it works.
+160. (Done) wgtDefaultProps needs to be removed, it's getting replaced with wgtDefaultSelector , which also means all arrays will need a char split definition. Then wgtDefaultProps can be removed from the lib.
+161. (OPEN) It seems ftns could have a action undo and redo value. ie moveDown, moveUp.  Simple put it could be a const which it calls the ftn and adds in the calls it needs to make. I'm thinking it could use closer here. needs thinking after this build. It will need to be done in the logFtn ftn. Some ftns will not have a undo or redo value, when the undo ftn or redo ftn gets called. A const array could hold ftn info, which could tell the the logFtn() this ftn does not need to be called to do a redo or undo. It could also hold what ftn needs to be call to do a undo and redo. 
+162. (Done) the wpn select opt menu could be set to display:none with CSS. This would hide it from user, and make it posible to keep it around, in case I want to use it some day. I moved the optMnu to a build ftn, so this was taken care of a different way.
+163. (OPEN) wFnctn may need to change it so vFtn attribute in lib passes it not as an array, but as a string. This will need to be done after this build. It would require a split to happen to wFctn, maybe it can pass it the hash value instead. Needs thinking, better to just get wpn working, then come back to this later. 
+164. (Done) wpnProps() ftn needs to be called changeWPNProp() and any  of it's related ftns names too. Maybe editWpn or changeWpn. Used saveWpn
+165. (OPEN) All lib items that require showing a file in the view, will need a default view. This would mean, all viewable items will need attributes for view and liveView states. view=(code||split||design) liveView=(editable || live)
+When setting treeNodes, each treenode will need to have these two attributes too.  
+Also, maybe each file can store it's state's in the files XML info page, or I can create a  
+166. (Done) I believe I added a third blank column to the wdn treecontrol, but I don't think this will be needed. I added bc it would help with displaying the 2nd column better, but DreamWev's cs4 doesn't seem to need it. Anyway It's time to remove this code from the lib.
+167. (OPEN) I think slb borders should go after this build, and the border image bdn and bln and etc. It just not worth all the extra work.
+168. (Done) CSSborders  need to get a clear button, and remove the Line and none select menu in WPN
+169. (Done) need to build a getNumber ftn which returns and array of info {isNumber:true, val:"", isFloater:false
+170. (OPEN) buildSelectBdi ftn (border images) could be used to find the short hand. Maybe it could write short hand automatically, without the user knowing. This could be added to version 2. and put to use on padding and margins. 
+171. (OPEN) align page in wpn could be call position>align . Then if I decide to build absolute and z-index they could go in this position folder too.
+172. (OPEN) One big problem with lib attribute which use arrays is sorting and then finding these items.  Basically a oid number is based on where it sits in the array. ie [column,row] column would be 0, and row would be 1. A much better way would be a description array ie {1:column,2:row} or if the number is prohibited then it could be {i1:column,i2:row} when the lib is compiled it could use eval() to make this array to work, and replace the split method. The compiler could check against the attribLibSettings to see what type of array it needs to compile. This is a big change and needs to be done on the next build, but it will need to be tested to see if it will work. 
+173. (OPEN) Should a webpage show an error message if something fails instead of trying to display the page. And what kind of error should it show. This would be done in the load script, and a basic error message would need to be displayed.  
+174. (Done) It seem a nested elm in a elm with rounded corners will overflow in the corner. If a lot of browsers do this, something with overflow will need to be done to fix this. I wonder if there is a css prop to prevent this. I'm sure it does not do this with just text in a box, but putting a table or any elm will probably overflow outside the curve. 
+175. (OPEN) Maybe liquidWidth and LiquidHeight setting should be called shrink and stretch instead of Min and Max. This way the min and maxheight and width cssRule could be used in the size folder, and the height and width cssrule too. I also like the words auto-Min and auto-Max
+173. (Done) need to combined the border(bd) and background(bk) nested divs to make rounded cssRule work. It should be done after I get the other page objects working, like menus to make sure there will be no problems. I have decided to to put the background color on the bd element . I did not want to use overflow, to hide the background color in corners. This also means I'll be getting ride of scalable layered graphics, at some point or just let it be used in house or ask the stacksite users if they really want it.. I prefer to get ride of it, and move to using more css and other stuff. I'll decide later if the latter will go. For now, lets move background to the bd element. Also I need to give the user a choose if they want offerflow and maybe scrolling on the bd element too. This can be done with CSS. The ceh_chk need to be change to ceh_chd too.
+174. (OPEN) Align-Content on snipit box does not work, cymoz class was used, but it's not being added to the dom. It writes the css ok, but I forgot what I was going to use here, and or I did. Skipping it for now, but it will need further looking in to and fixed if necessary.
+175. (OPEN) The Body elm could have two types. One would be Body w/liquid Page and Body w/Layer Boxes. Also, Body w/multi Pages could be a third way.  This all needs thinking. Going with Layers, and each layer is positioned on the page. The layer can be liquid or or have a fixed sized maybe.
+176. (OPEN) Drop menu Items should automatically also pick where to start what menu level to start at, based on it's parent.
+177. (OPEN) portable fonts, need to be added to fonts. Need to look at the w3c spec, and think of a way to add it in which later would make sense for SS's version 2
+178. (Done) // vOPTprop needs to be added to lib Items that use the buildSelect9() ftn, so langs can be used on these
+wpn item props. vOpt lib attributes hold the true value used in css, the vOPTprop is what the user sees. Sorting could be added here too.  Actually arrays need to be used in the VOPT attribute. ie [["_dash","dash"],["_soild","soild"]]
+The first value can be used for lang, the second value is what css would used.  Then the second attribute called vOptSort. vOptSort="true" would sort this on compile, if left blank or false or attrib is missing it will not sort vOPT.
+179. (Closed) NOT NEEDED) buildSelectNameSet() ftn could make the firstOption to display "none avalible" instead of arrow down if it turns out there R no options availble. measuring the length og options could test if there is any avalible. 
+189. (Done) buildSelect8 ftn has a problem, sorting the properties names will require the lib attrib to have arrays which R sorted already in {}. ie [[0,"_with/rows"][1,"_with/columns"]] during the compile it can use eval() to make them live.
+I  mention this before, and I'll need to test if this in {} can be sorted in the compiler, but using the test ftn I can test what works and what does not. I'm think the hash could become less efficient. Needs testing and looking at the compiler will give more info. For know, I'll build this ftn as close to what will be need in the future. 
+190. (Done) need to report bug on e4x , when I get dw 11 running.
+******E4X******
+In Extensions :
+var thePeople = <people>
+    <person name="John Bright" suffix="III">
+    </person>
+    <person name="Bret Smith">
+    </person>
+</people>;
+
+alert(thePeople.person.(attribute("suffix") == "III"));
+The attribute ftn above does not work.  If or when it does work,  it should also not throw a error if one of the elements does not have the attribute used in the above filter.
+191. (Done) maybe in the compiler it will require the following steps:
+1. (Done) converting the langs.
+2. (Done) convert what need to be a array into an array.
+3. (Done) sort the array if needed
+4. (Done) sort xml tags
+5. put it altogether into the hash array.
+192. (Done) requiredAttribs could be removed from the lib if I just check for element name. In the compiler ftn I could just check if the tag name equals a known tag name which would require changing it's required attributes. These tag names so far, are <nodes> <optcol> <elements> . Maybe something like this could be done for the sortChildren attribute. I could test for elements name too, but it could get tricky. The ftn would need to know the attributes to sort, and in some nested elms in the wln xml there is a sort add order to follow. For now I'm putting the attributes on the xml tags so I'll have a better idea what is going on, and maybe I'll need them if they get stuffed into a an array later. I'll decide what to do on a later build. Also sortKey should be called sortOrder
+193. (OPEN) wdnLayout needs finishing it has a second pull down menu that I never finished.
+194. (Done) the i, n and v file can be put into a single xml file.
+195. (OPEN) maybe floater panel could be called railPanel. ie ftn could be called setRailSDN or setSdnRail() anyway, this may make more sense if or when I port stacksite to other programs or build a program on a browser plateform. setSdnPanel() setSdnTree
+196. (OPEN) Why not put tags in attributes ie <e col="<col></col>"></e>
+Then put into an array for the hash
+197. (Done) I believe it would be far better to have the eElms attributes on the optcol to include a empty element to a build ftn, which clears the putItHere. This would allow much more control and instructions.   ie eElms="empty01|etc|etc"
+It would also be good to put the option menu into a build ftn too. Then I could have better control with this too. ie, I don't think I would want a option menu for WPN, and I could just remove it from the lib, and stuff. 
+198. (passed on it) make the getTree ftn have a attribute which passes a useSelId to it. This will be needed for undo and undo and many other stuff will need this too. Not sure yet.
+199. (OPEN) "00" does not seem to convert on some condition when it test against a false value bc it sees "00" as 0 a number and not a string. ie  (false=="00") should be false, but it returns true. One way around this would not to use == and use === ie (false==="00") would be true and correct . (===) check if  they r the same type . False is boleen and "00" is a number. Actually this will not work bc it needs to test against the same types, boleen === boleen and string === string, I forgot opps,   Another way would be to make sure false never checks against "00" even if it's in a string.  "00" should not be used. It would be best to change "00" to "#00" or "+00" or just start making "1" meaning the treenode and all treenodes start with "2" as the id. ie id="2" I think  I'll use "tc00" (tc for treecontrol) for now, and change the lib later. 
+200. (Done) Make a ftn that can write to e4x from the file ftn. Currently, it creates a a string, I think it would be better to try and create elements in each array and use the array join ftn to put them together. Just used e4x.
+201. (not changing) logFtn.ftnName and  logFtn.ftnRunName; it maybe better to call them logFtn.ftnCaller and  logFtn.ftnCalled
+202. (Done) wdn file list canel does not work. needs fixing.
+203. (Done) it's time to put the iFile and nFile and etc together into one XML file so it can read and write it to one file. I'll start by build one xml file, cal info.xml as : it will call a ftn called saveFileInfo(ctg,typeNum)
+204. (Done) need to get rid of the stacksite_temp folder in config folder need to go in the wui folder in the floater folder. Actually, I'm just going to have everything write to a folder called stacksite_temp on the users config folder. I  could also check if user has write primission to the user config file when stacksite loads, and stacksite could change it. I change it to stacksite/temp/ so the config folder does not have a stacksite_temp folder to write message too.
+205. (OPEN) I think it could be worth while to have the dwChangeFileInTab to call it self again if an error to open a page happens. Maybe this could cut down on the code some.  This is a big maybe, and something that should be try after many more builds. To much other stuff to do.
+206. (Done) this would solve things to do number 16 too. Delete needs to just find all the files in a folder and delete everything in it. some deletes have multi locations but it could push the urls into and array and then looped to close any open files in the browser, and the folder can be pushed to the last item in this array. This would also change the Lib items attributes. It could have just one delete attribute with type of deletes, or the ftn could determine it from it's ctg name, or both. The attribute could have deleteLocations="c|d|n" and so on.  this is a big change so a new build number will be needed before starting. This also means the Lib attributes fileDelTypes and fileDels could be removed too.
+207. (OPEN) a fileDelType maybe needed so the del ftn can know where to put the deleted files, I think the ftn can do this by the type of ctg, or use both. a Lib attribute exist called fileDelTypes and I'll keep it in the Lib just in case I decide to use it for this kind of thing.
+208. (Done) need to put Lib nFile and etc attributes into the lang array. Makes no sense to have them as separate attribs. It was done so eval could work on updating files and creating them from stacksite code files. Must be a better way with XML. Only iFile seems to have code in some ftns which call this attrib, and it's for borders which will likely be removed from stacksite. Also hFile does not seem to be used anymore. It should be removed, from at least the error libs, 
+209.  (Done) removed nAttribute attrib from lib items. It does not seem to be doing anything, and it looks like I never used it for anything. 
+210. (OPEN) The iFile in Lib items has been left in, only bdn uses now, and it can be removed when bdn gets removed unless I find a use for it.
+211. (Done) Almost all the other libs has the vl attrib on it, and it's not in use. This attrib needs to be removed from these libs. I'm keeping them all in the libs just in case I want to use it for something else. Put it in the unUsed section of the var attribLibSettings
+212. (OPEN) it maybe better to use some typeof on the notBlank ftn
+213. (OPEN) remove the background border images, in place of all it 0000 and stuff, make it a single value for Styles. The Styles would be tube and tab and so on. The script will add on extra class names on the div or add css. I would rather it add a class name, witch tells the elm to not allow rounded corners on the inside div corner.
+214. (OPEN) n_bg_border needs to change the name to n_border_group_style
+215. (Done) this was not needed since switching to html5 . it uses 6 divs and it could and should use 5, bc the k div was meant for the background elm but that has been moved to the border div I think sizing uses the k div, it will need to change when I get to it.
+216. (Done) // note should try getting the eval out of the following line
+var cssSelectorNameArray=(cssSelectorName.indexOf("_") > -1)?cssSelectorName.split("_"):eval("['"+cssSelectorName+"']");
+217. (Done) wgtDefaultProps I think it can go or I'll go back to using the pipe| over ^
+218. ((Done) half done) the vC attribute does not seem to be doing nothing. In wln lib it just shows how many classes there is. It has no ftn in the program. It only shows how many divisions of classes there is. It can be removed from wpn. I removed vC from wpn. Put it in the unUsed section of the var attribLibSettings
+219. (Done) cssSelectorNames does not work with :before or :hover and etc bc a attribute name can not have a colon : in it. Will need to test why and fix it , or see if I can put something in to replace the : on the name. 
+220. (OPEN) when searching for the "content:Location:" ; for any :before or :after css event could have problems if the user uses a css property name like "width:" . The regEx search could get greedy and grab this css property for width instead of the real width property. Giving the user the choice to put what every string they would like it to say here could become a problem. One way around this would to be to use the divider after the starting word and only allow the user to put in Chars and numbers. The colon is the problem ":" and I could tell the use the colon is not allowed or I could automatically replace the colon  with a special char of it . Actually the only Char that would cause a problem would be ";"  I could create different reEx search types for each css. This makes sense. It could search for  quote mark and colon ie ";  I think this would be the best. I'll do this later.
+221. (Done) Since css uses " on content, it may need to replace them and put a backspace in front of them, stringX.replace('"','\"'g)
+222. (Done) need to get the pipe char to work into the CSS content of before . DW uses pipes for column values, I need some how to replace the the pipe char | value in columns with something else, but fill any user input box with the pipe char. I think on the updates I can make it replace it there.
+223. (OPEN) wpnRuleType = "Oid"; to wpnRuleType = "wgt"; pss would be better than calling it wgt. Actually, wss makes more sense for a name. Which would stand for widget(W) style(S) sheets(S). or whml and the sheets can be called wss. needs thinking, for now it's going to use wgt.
+224. (Done) vCT attribute is not used in wpn lib elements it can be removed later or used for something else later. Put it in the unUsed section of the var attribLibSettings
+225. (Done) remove v_ct from wln tree, nothing is using it.
+226. (OPEN) maybe have a attribute on each lib to tell the program to open what type of file in the view. As follows:
+* urlView = how it should open, display and view the link : 
+0  = open a blank page in the browser and the edit screen
+1  = open  the nothing is selected page in the browser and the edit screen
+2  = open the selected page in the browser and the edit screen
+3  = open a blank page in the browser but open the selected page in the edit window (this is for development only
+227. (OPEN) var isTherePopMenuScrlBtn does not seem to be used and it could break up the css so it does not add in extra code for it. It wil be come clear when viewing the code.
+228. (OPEN) The following needs to be decided : // maybe this can be here in newCSS too "html,body{border:0px;padding:0;margin:0;height:100%}"
+229. (Almost)(bug filed) Get it to work in google chrome browser. Reported the mac open in browser bug to DW. It adds hd name to file url, and causes a file not found error. Need to check the sniffers, it seem to work and is being detected as a sa browser. Needs more checking but it does seem anything webkit and sa uses is find with chrome. 
+230.  (Done) in wpe lib dataSource="node.getAttribute('nCssRule')" seems wrong here and could be removed 
+231. (Done) it would be much better to put setWLN wssFile into a e4x and use for each. It would be a extra step, but this would be better. The problem moving html into a blank div and then into a e4x xml does cleans up the code but it also makes all the element's attributes lower case.  
+
+//**********************************************************
+
+1. (OPEN) this was used
+<z id="algnH" vV="_AlignHorizontal" refTag="txAlignH1" cssSelectorName="cz"></z>
+<z id="algnV" vV="_AlignVertical" refTag="txAlignV1" cssSelectorName="cz"></z>
+to pass this to table cells bc the old way it could pass it on from the table i 'm setting to the natual class name on ea elm but it may want to do something else.
+2. (OPEN) wgtDefaultValues and related attributes need to go into an array. "{wgt:[stacksite,]}"
+3. (OPEN) n_sub_type and n_type_num_sub R probally thr same thing, needs testing. If it is, then n_sub_type should change to n_type_num_sub
+4. (OPEN) it would be nice to work into the code the use of the word cssRuleSet and cssRuleSets and wssRuleSet and wssRuleSets for various ftns. Things like newCssCode could be called newCssRuleSets and a item of that could be called  newCssRuleSet and a item of that could be called newCssRule and it's parts:
+a.  newCssSelectors and each would be newCssSelector
+b. newCssProperties and  newCssProperty
+   a.1  newCssPropertyValue
+5. (OPEN) Two styleSheets and JS should be create, one which includes code for all the vendor version experiment prefixes and one which uses the just the css3 and html5 standard. A sniffer will decided which on to use. I'm not to big on this right none, and it would create very little code saving. I rather give this thought way later, and maybe something for versin 2 or version 3 of stacksite.
+
+6. (inProgress) When ever there is a error found it should place a message on the window wln node, and the page loading script should halt loading and produce a error meassage in the body of the page. The errors can be caught on the setWln ftn or any ftn for that matter. Update measages could be done this way too. Checking required wgt values against wgtDefault ones in the lib is a good lace to start. This can be done after a get all the wln items working.  It could also look for elements that should not be in it's parent and the order too.  I'll do this once I get a stable build, so I can cause less errors and pull from old code. Actully put some of it in. Not finished, still need to figure out how to run auto repair, and if it shoud. Also what would be best for that.
+What's left to do:
+a. (DONE) still need to rewrite the 101.js file so it can splash the the error measage on the window element. I''ll wait until the code in 101.js file is working more and cleaned up. 
+b. Could also try to repair "e" error elements in the setWLN ftn by looking at what it's childern R and/or it's parent. This will take a lot work and something for version 2. 
+c. most of this work was for the wln ftn, may need to do this for wpn and the other ftns too.
+d. setWLN should just always do a saveWLN , this will allow any missing required css on the subtype to be included too. Unless I want to test for those subtype required css. I'm having mixed feeling about doing a save every time. Needs more thinking, and maybe a report to the user showing it made correction is needed. It could show the user a list of the error changes in the panel with a ok button for them to click and it would bring them back to the wdn panel after the click. 
+7. (DONE) need to widen and set min-width for the log ftn and error page.
+8. (MAYBE) I'm thinking each wgt item should have the elm number included and it's parent elm too. This would cut down on the c101 script file. This could be put on the on and off rule like this 0-1-1 the first would be the on and off, the second would be the elm number, and the third would be the parent. I think it maybe better to have script 101 create the ids it needs to place items and use for menus. CSS uses it own number and that could ccause problems when adding on items to things like blogs. Basically it sems find with it useing the the current way.
+9. (MAYBE) wln needs it's ids to include the sub type like 4_0 and 4_1 . I don't like this, because, I'm only doing it so the add menu can show all the sub options when adding items to the wln tree. I think a better way, would be to have a pull down menu drop optmenu. I don't think DW supports this type of html element. Browser control might, and also the that could work. Maybe the wln lib should start using a <group> element. 
+10. (OPEN) n_sub_type and others named like this should be renamed to something better. sub_type_number sub_type_name type_name type_number and the libs should be typeName typeNumber typeNames subTypeChildNames and etc. 
+11. (OPEN) <z id="algnH" vV="_AlignHorizontal" refTag="txAlignH1" cssSelectorName="c"></z>
+<z id="algnV" vV="_AlignVertical" refTag="txAlignV1" cssSelectorName="c"></z>
+I don't think _AlignHorizontal and the vert above belong in some of the layout items. The box and page objects being some of them. I believe they may only need to go into content blocks and stuff like that. I'm keeping in the libs right now, but testing on all the items will result in what and where they work, and I'll decide where they go then. 
+12. (OPEN) vC= attribute can be removed after I get wln all working with the flex box layout.
+13. (OPEN) cssRequiredDefault is a really nice feature to keep css items to have a value. Currently it's only use on menuitem size, I'm not goig to remove this feature, but size does need to be figured out, and this might help or this will get replace with a zs attribute method.
+14. (DONE) css_selector I'm thinking it would be much better to just write in the css_selector on each layout item's zs attribute, if or if not it's using any css. This would be done on the saveWLN ftn. This would also allow the setWLN ftn to loop the layout and use the css_selector. Currently, the setWLN uses the for loop count++, and this could be problematic if in the future the tools allow users to add or move the elements around in the browser control, and the tools need to find these elements css, which would be out of order because the setWLN is using the for loop iterator number. The program now uses the css_selector number. The css_selector is used now for css on setWLN. The for loop in the script 101 still uses the for loop number to set ids on the layout items and menus. This is ok. 
+15. (DONE) on the setWLN ftn it needs to remove any blank end spaces found in any of the wgt rules. a for each look can do this. Also, maybe it should do a repair if it does find any blank space at the ends. Actually, I can not think of any reason why a wgt rule or a set of rules would have any blank space. A simple search of a blank space would indicate a possible problem and could create a error and should do a repair. The only place this would effect is getting the css_selector number, if there is blank spaces in the front, bc it uses a substring to get the number. A better way might be to get ride of the q in front of the css_selctor number, or it can just do a indexOf "q" + 1 or it can just remove the blank spaces. Currently Script 101 does not use the the selector number to set ids, and so on.
+16. (MAYBE) One way to solve the problem with tubed style and or having shared borders is to have a first and last element setting for menu items. For boxes this would not work, bc this would need to go on the parent. Menu items have a lot of props already and this could get overwhelming for the user. I would like to invent some type of logic that makes it easy for the user to set shared borders, separaters and tubing a group of menu items and boxes. 
+17. (MAYBE) in front of every css selector is a "q" . I believe on some items it maybe good to change this to a letter that repersents the type of item it is. On menu items with a box like drop down menus, it shares the same number. 
+18. (OPEN) Mac HD is getting put into the add tree folder on wdn. Needs fixing.
+19. (DONE) DW has bugs with using a caret in a string with numbers less than 4. Anyway, need to change it from using ^ to a pipe "$". Filed bug.
+20. Adding the qNumber in the zs attribute is a good idea, then the script does not need to look for parents and stuff all the time. If later on I provide a frame work to add a item to the layout document, it can look at the parent to add the right menu number. Actually, it would need to add it to the menu array for menu items. 
+21. (DONE)  It needs to run the updateWLN ftn every time a setting gets changed in the WPN tree. So when a with row get change to a with columns it can show the changes. Also, other types of settings in wpn may needs this too. The updateTree("wln") ftn can go in the saveWLN ftn. The saveWLN ftn need to update certain attribute values, which the columns will need. The viewable_value seems to be wrong on type with row and columns. Need fixing too.
+22. (DONE) A bug with changing the wpn subtype, forgets or incorrectly adds the wrong css selector witch gets included with the subtype. Needs fixing. Maybe its the css selector target names should have it's own wgt rule. A required wgt value type would just add it anyway. Needs thinking. This would requie shifting everything over one. This shifting can be done, and should be done. This will allow more flexible, and I think it will help keep things simple.
+23. (OPEN) When user has related files turn on, the related file does not update the view when the file gets over written with the dw.write file api
+24. (OPEN) Need to get the heights and width properties working in the wpn tree, so I can start testing work with the flex box layout. Auto needs to go in with % and inches and px and ex . Not all will be used on every element but all the ftns need to work with them all, and as time goes by I'll put the onesin that will end up being needed. Liquid sizes can stay until I figure out what really works and what does not. Then I'll see how I will handle sizes for everything. 
+25. (OPEN) Moz has these values for width and height it needs testing to see if these can be used to fix the problem with the % bug in the flex box
+width,  min-width  and  max-width
+-moz-min-content New in Firefox 3
+-moz-fit-content New in Firefox 3
+-moz-max-content New in Firefox 3
+-moz-available New in Firefox 3
+Moz may have these values too:
+-moz-intrinsic, -moz-min-intrinsic, -moz-shrink-wrap, -moz-fill for width, min-width, and max-width
+And webkit might have these: 
+auto, intrinsic and min-intrinsic or webkit-intrinsic and webkit-min-intrinsic
+
+26. (OPEN) maybe the css_selector on a wgt should always have a value even if there is no css
+27. (OPEN) when placing a menubox it really needs to go over the menu items border or butt up against it. This make a better contection for the user to slide their mouse from one item to the the next menu box. Actually, as long as it's over the menu box is find too, bc I wrote the code to work when the mouse moves over the menu items menu box too with out scewing up. As long as it's over or butt up against the menu box it will work. I perfer it but up against the the menu item's border, this would put it over any menubx border and padding, and any margin of the menu item. A option could be added to place it over the menu item's prop settings. The option could be called overlap-menu-boxes-to: and the setting could be called: menu-items-border or menu-items-padding or menu-items-margin. The menu bar would set it to the the menu items border edge. Actually setting it to all the menu items border edge makes more sence. The user can add padding to the menubox to get the desired menubox overlap or add margin to the menuitems. This makes more sence, and the developer would not need to worry about what crazy setting to use for the menubox, the user would get a more common user experience, and the program could be built lighter bc I would not need to provide extra crazy coding for it. Also the menubox and menu items and the whole drop down objects, is compilicated, and one less thing would make it less compilicated for the developer to use. 
+28. (OPEN) The menubox will need to measure the the width of the scroll buttons and conpare the size to the width of the menubox with the items in it. If the size is different, then it needs to set the space avaible to the higher width. This needs to be done after I get the dropdown menus working again.
+29. (OPEN) stopPropagation on events for menu items and menu boxes will help increase it's speed because it will stop unnessary bubbling up. Needs to be put in. Also so it does not interfer with other event the webdeveloper may have included into it's page.
+30. (OPEN) scroll buttons need to be split into 2 buttons top and bottom. Not sure how, so it will need thinking. 
+31. if possible the getVformElmById ftn needs to be removed from some ftns using it in wdn and wpn . needs a lot of thinking
+32. (DONE) ftn1 to ftn 2 on call could call it self, this would get ride of a ftn. Using a set time out would work.
+33. (Almost) getTree( needs to be redone. It needs to use a loop over al the treenodes to find the selected one and it should do loop of the attributes of the tree and the selected item. I redone it, and included a loop for attributes, but keep loop for attributes disable because so far I don't see a need to add extra processes to this ftn.
+34. (OPEN) a view value needs to be added to the options menus on wdn and wln and wpn. This will allow admins to create users to have view only options. This seemed confusing when I added it to the option menus. I beliee users will get confused. A better way would to have a admin tree to set user access. 
+35. (widthDrawn) getTree ftn needs a second attribute, to return the attribute ie getTree(ctg,true) the true would ask the ftn to return the attributes on the the tree as .control.attrib ie .control.attrib.id would return the id of the control. 
+36. (DONE) runFnctn need to set the input elements values before it's innerHTML copies the hForm. I'm think maybe it would be faster to just go over each element, and change just te elements that changed. select element and imputs and treenodes and etc. I'm wonder if this would be faster than replacing the treecontrol elements tagNames. 
+37. (DONE) Need to get ride of the qBody tag. Can use selector to have every item in body siblings to display none, and then remove it. I'm wondering if Body could have display none and will work on firefox now. Yes it works, and I done it already. But it would be good to have some type of loading messaging, while the page is loading.  
+38. (OPEN) Create a folder for each site with a copy of the zForm.
+39. (DONE) top margin does not work for the page object in wln
+40. (OPEN) The <fieldset> elment needs to be included into the form build.
+41. (OPEN) need to fix the names for trees like changing selNode to selElm, this is a big change and needs to be done on a new build. THe reasoning is an element could be gotten by wdn.selElm.node or maybe it would be better to have e4x.wdn.selNode, panel.wdn.selNode, floater.wdn.selNode  and user wdn.selNode.@value needs more thinking
+42. (DONE) I think sel_node_id and sel_node_lib_id should be removed if possible, It seems point less now since I can grab this info from the selnode it self. 
+43. (DONE) getTree(ctg,useNodeId) the useNodeId should be called useSelNodeId
+44. (OPEN) maybe somethings will need a "b" numtype because things like templetes can have pages without a layout assigned to a page,
+42. (Almost) function add_DN(ctg,useSelNodeId the getTree needs to use the useSelNodeId, and other ftns can use this new way to to cut down on code. Did many of the methods and ftns already, will do others later as needed.
+43. (DONE) selNodeNextSibling will need a getTreeSelNodeSiblingsAndParent()  a better name would be getTreeSelNodeSiblings
+45. (DONE) background color is not working on dropdown menuitems
+46. (DONE) having problem with wpe clearing the elms when it used and then the page changes to another page
+47. (OPEN) <set id="refTags"> has some nodes that R not in use anymore and can be removed. Each node in refTags needs to be tested if it's in use anymore and they should be removed too.
+
+//*******************************************************
+
+1. (OPEN) convert bdn into a media library
+2. (OPEN) <meta name="robots" content="noindex, nofollow"> this feachure needs to be added. It tell search engines not to index a page. This is something to be added to stacksite version 2 .
+3. (OPEN) need to add some type of way to put lang on page and its page object. A link about it can be found here http://nimbupani.com/declaring-languages-in-html-5.html
+4. (DONE) These can go and need to use a try and catch to convert them into e4x. If it does not fail then put it into a e4x var, if does not, then wash and convert it to valid XML with regEx or somrthing. This will help keep the panel cleaner. <div style="display:none" id="sdnMFileHolder"></div> <div style="display:none" id="tdnWssHolder"></div>
+5. (DONE) need to add in these chars to the button on move and other stuff.
+◤ ▲ ◥ ◀ ▶ ◣ ▼ ◢
+6. (OPEN) buildSelectBGB ftn is no longer be ing used it can be removed. It also has items in the lib which should be removed to. The lib items can be found at mixbbi. I'm keeping it around a few nuilds to use when building the function for selecting svg images and other stuff.
+and valqbbi and BgBdr0
+7.  (ALMOST)  The following is arrows and descriptions that should be used on buttons they r smaller, and make more sence for moving stuff around.  
+↑↗→↘↓↙←↖ I adding them to the lang array but have not added the wording to the element as pop outs using the title attribute on the elements. ie <input title="upward" value="↑" /> . Dreamweaver does not support the title attribute, need to file a bug about it.
+ <table class="multi-column-table top-left-aligned" summary="Table listing the navigation direction each of the eight directional navigation properties specify.">
+             'nav-up'  ↑ upward
+             'nav-up-right' ↗ up-and-rightward
+             'nav-right' → rightward
+             'nav-down-right' ↘ down-and-rightward
+             'nav-down' ↓ downward
+            'nav-down-left' ↙ down-and-leftward
+            'nav-left' ← leftward
+             'nav-up-left' ↖ up-and-leftward 
+             some others charectors R : ↔ ↵ ⇐ ⇑ ⇒ ⇓
+8. (OPEN) new XMLList(arr.children()); ftn could be use and needs to be considered. Do not add it to places that do not have a html5 equlivent 
+9. (Done) file the JS array sort() bug with DW. The bug that messes up sorting more than one column.
+10. (Done) vOPT will need to change to using a an array which has a sortiable array for the compiler. The following is how it should be set [[langValue,programingValue,sortByValue]] ie: [['_auto','auto',1],['px','px',1],['%','%',1]] or [['_dash','dash',1],['_soild','soild',1],['_none','none',1]]
+11. (OPEN) I don't think these items will be used and can be removed
+<z id="movq1" vV="_Move" colNames="~parent" colNvs="~parent" eElms="empty16|sel23|txt0"></z>
+<z id="txt0" vV="textMessage" eBF="txtMsg0" eID="" pIH="~sel0" eFN="" dataSource="" vOPT="['This Item is not Movable'],0,0]"></z>
+<z id="txt2" vV="textMessage" eBF="txtMsg0" eID="" pIH="~sel0" eFN="" dataSource="" vOPT="['<br />Links Do not have or use a Layout..',0,0]"></z>
+12. (Done) vOPTprop can be remove once I get a few builds in.
+13. (OPEN) At some point I may want to remove code which involves pIDAN using underscores. Although nothing uses the underscore stuff, it could be handy someday to have it to use on latter versions of stacksite. Also it took a lot of work building and getting it to work, so I'll keep it around for now BC it will be hard to put it back in.
+14. (OPEN) <gp> children elements in wpn will need to add sort orders to them
+15. (Done) In wpn it would be a lot easiers to have some viewable_values to have a search and replace on the setWpn ftn, The lib could have a attribute which is an array that list the few words witch need to be replaced. ie: replaceViewerWords=['auto','_auto'] I'll call the attribute wordReplace for now until I can think of something else to call it.  Maybe call it viewableWordsToReplace
+16. (Done) BdrT needs transparent to be worked into it, but this is a problem BC transparent will show up in the replaceWord attribute, I think vOPT should have a much bigger array, It will need to have have multi arrays like so vOPT=[['_solid','solid',1],['_dash','dash',1]],[['%','%',1]],[['_auto','auto',1],['px','px',1],['%','%',1]]
+17. (Done) all border styles need to be added , they R none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset   The none may be tricky to do BC it will require it to show no px and maybe transparent color
+18. (OPEN) an element name will need to be added to the lib so it can be added to the wgt string ie 1$1$1$1$nav
+19. (Closed) snipit can go, I'll do something to add text and images to a box using the css before: and after: I'll remove the code from the load page first and keep the code in stacksite to test the css to add the  inuse qty to the pics, svg, movies, and sound catagorys qFrameStackStack. Maybe snipits could be converted to thing users can save to, and reuse. Text html code, and so on maybe. Then they can use cut and past. This would mean, just taking any could it uses out of the layout. I'm good with that, and can have a text and html snipits which the user can cut and past too. Or just load seprate css files into the the page, and the snipit will use the before and after to add the snipit to the page. No good, the before and after is non-text and should only be used to add decortive stuff, basically it can not be read by a sceen reader. Best to keep what I'm doing now. 
+20. (closed) _sFile is no longer used. It was used on snipit, and it sould be removed.
+21. (closed) nPath is no longer use. Remove it and the stuff that goes with it.  It was being used by snipit to let the program know to save the file to a different file. It could be good to use this a a include for the server side, but I'll worry about that, if or when that time comes. Note I remove it from the code, but left it in the lib, BC I may convert it to a helpFile or a nSearchFile . If not it should be remove from the lib. nPath is to confussing remove it from the Lib 
+22. dwChangeFileInTab needs to return false on NDN so it can try and repair the missing file. This is maybe we will need to create a FTN called repair ie repairNDN
+23. (OPEN) templetes could be called theme
+24. (Done) buildMixedCornerRadCss ftn needs work. Need to add a second vOpt2 to add the text to go in front of the sizes or something with vOPT to use the sizes
+25. (OPEN) the zLANG will need to have words no longer used removed.
+26. (OPEN) the before words used for the breadcrumbs may have problems with screen readers BC it can't read content this way. 
+27, (Closed) (dnNameX && dnNameX.search(/\W/) > -1)? dnNameX = "":null; // makes sure it has only letters This line of code does not matter anymore if it uses something other than letters on some items. The thing it needs to check for double q-marks(") which will require. Actually it should only have words and numbers and underscores and dash.
+28. (OPEN) bdn some attribute in the lib R no longer being used, like typname and typDes and etc. I believe a date attribute will be needed in a column which gets and or a staus. 
+29.  (OPEN) more stuff on the loader page and others should use a innerHTML method like e4x to pass info from the classname on the javascript tag. This will allow a better way to deal with all the info passing around and it could eliminate all the order problems. It could be done on the uFile.
+30.  (OPEN) to load scripts onload, this could work:
+function addJavaScript( js, onload ) {
+   var head, ref;
+   head = document.getElementsByTagName('head')[0];
+   if (!head) { return; }
+   script = document.createElement('script');
+   script.type = 'text/javascript';
+   script.src = js;
+   script.addEventListener( "load", onload, false );
+   head.appendChild(script);
+}
+
+31. (Almost) adding the DOMContentLoaded to the script will help get rid of the script at the bottom of the page. Safari uses from 3.2 but some browser have a problems to wait for the style sheets to finish loading or not. It depends on how the css is added the page and other stuff. I'm going to put this in since I'm not going to support browser that don't support the box models yet. It should look something like , I'm leaving the bottom script in, just in something will need it. 
+document.addEventListener('DOMContentLoaded', function () {// code goes here}, false);
+//testing maybe better to prevent a problem
+if (window.addEventListener) {
+  window.addEventListener('load', init, false);
+} else if (window.attachEvent) {
+  window.attachEvent('onload', init);
+} 
+ 
+32. (OPEN) Since I'm only going support browser witch use the box model and DOMContentLoaded, these could be test to weed out browser witch do not have them. That is if it's possible, or something else is better.  it should test for (document.addEventListener)  and document.querySelector can sniff out Firefox3.5+, IE8+ (in standards compliant mode only), Opera9.5+, and Safari 3+ still need to create one for css box 
+33. (OPEN) Instead of useing radom numbers on ids, I could try using dates. The code look something like this:
+.@id = (new Date()).getTime() I could also use something like this to achieve a gobal id for each widet. It would need to test which for the highest date, it finds in the site. If the user's computer is using a lower date then the program will need to set the date if possible. I could also use a mix of date and radom number. 
+34. (OPEN) WDN Pages could have a menu folder and a all folder. Something like photo albums, but for pages. 
+35. (OPEN)  need to look into adding the callto tag for skype. If it works and can be use correctly <a href="callto:+19735551212">973.555.1212</a>
+36.(OPEN) things like navigator.onLine and window.applicationCache and manifest FALLBACK and NETWORK at  https://developer.mozilla.org/en/Offline_resources_in_Firefox#section_8 and at http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#a-sample-manifest should be used to get rid of the recashing of the stacksite.
+37. (OPEN) add the manifest="" value to the HTML tag. I think it can be added with the script loader
+38. (done) //NEEDED A WORK AROUND TO .closeDocument( in the openIn Browser ftn. It took using dreamweaver.releaseDocument(lastDom) but it I needed to be careful not to release dom on pages that stacksite did not open, and is closing. I'm actually thinking why not dreamweaver.releaseDocument(lastDom) on documents Stacksitedid not open, what could it do, to interfer with Dw or other apps running in DW. It seems. need to add this to the open doucuments and files DW does and did not open. 
+39. (done) these R new apis that need looking into, they may help with the open in browser ftn problem. dw.moveToNewWindow() dw.canSaveAllRelatedFiles()
+40. (Open) this needs a lot of thinking to get it right. A ftn would make it have far less code, and be faster as it is now. But a lib would give much better control over what gets put in, and the ftn would be much smaller. Adding a item to the lib would be much faster this way too. I need to look at other past todos for ideas. dwChangeFileInTab needs to use lib on items to get the type of viewing options for a selected action. This will require the lib to add some attributes, call user view uView. uViewDefault="[design|live]" uViewDefaultURL = "stacksite/temp/mesaage.html" uViewDefaultMessage="_Message1" 
+41. (Open) the qssSetLayout ftn in the builder script could go to one for loop maybe. It's a good time to start looking into making this happen. Size is not here no more. So it does seem possible now.
+42. (Maybe) THE notBlank() FTN Should be broken up into, different types of not blank. It should have one called stringNotBlank() for strings. And one for number called numberNotBlank() this needs thinking, but sounds right. Actually it makes more sense to have differant type of returns, like notBlankReturnBooleen notBlankReturnBooleen [would return a blank "" and NotBlankSpace()
+43. "site folder could not be found at:" needs work and added to the z.lang var
+44. (Open) I NEED TO CREATE A FTN TO CREATE PAGES FOR STUFF LIKE SDN which should get called from the dwChangeFileInTab ftn.
+THE FTN can be called createMessageSDN1() the ftn can return bacis info, and provide the stacksite logo. I like to have a second try in the site panel which contain more detail info on the site. Like how many web page the site has. How many images it has, how big it is, and so on. I'm not sure I will go crazy with to much live info, BC it could be taxing updating it all the time.
+45. (Open) I should put a tracers on ever ftn call, ie ftnName(tz1) it would always be the first value in the ftns. This would allow tracing down errors.
+Needs thinking, if its worth doing. Each trace value would start with tz followed a by a unique number. This way a search could find out where it is coming from.
+46. (OPEN) could put local file path into the second column in the sdn tree. It would be good to see the local path. I think maybe the second tree need this info. 
+47. (OPEN) the bLang needs to have a more detail, and use e4x <item id="_Add_"  type="text" needsTranslation="yes" english="Add" translation="Add"/> The complier will need to be change to handle this change.
+48. (open) add the browser is out dated meassage: The website does not function in Internet Explorer 6?
+This is because you are using a seriously outdated browser. Internet Explorer came out in 2001 and does not support the newest web technologies so we do not support IE6. Please upgrade your browser to IE8/9 or switch to something like FireFox or Google Chrome.
+

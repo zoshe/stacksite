@@ -1,0 +1,1 @@
+qSnpVar=qssSetSnipit(5,"Hi snip5   XXXX <img src=\"stacksite\/b\/btn\/b.gif\" width=\"47\" height=\"2\">");

@@ -1,0 +1,1 @@
+var qtdnStackSiteC="<DIV id='q1q101q0qwindow'><DIV id='q1q1q0qhtml'><DIV id='q1q2q0qhead'></DIV><DIV id='q1q3q1qbody'></DIV></DIV></DIV>";qqSnp([]);

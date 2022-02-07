@@ -1,0 +1,4 @@
+Name
+(this is the name the user gives it when it's a custom menu, accept for the site menu which comes from the item's Lib)
+dn.nVersion + "StackSite"
+(current program version Number)+(the StackSite Name)

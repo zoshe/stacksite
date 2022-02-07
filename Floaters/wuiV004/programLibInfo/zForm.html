@@ -1,0 +1,477 @@
+<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html> 
+<head> 
+<title>WUI</title> 
+<!-- Build changes: 
+
+-->
+<!-- THINGS TO DO:
+
+-->
+
+<!--
+ ZOSHE CONFIDENTIAL
+ ___________________
+
+* Copyright 2008 Zoshe.net
+* All Rights Reserved.
+*
+* NOTICE: All information contained herein is, and remains
+* the property of Zoshe.net and its suppliers,
+* if any. The intellectual and technical concepts contained
+* herein are proprietary to Zoshe.net and its
+* suppliers and may be covered by U.S. and Foreign Patents,
+* patents in process, and are protected by trade secret or copyright law.
+* Dissemination of this information or reproduction of this material
+* is strictly forbidden unless prior written permission is obtained
+* from Zoshe.net.
+*
+* 
+* 
+*
+**************************************************************************
+-->
+
+<script language="JavaScript">
+
+
+var formB = <div id="mmdiv2" style="display:none" namex="brdrimg">
+
+<table id="bmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="bmbTd2">
+<select id="bmbOptMnuElm" onChange="wFnctn(this,'bmbOptMnu(')">
+<option value="" selected="selected">Border</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="bdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="bdnTreeElm" style="width:375px;height:175px" onChange="wFnctn(this,'bdnOnChange(')" size="1" theControl="20">
+<zztreecolumn id="bdnColumn1" width="200px" state="visible" value="Borders" z="z" />
+<zztreecolumn id="bdnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol>
+</td>
+</tr>
+</table>
+
+<table id="bdnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="bdnTd4" class="nowrap"><select id="bdnOptMnuElm"></select></td>
+</tr>
+</table>
+<table id="blnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="blnTreeElm" style="width:375px;height:150px" onChange="wFnctn(this,'blnOnChange(')" size="1" theControl="20">
+<zztreecolumn id="blnColumn1" width="200px" state="visible" value="Images" z="z" />
+<zztreecolumn id="blnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="blnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="blnTd4" class="nowrap">
+<select id="blnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+
+<table id="bpnTable1" style="width:100%">
+<tr>
+<td width="0px"> </td>
+<td id="bpnTD2" style="text-align:center">
+<div id="bpnTD2div1">Preview:</div>
+<zzbrowsercontrol id="bpnTD2Browser" style="width:50%;height:100px" />
+</td>
+</tr>
+</table>
+</div>
+;
+
+
+var formI = <div id="mmdiv3" style="display:none" namex="mnuimg">
+
+<table id="imbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="imbTd2">
+<select id="imbOptMnuElm" onChange="wFnctn(this,'imbOptMnu(')">
+<option value="" selected="selected">menu Icons</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="idnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+< zztreecontrol id="idnTreeElm" style="width:375px;height:150px" idnSel="" idnURLName="" onChange="wFnctn(this,'idnOnChange(')">
+< zztreecolumn id="idnColumn1" width="250px" state="visible" value="Button Icons" z="z" />
+< zztreecolumn id="idnColumn2" width="100px" state="visible" value="_" z="z" />
+</ zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="idnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="idnTd4" class="nowrap">
+<select id="idnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+</div>
+;
+
+
+var formJ = <div id="mmdiv11" style="display:none" namex="jsArray">
+
+<table id="jmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="jmbTd2">
+<select id="jmbOptMnuElm" onChange="wFnctn(this,'jmbOptMnu(')">
+<option value="" selected="selected">menuArray</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="jdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="jdnTreeElm" style="width:375px;height:150px" sdnSel="" nName="" onChange="wFnctn(this,'jdnOnChange(')">
+<zztreecolumn id="jdnColumn1" width="200px" state="visible" value="Scripts" z="z" />
+<zztreecolumn id="jdnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="jdnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="jdnTd4" class="nowrap">
+<select id="jdnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+</div>
+;
+
+
+var formM = <div id="mmdiv9" style="display:none" namex="menu Arrays">
+
+<table id="mmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="mmbTd2">
+<select id="mmbOptMnuElm" onChange="wFnctn(this,'mmbOptMnu(')">
+<option value="" selected="selected">menuArray</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="mdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="mdnTreeElm" style="width:375px;height:150px" sdnSel="" nName="" onChange="wFnctn(this,'mdnOnChange(')">
+<zztreecolumn id="mdnColumn1" width="200px" state="visible" value="Menus" z="z" />
+<zztreecolumn id="mdnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="mdnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="mdnTd4" class="nowrap">
+<select id="mdnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+</div>
+;
+
+
+var formN = <div id="mmdiv6" style="display:none" namex="snipits">
+
+<table id="nmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="nmbTd2">
+<select id="nmbOptMnuElm" onChange="wFnctn(this,'nmbOptMnu(')">
+<option value="" selected="selected">Snipits</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="ndnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="ndnTreeElm" style="width:375px;height:150px" ndnLinkLastUsed="" errorCode="0" elmNum="0" onChange="wFnctn(this,'ndnOnChange(')">
+<zztreecolumn id="ndnColumn1" width="200px" state="visible" value="Snipits" z="z" />
+<zztreecolumn id="ndnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol>
+</td>
+</tr>
+</table>
+
+<table id="ndnTable2">
+<tr>
+<td width="0px"> </td>
+<td id='ndnTd4' class="nowrap">
+<select id='ndnOptMnuElm'></select> 
+</td>
+</tr>
+</table>
+</div>
+;
+
+
+var formP = <div id="mmdiv4" style="display:none" namex="pref">
+
+<table id="pmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="pmbTd2">
+<select id="pmbOptMnuElm" onChange="wFnctn(this,'pmbOptMnu(')">
+<option value="" selected="selected">Preferences</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="pdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="pdnTreeElm" style="width:375px;height:150px" pdnSel="" pdnURLName="" onChange="wFnctn(this,'pdnOnChange(')">
+<zztreecolumn id="pdnColumn1" width="250px" state="visible" value="Preferences" z="z" />
+<zztreecolumn id="pdnColumn2" width="100px" state="visible" value="_" z="z" />
+</zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="pdnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="pdnTd4" class="nowrap">
+<select id="pdnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+</div>
+;
+
+var formS = <div id="mmdiv5" style="display:block" namex="Sites">
+
+<table id="smbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="smbTd2">
+<select id="smbOptMnuElm" onChange="wFnctn(this,'smbOptMnu(')">
+<option value="" selected="selected">Sites</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="sdnTable1" style="width:100%;height:auto">
+<tr>
+<td width="0px"> </td>
+<td style="width:100%">
+<zztreecontrol id="sdnTreeElm" style="width:100%;height:50%" sdnSel="" nName="" onChange="wFnctn(this,'sdnOnChange(')">
+<zztreecolumn id="sdnColumn1" width="175px" state="visible" value="Sites" z="z" />
+<zztreecolumn id="sdnColumn2" width="175px" state="visible" value="_" z="z" />
+</zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="sdnTable2" style="width:100%;height:auto">
+<tr> 
+<td width="0px"> </td>
+<td id="sdnTd4" class="nowrap">
+<select id="sdnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+</div>
+;
+
+
+var formT = <div id="mmdiv7" style="display:none" namex="temp">
+
+<table id="tmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="tmbTd2">
+<select id="tmbOptMnuElm" onChange="wFnctn(this,'tmbOptMnu(')">
+<option value="" selected="selected">Templetes</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="tdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="tdnTreeElm" style="width:375px;height:150px" nLinkLastUsed="" errorCode="0" elmNum="0" onChange="wFnctn(this,'tdnOnChange(')">
+<zztreecolumn id="tdnColumn1" width="200px" state="visible" value="Templetes" z="z" />
+<zztreecolumn id="tdnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol>
+</td>
+</tr>
+</table>
+
+<table id="tdnTable2">
+<tr>
+<td></td>
+<td id="tdnTd4" class="nowrap">
+<select id="tdnOptMnuElm"></select> 
+</td>
+</tr>
+</table>
+</div>
+;
+
+var formW = <div id="mmdiv8" style="display:none" namex="wui">
+
+<table id="wmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="wmbTd2">
+<select id="wmbOptMnuElm" onChange="wFnctn(this,'wmbOptMnu(')">
+<option value="" selected="selected">Pages</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="wdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="wdnTreeElm" style="width:375px;height:150px" tdnNum=" " LastLocation="" errorCode="0" elmNum="0" onChange="wFnctn(this,'wdnOnChange(')">
+< zztreecolumn id="wdnColumn1" width="200px" state="visible" value="Pages" z="z" />
+< zztreecolumn id="wdnColumn2" width="150px" state="visible" value="_" z="z" />
+< zztreecolumn id="wdnColumn3" width="0px" state="visible" value="" z="z" />
+</zztreecontrol>
+</td>
+</tr>
+</table>
+
+<table id="wdnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="wdnTd4" class="nowrap">
+<select id="wdnOptMnuElm"></select> 
+</td>
+</tr>
+</table>
+
+<table id="wlnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="wlnTreeElm" style="width:375px;height:150px" onChange="wFnctn(this,'wlnOnChange(')">
+<zztreecolumn id="wlnColumn1" width="250px" state="visible" value="Document" z="z" />
+<zztreecolumn id="wlnColumn2" width="100px" state="visible" value="_" z="z" />
+</zztreecontrol> 
+</td>
+</tr>
+</table>
+
+<table id="wlnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="wlnTd4" class="nowrap">
+<select id="wlnOptMnuElm"></select>
+</td>
+</tr>
+</table>
+
+<table id="wpnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="wpnTreeElm" style="width:375px;height:200px" onChange="wFnctn(this,'wpnOnChange(')" size="0">
+<zztreecolumn id="wpnColumn1" width="150px" state="visible" value="All" z="z" />
+<zztreecolumn id="wpnColumn2" width="200px" state="visible" value="Properties" z="z" />
+</zztreecontrol>
+</td>
+</tr>
+</table>
+
+<table id="wpnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="wpnTd4" class="nowrap"><select id="wpnOptMnuElm"></select></td>
+</tr>
+</table>
+</div>
+;
+
+
+var hFormZ = <div id="mmdiv1" style="display:none" namex="about">
+
+<table id="zmbTable0" style="margin-top:0px" mmoSel="">
+<tr>
+<td width="0px"> </td>
+<td><span id="zmbTd2">
+<select id="zmbOptMnuElm" onChange="wFnctn(this,'zmbOptMnu(')">
+<option value="" selected="selected">About</option>
+</select>
+</span></td>
+</tr>
+</table>
+
+<table id="zdnTable1">
+<tr>
+<td width="0px"> </td>
+<td>
+<zztreecontrol id="zdnTreeElm" style="width:375px;height:175px" wboSel="" onChange="wFnctn(this,'zdnOnChange(')" size="1" theControl="20">
+<zztreecolumn id="zdnColumn1" width="200px" state="visible" value="About" z="z" />
+<zztreecolumn id="zdnColumn2" width="150px" state="visible" value="_" z="z" />
+</zztreecontrol>
+</td>
+</tr>
+</table>
+
+<table id="zdnTable2">
+<tr>
+<td width="0px"> </td>
+<td id="zdnTd4" ><select id="zdnOptMnuElm"></select></td>
+</tr>
+</table>
+</div>
+;
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html class="boxsizeBrd HtWd100pcMaPaBd0">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Example: Equal Height Columns with CSS Flexible Box Layout</title>
+
+<style>
+.childContainer {
+	border:   1px #666666 solid;
+	margin:   1px;
+	padding:  1px;
+}
+.boxsizeBrd {
+	-khtml-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	-ms-box-sizing:		border-box;
+	-opera-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
+	box-sizing:			border-box;
+}
+.HtWd100pcMaPaBd0 {
+	height:     100%;
+	width:      100%;
+	margin:      0px;
+	border:      0px;
+	padding:     0px;
+}
+.boxDisplay {
+/* W3C version 1 */
+	display: -khtml-box;
+	display: -moz-box; /* Buggy */
+	display: -ms-box; /* Unsupported */
+	display: -opera-box; /* Unsupported */
+	display: -webkit-box; /* Works */
+	display: box;
+/* W3C version 2 */
+	display: -khtml-flexbox;
+	display: -webkit-flexbox;
+	display: -moz-flexbox;
+	display: -ms-flexbox;
+	display: -opera-flexbox;
+	display: flexbox;
+/*	display: -ms-inline-flexbox; */
+}
+.blockDisplay {
+	display: block;
+}
+
+.boxFlexFlowRow{
+/* W3C version 2 */
+	-khtml-flex-flow:	`	row;
+	-moz-flex-flow:	`		row;
+	-ms-flex-flow:	`		row;
+	-opera-flex-flow:	`	row;
+	-webkit-flex-flow:	`	row;
+	flex-flow:	`			row;
+}
+
+.boxFlexFlowColumn{
+/* W3C version 2 */
+	-khtml-flex-flow:	`	column;
+	-moz-flex-flow:	`		column;
+	-ms-flex-flow:	`		column;
+	-opera-flex-flow:	`	column;
+	-webkit-flex-flow:	`	column;
+	flex-flow:	`			column;
+}
+
+.boxFlex0 {
+/* W3C version 1 */
+	-khtml-box-flex:	0;
+	-moz-box-flex:		0;
+	-ms-box-flex:		0; 
+	-opera-box-flex:	0;
+	-webkit-box-flex:	0;
+	box-flex:			0;
+/* W3C version 2 */
+	-khtml-flex:	`	0;
+	-moz-flex:	`		0;
+	-ms-flex:	`		0;
+	-opera-flex:	`	0;
+	-webkit-flex:	`	0;
+	flex:	`			0;
+}
+.boxFlex1 {
+/* W3C version 1 */
+	-khtml-box-flex:	1;
+	-moz-box-flex:		1;
+	-ms-box-flex:		1; 
+	-opera-box-flex:	1;
+	-webkit-box-flex:	1;
+	box-flex:			1;
+/* W3C version 2 */
+	-khtml-flex:	`	1;
+	-moz-flex:	`		1;
+	-ms-flex:	`		1;
+	-opera-flex:	`	1;
+	-webkit-flex:	`	1;
+	flex:	`			1;
+}
+.boxFlex2 {
+/* W3C version 1 */
+	-khtml-box-flex:	2;
+	-moz-box-flex:		2;
+	-ms-box-flex:		2; 
+	-opera-box-flex:	2;
+	-webkit-box-flex:	2;
+	box-flex:			2;
+/* W3C version 2 */
+	-khtml-flex:	`	2;
+	-moz-flex:	`		2;
+	-ms-flex:	`		2;
+	-opera-flex:	`	2;
+	-webkit-flex:	`	2;
+	flex:	`			2;
+}
+.boxGroup1 {
+/* W3C version 1 */
+	-khtml-box-flex-group:	1;
+	-moz-box-flex-group:	1;
+	-ms-box-ordinal-group:	1;
+	-opera-box-flex-group:	1;
+	-webkit-box-flex-group:	1;
+	box-flex-group:			1;
+/* W3C version 2 */
+	-khtml-flex-order:		1;
+	-moz-flex-order:		1;
+	-ms-flex-order:			1;
+	-opera-flex-order:		1;
+	-webkit-flex-order:		1;
+	flex-order:				1;
+}
+.boxGroup2 {
+/* W3C version 1 */
+	-khtml-box-flex-group:	2;
+	-moz-box-flex-group:	2;
+	-ms-box-ordinal-group:	2;
+	-opera-box-flex-group:	2;
+	-webkit-box-flex-group:	2;
+	box-flex-group:			2;
+/* W3C version 2 */
+	-khtml-flex-order:		2;
+	-moz-flex-order:		2;
+	-ms-flex-order:			2;
+	-opera-flex-order:		2;
+	-webkit-flex-order:		2;
+	flex-order:				2;
+}
+.hBoxOrient {
+/* W3C version 1 */
+	-khtml-box-orient:	horizontal;
+	-moz-box-orient:	horizontal;
+	-ms-box-orient:		horizontal;
+	-opera-box-orient:	horizontal;
+	-webkit-box-orient:	horizontal;
+	box-orient:			horizontal;
+/* W3C version 2 */
+	-khtml-flex-direction: 	row;
+	-moz-flex-direction: 	row;
+	-ms-flex-direction: 	row;
+	-opera-flex-direction:	row;
+	-webkit-flex-direction: row;
+	flex-direction: 		row;
+}
+.vBoxOrient {
+/* W3C version 1 */
+	-khtml-box-orient:	vertical;
+	-moz-box-orient:	vertical;
+	-ms-box-orient:		vertical;
+	-opera-box-orient:	vertical;
+	-webkit-box-orient:	vertical;
+	box-orient:			vertical;
+/* W3C version 2 */
+	-khtml-flex-direction: 	column;
+	-moz-flex-direction: 	column;
+	-ms-flex-direction: 	column;
+	-opera-flex-direction:	column;
+	-webkit-flex-direction: column;
+	flex-direction: 		column;
+}
+.boxalignStart {
+/* W3C version 1 */
+	-khtml-box-align:	start;
+	-moz-box-align:		start;
+	-ms-box-align:		start;
+	-opera-box-align:	start;
+	-webkit-box-align:	start;
+	box-align:			start;
+/* W3C version 2 */
+	-khtml-flex-align:	start;
+	-moz-flex-align:	start;
+	-ms-flex-align:		start;
+	-opera-flex-align:	start;
+	-webkit-flex-align:	start;
+	flex-align:			start;
+}
+.boxalignCenter {
+/* W3C version 1 */
+	-khtml-box-align:	center;
+	-moz-box-align:		center;
+	-ms-box-align:		center;
+	-opera-box-align:	center;
+	-webkit-box-align:	center;
+	box-align:			center;
+/* W3C version 2 */
+	-khtml-flex-align:	center;
+	-moz-flex-align:	center;
+	-ms-flex-align:		center;
+	-opera-flex-align:	center;
+	-webkit-flex-align:	center;
+	flex-align:			center;
+}
+.boxalignEnd {
+/* W3C version 1 */
+	-khtml-box-align:	end;
+	-moz-box-align:		end;
+	-ms-box-align:		end;
+	-opera-box-align:	end;
+	-webkit-box-align:	end;
+	box-align:			end;
+/* W3C version 2 */
+	-khtml-flex-align:	end;
+	-moz-flex-align:	end;
+	-ms-flex-align:		end;
+	-opera-flex-align:	end;
+	-webkit-flex-align:	end;
+	flex-align:			end;
+}
+.boxalignStretch {
+/* W3C version 1 */
+	-khtml-box-align:	stretch;
+	-moz-box-align:		stretch;
+	-ms-box-align:		stretch;
+	-opera-box-align:	stretch;
+	-webkit-box-align:	stretch;
+	box-align:			stretch;
+/* W3C version 2 */
+	-khtml-flex-align:	stretch;
+	-moz-flex-align:	stretch;
+	-ms-flex-align:		stretch;
+	-opera-flex-align:	stretch;
+	-webkit-flex-align:	stretch;
+	flex-align:			stretch;
+}
+.boxpackStart {
+/* W3C version 1 */
+	-khtml-box-pack:	start;
+	-moz-box-pack:		start;
+	-ms-box-pack:		start;
+	-opera-box-pack:	start;
+	-webkit-box-pack:	start;
+	box-pack:			start;
+/* W3C version 2 */
+	-khtml-flex-pack:	start;
+	-moz-flex-pack:		start;
+	-ms-flex-pack:		start;
+	-opera-flex-pack:	start;
+	-webkit-flex-pack:	start;
+	flex-pack:			start;
+}
+.boxpackCenter {
+/* W3C version 1 */
+	-khtml-box-pack:	center;
+	-moz-box-pack:		center;
+	-ms-box-pack:		center;
+	-opera-box-pack:	center;
+	-webkit-box-pack:	center;
+	box-pack:			center;
+/* W3C version 2 */
+	-khtml-flex-pack:	center;
+	-moz-flex-pack:		center;
+	-ms-flex-pack:		center;
+	-opera-flex-pack:	center;
+	-webkit-flex-pack:	center;
+	flex-pack:			center;
+}
+.boxpackEnd {
+/* W3C version 1 */
+	-khtml-box-pack:	end;
+	-moz-box-pack:		end;
+	-ms-box-pack:		end;
+	-opera-box-pack:	end;
+	-webkit-box-pack:	end;
+	box-pack:			end;
+/* W3C version 2 */
+	-khtml-flex-pack:	end;
+	-moz-flex-pack:		end;
+	-ms-flex-pack:		end;
+	-opera-flex-pack:	end;
+	-webkit-flex-pack:	end;
+	flex-pack:			end;
+}
+.boxpackJustify {
+/* W3C version 1 */
+	-khtml-box-pack:	justify;
+	-moz-box-pack:		justify;
+	-ms-box-pack:		justify;
+	-opera-box-pack:	justify;
+	-webkit-box-pack:	justify;
+	box-pack:			justify;
+/* W3C version 2 */
+	-khtml-flex-pack:	justify;
+	-moz-flex-pack:		justify;
+	-ms-flex-pack:		justify;
+	-opera-flex-pack:	justify;
+	-webkit-flex-pack:	justify;
+	flex-pack:			justify;
+} 
+.boxsizeBrd {
+	-khtml-box-sizing:	border-box;
+	-moz-box-sizing:	border-box;
+	-ms-box-sizing:		border-box;
+	-opera-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
+	box-sizing:			border-box;
+}
+
+.container{
+white-space:normal;
+height:auto;
+	-ms-flex-flow:	`		row;
+		-ms-box-align:		stretch;
+	/*
+	width:0%;
+min-width:0%;
+	height:auto;
+*/
+	display: -ms-flexbox;
+
+}
+
+.childContainer1{
+-ms-flex: 1 1 auto;
+	/*
+-ms-flex: 100000 100000 0%;
+-ms-flex: 1 1 auto;
+	width:0%;
+min-width:50%;
+max-width:0%;
+width:0%;
+white-space:normal;
+	height:auto;
+*/
+	display:block;
+	background:yellow;
+
+}
+.childContainer2{
+-ms-flex: 1 1 auto;
+	/*-ms-flexbox
+	width:50%;
+min-width:auto;
+width:50%;
+	display: block;
+	height:auto;
+*/
+	display:block;
+	background:orange;
+}
+
+ .childContainer3{
+-ms-flex: 10000 100000 100000;
+	/*-ms-flexbox
+	width:auto;
+width:50%;
+	display: block;
+min-width:50%;
+	height:auto;
+*/
+	display:block;
+	background:silver;
+}
+
+</style>
+
+</head>
+
+<body class="boxsizeBrd HtWd100pcMaPaBd0" style="background:green;">
+
+<div class="boxsizeBrd boxDisplay container" style="background:blue; height:auto; width:80%;margin:0px auto; -ms-flex-align: start; -ms-flex-align:stretch">
+
+	<div class="childContainer boxsizeBrd childContainer1" style="">Left-hand-column
+	</div>
+	<div class="childContainer boxsizeBrd childContainer2" style=""> Hello World Hello World Hello World Hello World Hello World Hello
+    World Hello World Hello World Hello World Hello World Hello World Hello World
+    Hello World Hello World Hello World Hello World Hello World Hello World Hello
+    World Hello World Hello World Hello World Hello World Hello World Hello World
+    Hello World Hello World Hello World Hello World Hello World Hello World Hello
+    World Hello World Hello World Hello World Hello World Hello World Hello World 
+	</div>
+	<div class="childContainer boxsizeBrd childContainer3" style="">Right-hand-column
+	</div>
+</div>
+
+</body>
+</html>

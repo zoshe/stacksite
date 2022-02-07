@@ -1,0 +1,1 @@
+"var qqSnp"+ndnNum+"=document.createElement(\"SPAN\");qqSnp"+ndnNum+".innerHTML=\""+ndnStrFileCode+"\";"

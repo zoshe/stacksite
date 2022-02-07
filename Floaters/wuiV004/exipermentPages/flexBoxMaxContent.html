@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<!-- NOTE
+As of sa4 and ff3.6 there is to many problems with the css3 flex box model to work correctly. FF min-width in % do not work. Both browsers set everything to fix layouts and and do not have a way to set it to a auto layout. It really needs a box-layout property like table-layout with the two values of fixed and auto. It also will need new width and height properties, and values for it to work correctly. A stretch and content value for width, height min-width, and min-height. It also needs a multi-value function for min( )and max( ). For exmaple min(content,30%) .
+!important
+It's actually working some what with min-width %. It all depend on what the display is set to with it's content. If text is going into the box it needs to be set the display to a display:block; otherwise the text will bleed out of the box. On widths . The min-width needs to be set to auto with a flex of 1, for anything that uses a actually size the flex needs to be set to 1. 
+-->
+
+<html class="boxsizeBrd HtWd100pcMaPaBd0">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Example: Equal Height Columns with CSS Flexible Box Layout</title>
+<style>
+*[qFx]{
+-icab-box-sizing: border-box;
+-khtml-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+Xbox-sizing: border-box;
+}
+*[qFx|="box"]{
+display: -icab-box;
+display: -khtml-box;
+display: -moz-box;
+display: -o-box;
+display: -webkit-box;
+display: -Xbox-box;
+display: box;
+}
+*[qFx|="block"]{
+display: block;
+}
+*[qFx|="hort"]{
+-icab-box-orient: horizontal;
+-khtml-box-orient: horizontal;
+-moz-box-orient: horizontal;
+-o-box-orient: horizontal;
+-moz-box-orient: horizontal;
+-webkit-box-orient: horizontal;
+-Xbox-box-orient: horizontal;
+box-orient: horizontal;
+}
+*[qFx|="vert"]{
+-icab-box-orient: vertical;
+-khtml-box-orient: vertical;
+-moz-box-orient: vertical;
+-o-box-orient: vertical;
+-moz-box-orient: vertical;
+-webkit-box-orient: vertical;
+-Xbox-box-orient: vertical;
+box-orient: vertical;
+}
+
+.container {
+	display: -moz-inline-box;
+	display: -webkit-inline-box;
+	-moz-box-align: stretch;
+	-webkit-box-align: stretch;
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+}
+.containerdiv {
+	border: 1px #666666 solid;
+	margin: 5px; 
+	padding: 10px;
+
+}
+
+
+.boxsizeBrd{
+Xbox-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.HtWd100pcMaPaBd0{
+     height:    100%;
+     width:     100%;
+     margin:   0px;
+      border:   0px;
+      padding: 0px;
+}
+
+.Ht100pcWdAutoMaPaBd0{
+     height:    100%;
+     width:      auto;
+     margin:   0px;
+      border:   0px;
+      padding: 0px;
+}
+.HtAutoWd100pcMaPaBd0{
+     height:    auto;
+     width:      100%;
+     margin:   0px;
+      border:   0px;
+      padding: 0px;
+}
+
+.boxDisplay {
+	display: -webkit-box; 
+	    display: -moz-box; 
+	             display: box;
+}
+.blockDisplay {
+	display: block; 
+}
+.inlineBoxDisplay {
+	display: -webkit-inline-box;
+	   display: -moz-inline-box;
+	            display: inline-box;
+}
+.inlinetableDisplay {
+	display: inline-table;
+}
+.tableDisplay {
+	display: table;
+}
+.inlineTableDisplay{
+	display: inline-table;
+}
+compactDisplay{
+	display: -moz-compact;
+}
+
+
+.boxFlex0 {
+	-webkit-box-flex: 0;
+    	-moz-box-flex: 0;
+                 box-flex: 0;
+}
+.boxFlex1 {
+	-webkit-box-flex: 1;
+	   -moz-box-flex: 1;
+	            box-flex: 1;
+}
+.boxFlex2 {
+	-webkit-box-flex: 2;
+    	-moz-box-flex: 2;
+	             box-flex: 2;
+}
+.boxFlex3 {
+	-webkit-box-flex: 3;
+	   -moz-box-flex: 3;
+	            box-flex: 3;
+}
+.boxFlex4 {
+	-webkit-box-flex: 4;
+	   -moz-box-flex: 4;
+	            box-flex: 4;
+}
+.boxFlex5 {
+	-webkit-box-flex: 5;
+	   -moz-box-flex: 5;
+	            box-flex: 5;
+}
+.boxFlex6 {
+	-webkit-box-flex: 6;
+	   -moz-box-flex: 6;
+	            box-flex: 6;
+}
+.boxFlexp33 {
+	-webkit-box-flex: .33;
+	   -moz-box-flex: .33;
+	            box-flex: .33;
+}
+
+
+.boxGroup1 {
+	-webkit-box-flex-group: 1;
+    	-moz-box-flex-group: 1;
+	             box-flex-group: 1;
+}
+.boxGroup2 {
+	-webkit-box-flex-group: 2;
+	   -moz-box-flex-group: 2;
+	            box-flex-group: 2;
+}
+
+
+.axisBoxOrient{
+-webkit-box-orient: block-axis;
+	-moz-box-orient: block-axis;
+              box-orient:block-axis;
+}
+.hBoxOrient{
+-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+             box-orient: horizontal;
+}
+.vBoxOrient{
+-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+              box-orient:vertical;
+}
+
+
+.boxalignStart{
+-webkit-box-align: start;
+	-moz-box-align: start;
+	         box-align: start;
+}
+.boxalignCenter{
+-webkit-box-align: center;
+	-moz-box-align: center;
+	         box-align: center;
+}
+.boxalignEnd{
+-webkit-box-align: end;
+	-moz-box-align: end;
+	         box-align: end;
+}
+.boxalignStretch{
+-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	         box-align: stretch;
+}
+
+
+.boxpackStart {
+	-webkit-box-pack: start;
+	    -moz-box-pack: start;
+	             box-pack: start;
+}
+.boxpackEnd {
+	-webkit-box-pack: end;
+	    -moz-box-pack: end;
+	             box-pack: end;
+}
+.boxpackCenter { 
+	-webkit-box-pack: center;
+    	-moz-box-pack: center;
+	             box-pack: center;
+}
+.boxpackJustify {
+	-webkit-box-pack: justify;
+	    -moz-box-pack: justify;
+	             box-pack: justify;
+}
+
+
+.boxsizeBrd{
+box-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.WdAuto{
+width: auto;
+}
+.Wd50pc{
+width: 50%;
+}
+.minWdAuto{
+width: auto;
+}
+.Ht100pc{
+height: 100%;
+}
+.Ht50pc{
+height: 50%;
+}
+
+.tableRow{
+display: table-row;
+}
+.tableCell{
+display: table-cell;
+}
+
+.outerDivMoz{
+}
+.outerDivWebX{
+display: -webkit-box;
+}
+
+.containerMoz{
+display: -moz-inline-box;
+}
+.containerWeb{
+display: -webkit-box;
+}
+
+.containerdiv{
+background:green;
+}
+*[fx*=hov]:hover{
+background:red;
+}
+
+.resizeboth{
+  resize: horizontal;
+   overflow: hidden;
+}
+.maxSize{
+width:min-intrinsic; min-width:100%; max-height:min-intrinsic;
+}
+.minSize{
+width:min-intrinsic; min-width:100%; max-height:min-intrinsic;
+}
+
+</style>
+</head>
+<script>
+/*
+(elm)        box-sizing:       boxsizeBrd      boxsizeMar
+(elm)        display:            boxDisplay      blockDisplay       inlineBoxDisplay tableDisplay       inlineTableDisplay tableCell tableRow compactBox
+(elm)        box-orient:       axisBoxOrient  hBoxOrient        vBoxOrient
+(elm)        box-align:         boxalignStart   boxalignCenter  boxalignEnd        boxalignStretch
+(elm)        box-pack:         boxpackStart   boxpackCenter  boxpackEnd        boxpackJustify
+(chd)        box-flex:           boxFlex0          boxFlex            boxFlex1             boxFlex2            boxFlex3
+(chd)        box-flex-group: boxFlex0          boxFlex             boxFlex1             boxFlex2           boxFlex3 boxFlex4 boxFlex5 boxFlex6 boxFlexp33
+(elm)        margin-start:     marstartAuto
+(elm)        margin-end:      marendAuto
+misc styling classes for testing: brdRadTestBlk HtWd100pcMaPaBd0 Ht100pcWdAutoMaPaBd0 HtAutoWd100pcMaPaBd0 WdAuto Wd50pc Wd100pc minWdAuto Ht50pc Ht100pc resizeboth
+boxDisplay hBoxOrient Ht100pcWdAutoMaPaBd0 containerMoz containerWeb
+<div class="outerDiv boxsizeBrd" style="max-width: 80%; height:100%; margin:0px auto; background:pink;">
+</div> 
+*/
+</script>
+
+<body class="boxsizeBrd HtWd100pcMaPaBd0" style="background:white;">
+
+<div style="background:yellow; width:intrinsic">First Div</div>
+	<div class="boxsizeBrd boxDisplay hBoxOrient" style="background:blue; min-height:90%; height:auto; max-height:auto; min-width:50%;width:50%; max-width:50%; margin:5% auto;position:relative">
+
+		<div class="containerdiv boxsizeBrd blockDisplay boxFlex1" style=" width:min-intrinsic; min-width:100%; max-width:min-intrinsic; height:auto; max-height:auto;white-space:normal;">Left-hand-column</div>
+		<div class="containerdiv boxsizeBrd blockDisplay boxFlex1" style="width:min-intrinsic; min-width:10%; max-width:min-intrinsic; white-space:normal;">
+			 Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World
+		</div>
+		<div class="containerdiv boxsizeBrd blockDisplay boxFlex1" style="width:min-intrinsic; min-width:20%; max-width:min-intrinsic; white-space:normal;max-height:auto;background:yellow">Right-hand-column</div>
+	</div>
+</body>
+
+</html>

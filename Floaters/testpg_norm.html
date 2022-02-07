@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<!-- DOCTYPES:
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//dialog">
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//floater">
+<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine 5.0//pi">
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//dialog"> 
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//floater"> 
+<!DOCTYPE HTML SYSTEM "-//Adobe//DWExtension layout-engine 10.0//pi">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/xml; charset=UTF-8">
+<meta http-equiv="Content-Type" content="application/xml; charset=UTF-8">
+-->
+<head>
+<title>TestPg</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<SCRIPT LANGUAGE="javascript" type="text/javascript;e4x=1">
+function isAvailableInCodeView(){return true;}// allows floater in both view and design screen
+
+//var scan = dreamweaver.scanSourceString("<font size=2>hello</font>");
+//alert(scan);
+//By the way, it is possible to convert an E4X object into a DOM tree and vice versa, though these are comparatively expensive operations. The function eNode2dNode performs the conversion one way, converting an E4X object into the root node of its own DOM-based document, while dNode2eNode makes the conversion in the other direction:
+//var eNode = <div> </div>;
+/*
+function eNode2dNode(eNode){ 
+    var str = eNode.toXMLString(); 
+    var doc = (new DOMParser()).parseFromString(str,"text/xml"); 
+    return doc.documentElement.cloneNode(true); 
+    }
+function dNode2eNode(dNode){
+    var str = (new XMLSerializer()).serializeToString(dNode);
+    var eNode = new XML(str);
+    return eNode;
+    }
+*/
+//eNode.node = eNode2dNode;
+//alert(dNode2eNode("<div> </div>"));
+
+ /*
+
+var eNode2dNode = function(eNode){ 
+alert(eNode.toXMLString());
+    var str = eNode.toXMLString(); 
+    var doc = (new DOMParser()).parseFromString(str,"text/xml"); 
+    return doc.documentElement.cloneNode(true); 
+    }
+var dNode2eNode = function(dNode){
+    var str = (new XMLSerializer()).serializeToString(dNode);
+    var eNode = new XML(str);
+    return eNode;
+    }
+*/
+//divNode = 
+//var tree = <t xmlns:mm="http://www.zoshe.com/1999/xhtml"></t>;
+//var tree = <t></t>;
+//tree.setLocalName("mm:holder");
+//var treeNde = <z id="a"><z id="b" nnam="helloWorld"><z id="c"><z id="d"></z></z></z>
+//<z id="e"><z id="f" nnam="helloWorld2"><z id="g"></z></z></z>
+//</z>;
+//var treeNde = <mm:treenode></mm:treenode>;
+//var x = <treenode id="fde"><treenode idd="zz"><treenode  id="zgz"><car>john</car><img  id="zz" /><img  id="zz" /></treenode></treenode></treenode>;
+//x.setName("mm:hhh");
+//x.treenode.setName("mm:hhh");
+//tree.appendChild(x);
+//tree.elements[["mm:hhh"]].@iddd="attribWorked";
+//x.setLocalName("mm:hhh");
+//var mm = Namespace("mm", "http://example.com/");
+//var name = QName(mm, "v1");
+//var same = QName("http://example.com/", "v1");
+//If more liberal matching is required, the * wildcard signifies any namespace.
+//var names = tree.hhh;
+//var names = tree.element([3]);
+//var names = tree.elements(["mm:hhh"]);
+//var read = names.toXMLString();
+//alert(tree.img.length());
+//alert(tree.descendants("mm:hhh").length());
+//alert(tree.descendants("mm:hhh").toXMLString());
+//alert(tree);
+//alert(tree.*.(@id == "zz"));
+//alert(tree.descendants("mm:hhh").*.(@id=="zz"));// attribute
+//var treelist = tree..*.(@id != null);
+//var treelist = tree..*.(@id=="zz"); //ng xmlObj.contains();
+//var treelist = tree..*.(@id=="zz"); //ng xmlObj.contains();
+//var treelist = tree.*::["img"]; //ng xmlObj.contains();
+//var treelist = tree..*.@zz; //ng xmlObj.contains();
+//var treelist = tree..*.@id..*.(@id== "zz");//ng
+//var treelist = tree..*.(XXXX && @id== "zz");
+//var treelist = tree..*.(hasOwnProperty("id") && @id== "zz");
+//var list = element.*.(@color == "brown");
+//alert(treelist);
+//var useid = "f";
+//(1==1)? alert(treeNde..*.(@id==useid).@nnam) : null;
+//(1==1)? alert(treeNde..*.(@id==useid)) : null;
+//alert(treeNde..*.(@id=="z"));
+//alert(treeNde.descendants("z").*.(@id=="f"));
+// alert( treeNde.elements(["z"])..*.(@id==useid));
+//var element = <dogs id="first" scdAt="kit">
+//                <fido id="blue"/>
+//                <spike id="black"/>
+//                <killer id="blue"/>
+//              </dogs>;
+
+//alert(element.attributes().length());
+//alert(element.attribute("scdAt"));
+
+XML.prettyPrinting = false;
+
+var element = <pets> 
+<zo id="red"> </zo> <fido id="white">XXX </fido>   <spike id="blue">    Xz </spike>   <killer id="green"> </killer>
+        </pets>;
+
+var someNode = element.spike;
+var pre = someNode.parent( ).*[someNode.childIndex( )-1]; 
+var next = someNode.parent( ).*[someNode.childIndex( )+1]; 
+  
+
+//alert(pre.toXMLString());
+//alert(next.toXMLString());
+
+//******************##################**************************
+//############# THE FOLLOWING WILL GET THE NODE &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+//%%%%% NOTE ALL ELEMENTS MUST HAVE A ID TO WORK
+//alert(element.descendants()..*.(@id== "black")[0].toXMLString()); //THIS WORKS 
+
+//alert(element.descendants("spike").(@id== "black")[0]);
+//alert(element.descendants().(@id== "black"));
+//var list = element.*.(@id== "blue");
+//var list = element.*.(@color == "brown");
+//alert(list);
+//alert(tree["mm:hhh"].length());
+//alert(tree.*.(localName=="hhh"));
+//alert(tree.*.(name()=="mm:hhh"));
+//var read = tree.*.toXMLString();
+//var read = tree.children().toXMLString();
+//alert(tree.elements(["img"]).toXMLString());
+//alert(tree.elements(["mm:hhh"]).toXMLString());
+//alert(tree.descendants("mm:hhh").toXMLString());
+//alert(tree.child("mm:hhh").toXMLString());
+//alert(tree["mm:hhh"].toXMLString());
+//alert(tree["mm:hhh"].*.length());
+//alert(tree..elements(["mm:hhh"]).length());
+//alert(tree..*.length());
+//alert(tree.length());
+//alert(tree.toXMLString());
+//alert(x.toXMLString().length);
+//alert(x.*::v1 == "value one");
+// true
+//var item:XML;
+//document.normalizeDocument();
+//var tre = createElementNS("http://www.foo.org/bar","mm:treenode");
+//alert(tre);
+//var z = "<mm:treenode> </mm:treenode>"+"<select><car><lang><img /><browsercontrol />JavaScript</lang><lang>Python</lang></car></select>";
+//var x = new XML("<mm:treecontrol xmlns:mm='http://search.yahoo.com/mrss/'>"+ z+"</mm:treecontrol>");
+//x.innerHTML="<mm:treenode></mm:treenode>";
+//x[0].appendChild(<mm:treenode></mm:treenode>);
+//alert(isXMLName("mm:Address"));
+//alert(x.toString());
+//alert(x.toXMLString());
+//var media:Namespace = new Namespace("http://search.yahoo.com/mrss/");
+//for each(item in myXML.item)
+//trace(item.media::thumbnail.@url);
+//}
+//default xml namespace = "xmlns":mm="http://www.adobe.com/2006/mxml";
+//default xml namespace = "xmlns:mm="http://www.adobe.com/2006/mxml"http://example.com/";
+//var x = <xml xmlns:mm="http://www.adobe.com/2006/mxml" />;
+//var x = <xml />;
+//var x = <xml xmlns:mm="http://www.adobe.com/test"/>;
+//alert(isXMLName("mm:treenode"));
+//alert(isXMLName("MM:BROWSERCONTROL"));
+///default xml namespace = " ";
+//x.addNamespace(["mm"]);
+//var useCode1 = <select><car><lang><img /><browsercontrol />JavaScript</lang><lang>Python</lang></car></select>;
+//x.appendChild(useCode1);
+//x.car;
+//x.toXMLString();
+//alert(x.name());
+//var div = "<img />";
+//var div = '<mm:browsercontrol id="myBrowser" style="width:100%;height:100px">';
+//alert(div);
+//var languages = <languages type="dynamic">
+//var languages = <select> </select>;
+//var useCode = "<select><car><lang>JavaScript</lang><lang>Python</lang></car></select>";
+//var languages = new XML(useCode);
+//alert(useCode.valueOf());
+//var div = <mm:browsercontrol id="myBrowser" style="width:100%;height:100px"></mm:browsercontrol>;
+//alert(div.valueOf());
+//languages.innerHTML = useCode;
+//var languages = <select>
+//<lang>JavaScript</lang>
+//  <lang>Python</lang>
+// </select>;
+//languages.lang.text()[0] = "HelloText";
+//var element1 = <foo>
+//                 <bar/>
+//              </foo>;
+//alert(languages..*.[2].parent());
+//alert(languages.car.lang[0].parent());
+//alert(languages.lang.parent());
+//var element2 = <baz/>;
+//element1.bar.appendChild(element2);
+//element1["bar"].appendChild(<quux/>);
+//alert(element1);
+//languages.@type = "helloWoo";
+//languages.@onChange="wFnctn(this,'eLib.vFN')";
+//alert(languages.@type);
+//languages.lang = <Golf><lang>JavaScript</lang><lang>Python</lang></Golf>;
+//dumpProps(XML.settings());
+//alert(XML.settings());
+//var sel =<select></select>;
+//alert(element2);
+//sel.@id = eLib.vIdn;
+//sel.setAttribute("onChange","wFnctn(this,'"+eLib.vFN+"')");
+function onResizeFtn(x){
+
+//var atts = x.attributes;
+//var str = "";
+///for (var i=0;i<atts.length;i++) {
+//str += atts[i].name + " = " + atts[i].value+ "\n";
+//}
+//alert("onResizeFtn");
+}
+
+var obj_arr = [
+  { name: 'Joe',   age: 20 },
+  { name: 'Joe',   age: 10 },
+  { name: 'Joe',   age: 30 },
+  { name: 'Joe',   age: 40 },
+  { name: 'Joe',   age: 20 },
+  { name: 'Joe',   age: 15 },
+  { name: 'Joe',   age: 35 },
+  { name: 'Joe',   age: 25 },
+  { name: 'Bill',  age: 5 },
+  { name: 'Barry', age: 20 },
+  { name: 'Paul',  age: 20 },
+  { name: 'Peter', age: 1 },
+  { name: 'Smith', age: 25 },
+  { name: 'Kary',  age: 30 }
+];
+
+bHash = [
+["_MenuArrays","m",1],
+["_About","z",3],
+["_Borders","b",1],
+["_BtnIcons","i",1],
+["_Pages","w",1],
+["_Pref","p",2],
+["_Scripts","j",1],
+["_Sites","s",1],
+["_Snipits","n",1],
+["_Templetes","t",1],
+];
+
+function buildCompareFunctionXX(arr) {
+  if (arr && arr.length > 0) {
+    return function(a,b) {
+      var asub, bsub, prop;
+      for (var i=0; i<arr.length; i++) {
+        prop = arr[i];
+        asub = a[prop];
+        bsub = b[prop];
+        if ( asub < bsub )
+          return -1;
+        if ( asub > bsub )
+          return 1;
+      }
+      return 0;
+    }
+  } else {
+    return function(a,b) { return a<=b; };
+  }
+}
+
+function buildCompareFunctionOk(arr) {
+  if (arr && arr.length > 0) {
+//alert(arr.toSource());
+    return function(a,b) {
+//alert( a.toSource() +" |||| " +b.toSource());
+//alert(typeof a);
+      var asub, bsub;
+     for each(var prop in arr) {
+ //    for(var i=0; i<arr.length; i++) {
+//alert(i);
+//alert(arr.length);
+//alert(a[prop].toSource());
+//alert(b.toSource());
+//alert( a.toSource() +" |||| " +b.toSource());
+//alert( a[prop].toSource() +" |||| " +b[prop].toSource());
+
+//       prop = arr[i];
+        asub = a[prop];
+        bsub = b[prop];
+//        asub = typeof prop == "string" && a[prop] || prop[a] ;
+//        bsub = typeof prop == "string" && a[prop] || prop[b] ;
+        if ( asub < bsub )
+          return -1;
+        if ( asub > bsub )
+          return 1;
+      }
+      return 0;
+    }
+  } else {
+    return function(a,b) { return a<=b; };
+  }
+}
+
+/* this works too
+var obj_arr1 = [];
+var obj_arr2 = [];
+var filler = [ { age: 21, name: "Larry" },
+               { age: 34, name: "Curly" },
+               { age: 10, name: "Moe" } ];
+for (var i=0; i<5000; i++) {
+  rand = Math.floor( Math.random() * 3 );
+  obj_arr1.push( filler[rand] );
+  obj_arr2.push( filler[rand] );
+}
+
+var s = new Date();
+obj_arr1.sort(function(a,b) { return a.name < b.name ? -1 : a.name > b.name ? 1 : 0; });
+var e = new Date();
+console.log(e.getTime()-s.getTime()); // => 75 ms
+*/
+
+function sortArray(arr){
+// sort array
+// ie call can be names or number
+if (arr && arr.length > 0){//if1
+return function(a,b){//ftn1
+for each(var prop in arr){//for1
+if( a[prop] < b[prop] ){return -1;}
+if( a[prop] > b[prop] ){return  1;}
+}//for1
+return 0;
+}//ftn1
+}//if1
+else{
+return function(a,b) { return a<=b; };
+}
+}
+
+function test1XX(x){
+//alert(bHash.length);
+//alert(bHash[0]);
+//bHash.sort( buildCompareFunction([2,0,2]));
+//bHash.sort();
+//bHash.sort();
+//bHash[2].sort();
+bHash.sort( sortArray([2,0,2]));
+alert(bHash.toSource());
+//obj_arr.sort( buildCompareFunction(['name','age']) );
+//alert(obj_arr.toSource());
+
+//alert(wui[0].path);
+//var atts = x.attributes;
+//var str = "";
+///for (var i=0;i<atts.length;i++) {
+//str += atts[i].name + " = " + atts[i].value+ "\n";
+//}
+//alert("onResizeFtn");
+}
+// ["b","i","j","m","n","p","s","t","w","z"]
+
+function test1(x){
+var catg = cat.sdn;
+alert(catg.toSource());
+}
+
+function buildArray(){
+// Test if the runCommand ftn can disable the alert of script is running to long.  
+
+// create a large array 
+var largeArray = [];
+for(var i=0;i<2000;i++){//fo1
+largeArray[i] = ["stacksite","widget","string","namespace","message","hello","world","Java Script is all grown up now",i];
+}//for1
+
+var largeArrayCopy = [];
+
+for(var i=0;i<2000;i++){//for1
+var arr = ["stacksite","widget","string","namespace","message","hello","world","Java Script is all grown up now",i];
+var i = 0; //count i
+var every250thObj = 250;
+for each(var obj in largeArray){//For2
+if(i==every250thObj){
+dw.runCommand("stop_js_run_alert.htm");
+every250thObj=every250thObj+250; // hack to stop the alert of script is running to long.
+}
+if(obj instanceof Array && arr.toString() == obj.toString()){
+largeArrayCopy.push(obj);
+break;
+}
+else{
+// return logError
+}
+i++;
+}//for2
+
+}//for1
+alert("Test finished");
+}
+
+//buildArray();
+
+/*
+//create a copy of the large array and force the javascript long running script alert to happen in a loop.
+var i = 0; //count i
+var every250thObj = 250;
+for each(var obj in largeArray){//ForHash
+if(i==every250thObj){
+//dw.runCommand("stop_js_run_alert.htm","hello");
+every250thObj=every250thObj+250; // hach to stops the script is running to long alert.
+}
+
+if(obj instanceof Array && obj.toString() != largeArrayCopy.toString()){
+largeArrayCopy[largeArrayCopy.length] = obj.toString();
+}
+else{
+// return logError
+}
+i++;
+}
+*/ 
+//alert("start");
+var nodezz = <treeee>XXX</treeee>;
+//create the new page input table 
+var tdSty1 = "width:100%;white-space:nowrap;text-align:left;vertical-align:center";
+var tdSty2 =  "width:1%;white-space:nowrap; text-align:left;vertical-align:center";
+var tdSty3 =  "width:99%;white-space:nowrap; text-align:left;vertical-align:center";
+var treeTop = "hello top";
+var pgTable = <table name="wdnAddWizTable" style="width:100px"></table>;
+pgTable.appendChild(<tr><td  colspan="2" style={tdSty1}>{nodezz}</td></tr>);
+pgTable.appendChild(<tr><td style={tdSty1}>{treeTop}</td><td style={tdSty3}>{treeTop}</td></tr>);
+
+//alert(pgTable.toXMLString());
+//alert(pgTable..treeee);
+//pgTable.appendChild(<tr><td  colspan="2" style={tdSty1}>{siteFolderTreeNodes}</td></tr>);
+//pgTable.appendChild(<tr><td style={tdSty1}>{"2. "+zLang._FolderFile+":"}</td><td style={tdSty3}>{newInputFileName+"/"+newSelectFileType}</td></tr>);
+//pgTable += "<tr><td "+tdSty2+" nowrap>3. "+getLangVal("_MenuName")+":</td><td "+tdSty3+">"+newInputMenuName+"</td></tr>";
+//pgTable += "<tr><td  colspan='2'"+tdSty1+">"+ newInputCancelBtn + newInputOkBtn+"</td></tr>";
+//pgTable += "</table>";
+//tree
+//var a = <a>   </a>;
+var a = <a> <b> <b> </b><b> </b><b> </b></b></a>;
+var kids = a..b;
+//kids.push(a);
+//for each(var char in kids){
+//alert(char.name())
+
+//}
+
+
+</SCRIPT>
+</head>
+<body style="margin-top:0px; width:100%;height:100%" view="testpg" >
+<!--<body style="display:block; margin-top:-30px; width:100%;height:100%" view="testpg" onResize="onResizeFtn()" >-->
+<div style="white-space:nowrap">
+<INPUT type="button" id="wuireload" value="ReLoad" onClick="dreamweaver.reloadExtensions()" />
+<INPUT type="button" id="wuitest1" value="test1" onClick="test1()" />
+<INPUT type="button" id="wuitest2" value="test2" onClick="test2()" />
+<!--<br /><textarea ></textarea><br />--><br />
+<mm:browsercontrol id="brocon" style="width:320px; height:500px;" />
+</div>
+<script>
+var browser = document.getElementById("brocon");
+var useURL = dw.getUserConfigurationPath()+"Floaters/"+"testpgbrowsercontrol.html"; 
+browser.openURL(useURL); 
+</script>
+</body>
+</html>

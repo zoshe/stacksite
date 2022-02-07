@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>arraySortOrderBug</title>
+<SCRIPT LANGUAGE="javascript" type="text/javascript">
+
+var arry = [
+["d",2],
+["b",1],
+["c",1],
+["a",1],
+];
+
+function test1(){
+arry.sort(function(a,b){return (a[0] < b[0]) ? -1 : ((a[0] > b[0]) ? 1 : 0)});
+arry.sort(function(a,b){return (a[1] < b[1]) ? -1 : ((a[1] > b[1]) ? 1 : 0)});
+document.getElementById("test1inp").value = arry.toString();
+//alert(arry.toString());
+}
+
+</SCRIPT>
+</head>
+<body style="margin-top:0px; width:100%;height:100%" view="testpg" >
+<div style="white-space:nowrap">
+<INPUT type="button" id="dwreload" value="ReLoad DW" onClick="dreamweaver.reloadExtensions()" />
+<br />
+</div>
+ARRAY SORT ORDER BUG TEST
+<hr />
+Test1 Expected Result:<br />
+a,1,b,1,c,1,d,2
+<br />
+<hr />
+Test1 Actual Result:<br />
+<input id="test1inp" type="text" value="" /><br />
+<INPUT type="button" id="test1btn" value="test1" onClick="test1()" />
+
+</body>
+</html>

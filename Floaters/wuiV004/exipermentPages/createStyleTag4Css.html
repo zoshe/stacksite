@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+   <head>
+      <title>StyleSheets</title>
+      <!--
+      as for having at least one item in 
+      the styleSheets collection..
+      this exapmle should work
+      with or without 
+      having one at the begining
+      
+      <style>
+      </style>
+      -->
+   </head>
+   <body>
+      <div>..view source, me!</div>
+   </body>
+   
+   <script>
+
+      function getObjectCss() {
+         var css = null;
+         try {
+            css = document.styleSheets[0];
+            if (!css) {
+               var head = document.getElementsByTagName("head").item(0);
+               head.appendChild(document.createElement("style"));
+               css = document.styleSheets[0];
+            }
+         } catch (ex) {
+            css = document.createStyleSheet("styles.css");
+         }
+         return css;
+      }
+
+      function changeCssRule(css, selector, rule) {
+      	if (css.insertRule) { // ff
+      		css.insertRule(""+selector+" { "+rule+" }", css.cssRules.length);
+      	} else if(css.addRule) { // ie
+            css.addRule(selector, rule);
+      	}
+      }
+
+      function init() {
+         var css = getObjectCss();
+         changeCssRule(css, "html", "overflow-y: auto;");
+         changeCssRule(css, "body", "background: black; color: lime;");
+      }
+      
+      window.onload = init;
+
+function initXX() { //this works in safari 
+    
+	var styles = document.createElement('style');
+	styles.setAttribute('type', 'text/css');
+
+
+	var newStyle = document.createTextNode('\n<!--\nbody {\nbackground-color: yellow;}\n-->\n'); 
+	styles.appendChild(newStyle);
+  
+	var headRef = document.getElementsByTagName('head')[0];
+	headRef.appendChild(styles); 
+}
+/* maybe
+var style = document.createElement('style');
+style.type = 'text/css';
+var selector = 'html';
+var properties = 'color: darkblue; background-color: lightblue';
+document.getElementsByTagName('head').item(0).appe ndChild(style);
+if (document.styleSheets) {
+var lastSheet = document.styleSheets[document.styleSheets.length - 1];
+if (lastSheet && typeof lastSheet.addRule != 'undefined') {
+lastSheet.addRule(selector, properties);
+}
+else {
+style.appendChild(document.createTextNode(selector + ' { ' +
+properties + ' }'));
+}
+}
+else {
+style.appendChild(document.createTextNode(selector + ' { ' +
+properties + ' }'));
+}
+*/
+   </script>
+</html>

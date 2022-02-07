@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>TestPg</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<SCRIPT LANGUAGE="javascript">
+//alert("start"); // start
+// can be deleted
+function buildArray(){
+// Test if the runCommand ftn can disable the alert of script is running to long.  
+//alert("hello1");
+// create a large array 
+var largeArray = [];
+for(var i=0;i<2000;i++){//fo1
+largeArray[i] = ["stacksite","widget","string","namespace","message","hello","world","Java Script is all grown up now",i];
+}//for1
+
+var largeArrayCopy = [];
+
+for(var i=0;i<1000;i++){//for1
+var arr = ["stacksite","widget","string","namespace","message","hello","world","Java Script is all grown up now",i];
+//var ii = 0; //count i
+var every250thObj = 250;
+for each(var obj in largeArray){//For2
+if(i==every250thObj){
+//dw.runCommand("stop_js_run_alert.htm");
+every250thObj=every250thObj+250; // hack to stop the alert of script is running to long.
+}
+if(arr.toString() == obj.toString()){
+//if(obj instanceof Array && arr.toString() == obj.toString()){
+largeArrayCopy.push(obj);
+break;
+}
+else{
+// return logError
+}
+}//for2
+/*
+*/
+//i++;
+}//for1
+alert("Test finished");
+}
+
+//alert("Test ");
+
+buildArray();
+
+
+</SCRIPT>
+</head>
+<body style="display:block; margin-top:-30px; width:100%;height:100%" view="testpg" >
+<div style="white-space:nowrap">
+<INPUT type="button" id="wuireload" value="ReLoad" onClick="dreamweaver.reloadExtensions()" />
+<INPUT type="button" id="wuitest1" value="test1" onClick="test1()" />
+<INPUT type="button" id="wuitest2" value="test2" onClick="test2()" />
+</div>
+</body>
+</html>

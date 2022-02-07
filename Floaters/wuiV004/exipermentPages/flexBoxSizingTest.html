@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<!-- NOTE
+As of sa4 and ff3.6 there is to many problems with the css3 flex box model to work correctly. FF min-width in % do not work. Both browsers set everything to fix layouts and and do not have a way to set it to a auto layout. It really needs a box-layout property like table-layout with the two values of fixed and auto. It also will need new width and height properties, and values for it to work correctly. A stretch and content value for width, height min-width, and min-height. It also needs a multi-value function for min( )and max( ). For exmaple min(content,30%) .
+!important
+It's actually working some what with min-width %. It all depend on what the display is set to with it's content. If text is going into the box it needs to be set the display to a display:block; otherwise the text will bleed out of the box. On widths . The min-width needs to be set to auto with a flex of 1, for anything that uses a actually size the flex needs to be set to 1. 
+-->
+
+<html class="boxsizeBrd HtWd100pcMaPaBd0">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Example: Equal Height Columns with CSS Flexible Box Layout</title>
+<style>
+*[qFx]{
+-icab-box-sizing: border-box;
+-khtml-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+Xbox-sizing: border-box;
+}
+*[qFx|="box"]{
+display: -icab-box;
+display: -khtml-box;
+display: -moz-box;
+display: -o-box;
+display: -webkit-box;
+display: -Xbox-box;
+display: box;
+}
+*[qFx|="block"]{
+display: block;
+}
+*[qFx|="hort"]{
+-icab-box-orient: horizontal;
+-khtml-box-orient: horizontal;
+-moz-box-orient: horizontal;
+-o-box-orient: horizontal;
+-moz-box-orient: horizontal;
+-webkit-box-orient: horizontal;
+-Xbox-box-orient: horizontal;
+box-orient: horizontal;
+}
+*[qFx|="vert"]{
+-icab-box-orient: vertical;
+-khtml-box-orient: vertical;
+-moz-box-orient: vertical;
+-o-box-orient: vertical;
+-moz-box-orient: vertical;
+-webkit-box-orient: vertical;
+-Xbox-box-orient: vertical;
+box-orient: vertical;
+}
+
+.container {
+	display: -moz-inline-box;
+	display: -webkit-inline-box;
+	-moz-box-align: stretch;
+	-webkit-box-align: stretch;
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+}
+.containerdiv {
+	border: 1px #666666 solid;
+	margin: 0px; 
+	padding: 10px;
+
+}
+
+
+.boxsizeBrd{
+Xbox-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.HtWd100pcMaPaBd0{
+     height:    100%;
+     width:     100%;
+     margin:   0px;
+      border:   0px;
+      padding: 0px;
+}
+
+.Ht100pcWdAutoMaPaBd0{
+     height:    100%;
+     width:      auto;
+     margin:   0px;
+      border:   0px;
+      padding: 0px;
+}
+.HtAutoWd100pcMaPaBd0{
+     height:    auto;
+     width:      100%;
+     margin:   0px;
+      border:   0px;
+      padding: 0px;
+}
+
+.boxDisplay {
+	display: -webkit-box; 
+	    display: -moz-box; 
+	             display: box;
+}
+.blockDisplay {
+	display: block; 
+}
+.inlineBoxDisplay {
+	display: -webkit-inline-box;
+	   display: -moz-inline-box;
+	            display: inline-box;
+}
+.inlinetableDisplay {
+	display: inline-table;
+}
+.tableDisplay {
+	display: table;
+}
+.inlineTableDisplay{
+	display: inline-table;
+}
+compactDisplay{
+	display: -moz-compact;
+}
+
+
+.boxFlex0 {
+	-webkit-box-flex: 0;
+    	-moz-box-flex: 0;
+                 box-flex: 0;
+}
+.boxFlex1 {
+	-webkit-box-flex: 1;
+	   -moz-box-flex: 1;
+	            box-flex: 1;
+}
+.boxFlex2 {
+	-webkit-box-flex: 2;
+    	-moz-box-flex: 2;
+	             box-flex: 2;
+}
+.boxFlex3 {
+	-webkit-box-flex: 3;
+	   -moz-box-flex: 3;
+	            box-flex: 3;
+}
+.boxFlex4 {
+	-webkit-box-flex: 4;
+	   -moz-box-flex: 4;
+	            box-flex: 4;
+}
+.boxFlex5 {
+	-webkit-box-flex: 5;
+	   -moz-box-flex: 5;
+	            box-flex: 5;
+}
+.boxFlex6 {
+	-webkit-box-flex: 6;
+	   -moz-box-flex: 6;
+	            box-flex: 6;
+}
+.boxFlexp33 {
+	-webkit-box-flex: .33;
+	   -moz-box-flex: .33;
+	            box-flex: .33;
+}
+
+
+.boxGroup1 {
+	-webkit-box-flex-group: 1;
+    	-moz-box-flex-group: 1;
+	             box-flex-group: 1;
+}
+.boxGroup2 {
+	-webkit-box-flex-group: 2;
+	   -moz-box-flex-group: 2;
+	            box-flex-group: 2;
+}
+
+
+.axisBoxOrient{
+-webkit-box-orient: block-axis;
+	-moz-box-orient: block-axis;
+              box-orient:block-axis;
+}
+.hBoxOrient{
+-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+             box-orient: horizontal;
+}
+.vBoxOrient{
+-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+              box-orient:vertical;
+}
+
+
+.boxalignStart{
+-webkit-box-align: start;
+	-moz-box-align: start;
+	         box-align: start;
+}
+.boxalignCenter{
+-webkit-box-align: center;
+	-moz-box-align: center;
+	         box-align: center;
+}
+.boxalignEnd{
+-webkit-box-align: end;
+	-moz-box-align: end;
+	         box-align: end;
+}
+.boxalignStretch{
+-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	         box-align: stretch;
+}
+
+
+.boxpackStart {
+	-webkit-box-pack: start;
+	    -moz-box-pack: start;
+	             box-pack: start;
+}
+.boxpackEnd {
+	-webkit-box-pack: end;
+	    -moz-box-pack: end;
+	             box-pack: end;
+}
+.boxpackCenter { 
+	-webkit-box-pack: center;
+    	-moz-box-pack: center;
+	             box-pack: center;
+}
+.boxpackJustify {
+	-webkit-box-pack: justify;
+	    -moz-box-pack: justify;
+	             box-pack: justify;
+}
+
+
+.boxsizeBrd{
+box-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.WdAuto{
+width: auto;
+}
+.Wd50pc{
+width: 50%;
+}
+.minWdAuto{
+width: auto;
+}
+.Ht100pc{
+height: 100%;
+}
+.Ht50pc{
+height: 50%;
+}
+
+.tableRow{
+display: table-row;
+}
+.tableCell{
+display: table-cell;
+}
+
+.outerDivMoz{
+}
+.outerDivWebX{
+display: -webkit-box;
+}
+
+.containerMoz{
+display: -moz-inline-box;
+}
+.containerWeb{
+display: -webkit-box;
+}
+
+.containerdiv{
+background:green;
+}
+*[fx*=hov]:hover{
+background:red;
+}
+
+.resizeboth{
+  resize: horizontal;
+   overflow: hidden;
+}
+
+.bordRad10{
+border:#000000 solid 3px;-webkit-border-radius:10px 10px;-moz-border-radius:10px 10px;border-radius:10px 10px;
+}
+</style>
+</head>
+<script>
+/*
+(elm)        box-sizing:       boxsizeBrd      boxsizeMar
+(elm)        display:            boxDisplay      blockDisplay       inlineBoxDisplay tableDisplay       inlineTableDisplay tableCell tableRow compactBox
+(elm)        box-orient:       axisBoxOrient  hBoxOrient        vBoxOrient
+(elm)        box-align:         boxalignStart   boxalignCenter  boxalignEnd        boxalignStretch
+(elm)        box-pack:         boxpackStart   boxpackCenter  boxpackEnd        boxpackJustify
+(chd)        box-flex:           boxFlex0          boxFlex            boxFlex1             boxFlex2            boxFlex3
+(chd)        box-flex-group: boxFlex0          boxFlex             boxFlex1             boxFlex2           boxFlex3 boxFlex4 boxFlex5 boxFlex6 boxFlexp33
+(elm)        margin-start:     marstartAuto
+(elm)        margin-end:      marendAuto
+misc styling classes for testing: brdRadTestBlk HtWd100pcMaPaBd0 Ht100pcWdAutoMaPaBd0 HtAutoWd100pcMaPaBd0 WdAuto Wd50pc Wd100pc minWdAuto Ht50pc Ht100pc resizeboth
+boxDisplay hBoxOrient Ht100pcWdAutoMaPaBd0 containerMoz containerWeb
+<div class="outerDiv boxsizeBrd" style="max-width: 80%; height:100%; margin:0px auto; background:pink;">
+</div> 
+	<div class="boxsizeBrd boxDisplay vBoxOrient boxFlex1" style="background:blue; min-height:auto; height:auto; max-height:auto; min-width:auto;width:auto; max-width:auto;position:relative">X
+cursor: pointer
+<div class="q6cScrollBtn menuScrollBtn boxsizeBrd boxDisplay" style="z-index: 2; display:none; bottom:0px; position:relative" id="q6scob2">▼ XXXXXX</div>
+*/
+</script>
+
+<body class="boxsizeBrd HtWd100pcMaPaBd0" style="background:white;">
+	<div id="out" class="boxsizeBrd boxDisplay vBoxOrient" style="position:absolute; top:20px; left:100px; bottom:0px; background:blue; min-height:auto; height:auto; max-height:auto; min-width:auto;width:auto; max-width:auto;border:#000000 solid 5px;overflow:hidden;border-right:#000000 solid 15px;overflow:hidden">
+
+		<div class="boxsizeBrd boxDisplay" style=" width:auto; min-width:auto; max-width:auto; height:auto; max-height:auto;white-space:normal;max-height:auto;position:absolute;left:0px;right:0px;top:0px;background:red;margin:0px; z-index:300">up</div>
+		<div class="boxsizeBrd boxDisplay" style=" width:auto; min-width:auto; max-width:auto; height:auto; max-height:auto;white-space:normal;max-height:auto;position:absolute;left:0px;right:0px;bottom:0px;background:orange; z-index:300">V</div>
+
+<div id="holdDiv" class="boxsizeBrd boxDisplay vBoxOrient" style=" width:auto; min-width:auto; max-width:auto; height:100px; min-height:auto; max-height:auto; position:relative;left:0px;right:0px;bottom:0px; background:yellow;margin:0px;overflow:hidden">
+
+
+
+<!--
+<div id="" class="boxsizeBrd boxDisplay vBoxOrient" style=" width:auto; min-width:auto; max-width:auto; height:auto; min-height:auto; max-height:auto; white-space:normal;background:yellow;">
+-->
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh00</a>
+<hr class="boxsizeBrd boxDisplay" style="margin:0px;" />
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh24</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh25</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh26</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh27</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh28</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh29</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh30</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh31</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh32</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh33</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh34</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh35</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhh36</a>
+<a zs="notUsed" style="background:orange;" class="boxsizeBrd boxDisplay ">hhhhLast</a>
+<!--
+</div>
+-->
+</div>
+<!--
+-->
+	</div>
+<!--
+<div style="display: block; background:pink " id="qbodymen">
+<div style="position:absolute; top:20px; left:200px; background:green; overflow:hidden; padding:10px; width:auto; height:auto;max-height:auto;" class="boxsizeBrd boxDisplay hBoxOrient bordRad10">
+<div id="q6iq1m0m" style="background:yellow; height:100%; overflow-y:hidden; max-height:100%;" class="boxsizeBrd boxDisplay vBoxOrient" trace="groupBox">
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh00</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh24</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh25</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh26</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh27</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh28</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh29</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh30</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh31</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh32</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh33</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh34</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh35</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh36</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhhLast</a>
+</div>
+<div style=" min-height:100%; height:100%; max-height:100%; margin-top:0%;background:grey" class="boxsizeBrd boxDisplay vBoxOrient">
+<div class="boxsizeBrd boxDisplay boxFlex0" style="z-index: 2; min-height:auto; background:blue">▲</div>
+<div class="boxsizeBrd blockDisplay boxFlex1" style="z-index: 2; min-height:100%;height:100%; background:transparent">xxx</div>
+<div class="boxsizeBrd boxDisplay boxFlex0" style="z-index: 2; min-height:auto; background:blue">▼ XXXXXX</div>
+</div>
+</div>
+</div>
+-->
+<!--
+<div style="display: block; background:pink " id="qbodymen">
+<div style="; position:absolute; top:20px; left:200px; background:green; overflow:hidden; padding:10px; height:100px;bottom:auto;max-height:auto;-webkit-margin-collapse:separate;" zs="q6cmenuBox" class="menuBlock boxsizeBrd inlineBoxDisplay vBoxOrient" id="q6bodymen2">
+<div class="q6cScrollBtn menuScrollBtn boxsizeBrd boxDisplay" style="z-index: 2; display:none" id="q6scot2">▲</div>
+<div class="q6cScrollBtn menuScrollBtn boxsizeBrd boxDisplay" style="z-index: 2; display:none; bottom:0px; position:relative" id="q6scob2">▼ XXXXXX</div>
+inlineBoxDisplay
+<div id="q6iq1m0m" style="margin-top:-20px;background:yellow; -webkit-margin-collapse:separate;top:0px;height:75px;position:relative" class="qDmnuSubSizer menuselect boxsizeBrd inlineBoxDisplay vBoxOrient" trace="groupBox">
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh23</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh23</a>
+<a zs="notUsed" href="OFF" id="q6iq1m0m0" style="background:orange;" class="boxsizeBrd boxDisplay"> hhhh23</a>
+</div>
+</div>
+</div>
+-->
+<!--
+-->
+<!--<div id="q6bodymen2holderdiv" class="qDmnuSubSizer holder">-->
+<!--</div>-->
+<!--
+	<div class="boxsizeBrd boxDisplay" style="background:blue;">
+
+		<div href="a_elm_around_div_test.html" class="containerdiv boxsizeBrd blockDisplay boxFlex1" style=" width:auto; max-width:auto; height:auto; max-height:auto;white-space:normal;">Left-hand-column</div>
+		<div class="containerdiv boxsizeBrd blockDisplay boxFlex1" fx="hovp" style="width:50%; min-width:50%; max-height:auto; white-space:normal;">
+			 Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World Hello World
+		</div>
+		<div class="containerdiv boxsizeBrd blockDisplay boxFlex1" style="width:50%; min-width:50%; white-space:normal;max-height:auto;">Right-hand-column</div>
+	</div>
+-->
+<script>
+var elm = document.getElementById("holdDiv");
+//alert(window.getComputedStyle(elm,null).borderRightWidth);
+//alert(window.getComputedStyle(elm,null).getPropertyValue("borderBottomWidth"));
+//alert(elm.offsetHeight);
+elm.scrollTop = "200";
+//alert(elm.scrollTop);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>TestPg</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<SCRIPT LANGUAGE="javascript" type="text/javascript">
+//alert("hello1");
+/*
+
+bHash = [
+["_MenuArrays","m",1],
+["_About","z",3],
+["_Borders","b",1],
+["_BtnIcons","i",1],
+["_Pages","w",1],
+["_Pref","p",2],
+["_Scripts","j",1],
+["_Sites","s",1],
+["_Snipits","n",1],
+["_Templetes","t",1],
+];
+
+function buildCompareFunctionXX(arr) {
+  if (arr && arr.length > 0) {
+    return function(a,b) {
+      var asub, bsub, prop;
+      for (var i=0; i<arr.length; i++) {
+        prop = arr[i];
+        asub = a[prop];
+        bsub = b[prop];
+        if ( asub < bsub )
+          return -1;
+        if ( asub > bsub )
+          return 1;
+      }
+      return 0;
+    }
+  } else {
+    return function(a,b) { return a<=b; };
+  }
+}
+*/
+/*
+
+function buildCompareFunctionOk(arr) {
+  if (arr && arr.length > 0) {
+//alert(arr.toSource());
+    return function(a,b) {
+//alert( a.toSource() +" |||| " +b.toSource());
+//alert(typeof a);
+      var asub, bsub;
+     for each(var prop in arr) {
+ //    for(var i=0; i<arr.length; i++) {
+//alert(i);
+//alert(arr.length);
+//alert(a[prop].toSource());
+//alert(b.toSource());
+//alert( a.toSource() +" |||| " +b.toSource());
+//alert( a[prop].toSource() +" |||| " +b[prop].toSource());
+
+//       prop = arr[i];
+        asub = a[prop];
+        bsub = b[prop];
+//        asub = typeof prop == "string" && a[prop] || prop[a] ;
+//        bsub = typeof prop == "string" && a[prop] || prop[b] ;
+        if ( asub < bsub )
+          return -1;
+        if ( asub > bsub )
+          return 1;
+      }
+      return 0;
+    }
+  } else {
+    return function(a,b) { return a<=b; };
+  }
+}
+*/
+/* this works too
+var obj_arr1 = [];
+var obj_arr2 = [];
+var filler = [ { age: 21, name: "Larry" },
+               { age: 34, name: "Curly" },
+               { age: 10, name: "Moe" } ];
+for (var i=0; i<5000; i++) {
+  rand = Math.floor( Math.random() * 3 );
+  obj_arr1.push( filler[rand] );
+  obj_arr2.push( filler[rand] );
+}
+
+var s = new Date();
+obj_arr1.sort(function(a,b) { return a.name < b.name ? -1 : a.name > b.name ? 1 : 0; });
+var e = new Date();
+console.log(e.getTime()-s.getTime()); // => 75 ms
+*/
+/*
+function sortArray(arr){
+// sort array
+// ie call can be names or number
+if (arr && arr.length > 0){//if1
+return function(a,b){//ftn1
+for each(var prop in arr){//for1
+if( a[prop] < b[prop] ){return -1;}
+if( a[prop] > b[prop] ){return  1;}
+}//for1
+return 0;
+}//ftn1
+}//if1
+else{
+return function(a,b) { return a<=b; };
+}
+}
+*/
+/*
+function test1XX(x){
+//alert(bHash.length);
+//alert(bHash[0]);
+//bHash.sort( buildCompareFunction([2,0,2]));
+//bHash.sort();
+//bHash.sort();
+//bHash[2].sort();
+bHash.sort( sortArray([2,0,2]));
+alert(bHash.toSource());
+//obj_arr.sort( buildCompareFunction(['name','age']) );
+//alert(obj_arr.toSource());
+
+//alert(wui[0].path);
+//var atts = x.attributes;
+//var str = "";
+///for (var i=0;i<atts.length;i++) {
+//str += atts[i].name + " = " + atts[i].value+ "\n";
+//}
+//alert("onResizeFtn");
+}
+// ["b","i","j","m","n","p","s","t","w","z"]
+*/
+
+var obj_arr = [
+  { name: 'Joe1',   age: 20 },
+  { name: 'Joe',   age: 10 },
+  { name: 'Joe',   age: 30 },
+  { name: 'Joe',   age: 40 },
+  { name: 'Joe',   age: 20 },
+  { name: 'Joe',   age: 15 },
+  { name: 'Joe',   age: 35 },
+  { name: 'Joe',   age: 25 },
+  { name: 'Bill',  age: 5 },
+  { name: 'Barry', age: 20 },
+  { name: 'Paul',  age: 20 },
+  { name: 'Peter', age: 1 },
+  { name: 'Smith', age: 25 },
+  { name: 'Kary',  age: 30 },
+];
+
+var rrr = "hello";
+function test1(x){
+alert(JSON);
+//alert(obj_arr[0].toSource()); 
+//alert(JSON.stringify(obj_arr));
+//alert(obj_arr[0].toXMLString());
+//alert(obj_arr[0].toString(16));
+//alert(rrr.toSource());
+//alert(obj_arr[0].age);
+//alert(obj_arr.length);
+}
+//alert("hello1");
+</SCRIPT>
+</head>
+<body style="margin-top:0px; width:100%;height:100%" view="testpg" >
+<div style="white-space:nowrap">
+<INPUT type="button" id="wuitest1" value="test1" onClick="test1()" />
+<INPUT type="button" id="wuitest2" value="test2" onClick="test2()" />
+<br />
+</div>
+</body>
+</html>

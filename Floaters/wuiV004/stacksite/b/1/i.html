@@ -1,0 +1,128 @@
+<!--<!DOCTYPE HTML SYSTEM "-//Macromedia//DWExtension layout-engine5.0//floater">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+function testChange(){
+window.location = "";
+}
+</script>
+<style>
+.borderImage{margin:0px;padding:0px;width:40em; height:10em; background:none;
+border-width: 0 5 0 5;
+-webkit-border-image: url(toolButton.png) 0 5 0 5 stretch stretch;
+-moz-border-image: url(toolButton.png) 0 5 0 5 stretch stretch;
+-webkit-background-origin: padding;
+-webkit-background-clip: padding;
+-webkit-border-top-left-radius:     2em 2em;
+-webkit-border-top-right-radius:    1em 3em;
+-webkit-border-bottom-right-radius: 4em 0.5em;
+-webkit-border-bottom-left-radius:  1em 3em;
+overflow:hidden;
+
+ }
+.borderImage1{margin:0px;padding:0px;width:20em; height:10em; background:none;
+/*border-width: 5px;*/
+-webkit-border-image: url(tab.png) 0 0 0 0 stretch stretch;
+-moz-border-image: url(tab.png) 0 5 0 5 stretch stretch;
+/*
+-webkit-border-top-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-right-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-bottom-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-left-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-top-left-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-top-right-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-bottom-left-image: url(tab.png) 0 5 0 5 stretch stretch;
+-webkit-border-bottom-right-image: url(tab.png) 0 5 0 5 stretch stretch;
+*/
+ }
+#outer { 
+/*position: absolute; 
+left:0; 
+right:0; */
+margin:0 0; /*left,right,margin look convoluted, but centre */ 
+bottom: 24px; 
+width:20%; /*a percentage to allows for expansion */ 
+height: auto; 
+padding: 5px 5px; 
+border: 2px solid rgba(225, 225, 225, 0.6); 
+background-color: rgba(200, 200, 200 0.6); 
+background-image: -webkit-gradient(linear, left top, left bottom, 
+from(rgba(225, 225, 225, 0.6)), to(rgba(180, 180, 180, 0.6)));
+/*-webkit-border-image: url(toolButton.png) 0 5 0 5 stretch stretch;*/
+border-radius: 16px; 
+-moz-border-radius: 16px; 
+-webkit-border-radius: 16px; 
+-o-border-radius: 16px; 
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+/*-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */ 
+-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+-o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+#jocsee{
+height:10em;
+/*background: #9499b0;*/
+background-image: -webkit-gradient(linear, left top, left bottom, 
+from(rgba(225, 225, 225, 0.6)), to(rgba(180, 180, 180, 0.6)));
+/*
+border-top: 1px solid #67788c;
+color: white;
+background: -webkit-gradient(linear, left top, left bottom, from(#8092a5), to(#415a73));
+/* i don't think this will be needed
+
+-webkit-background-origin: border;
+-Xwebkit-border-radius: 3em 3em;
+*/
+-webkit-background-origin: border;
+-webkit-background-clip: border;
+-webkit-border-top-left-radius:     2em 2em;
+-webkit-border-top-right-radius:    1em 3em;
+-webkit-border-bottom-right-radius: 4em 0.5em;
+-webkit-border-bottom-left-radius:  1em 3em;
+overflow:hidden;
+width:100%;
+border: 5px solid #67788c;
+
+/*display:inline-table;*/
+}
+#rrrr{
+background:green;
+/*
+height:10em;
+-webkit-border-top-left-radius:     2em 0.5em;
+-webkit-border-top-right-radius:    1em 3em;
+-webkit-border-bottom-right-radius: 4em 0.5em;
+-webkit-border-bottom-left-radius:  1em 3em;
+-webkit-overflow:hidden;
+overflow:hidden;
+*/
+}
+div.resize {
+	width: 100px;
+	height: 100px;
+	border: 1px solid;
+	resize: both;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+<div class="resize">xxxxx</div>
+<treecontrol name="sdnTreeElm" style="width:100%;height:50%" sdnSel="" nName="" onChange="wFnctn(this,'sdnOnChange(')">
+<TREECOLUMN name="sdnColumn1" width="50%" state="visible" value="Sites">
+<TREECOLUMN name="sdnColumn2" width="50%" state="visible" value="_">
+</treecontrol>
+XXXXXXXXXX<br />
+<div id="jocsee" style="-webkit-overflow:hidden">
+Hello
+<div id="rrrr">Hello</div>
+</div>
+<hr />
+<div class="borderImage">
+</div>
+<div class="borderImage1">
+</div>
+</body>
+</html>

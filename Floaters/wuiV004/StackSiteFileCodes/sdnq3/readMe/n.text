@@ -1,0 +1,6 @@
+Name
+(this is normally the name the user would gives it, but instead it uses the name that was created in the site manager)
+Note if I can figure out how to change the site name then I'll add it as a feature
+
+dn.nVersion + "StackSite"
+(current program version Number)+(the StackSite Name)

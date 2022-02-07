@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+/* 11-29-02 */
+function timer(f) {
+return function( ) {
+//alert(x);
+var n1 = new Date();
+f( ); // do something here
+return new Date() - n1;
+};
+}
+
+function m(n) {
+var b = new Array(n), i = 0;
+/* in actuality I would like to do b = [] */
+do {
+b[i] = ++i;
+} while (i < n);
+return b;
+}
+function w(n) {
+var i=0, b = t;
+do {
+b[i] += n;
+} while (++i < n);
+}
+
+N = 1000000;
+function MM() {
+var i=1, r = N / 1000;
+t = m(r);
+do {
+document.write(t.join(' '), '\n');
+w(r);
+i += r;
+} while (i <= N);
+}
+//alert(MM);
+
+c = timer(MM);
+document.write('<p>', c(), '</p>');
+</script>
+</body>
+</html>

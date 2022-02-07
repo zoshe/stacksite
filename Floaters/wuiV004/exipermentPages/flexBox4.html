@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="boxsizeBrd SzHtWd100MaPaBd0" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Example: Equal Height Columns with CSS Flexible Box Layout</title>
+<style>
+
+.container {
+	display: -moz-inline-box;
+	display: -webkit-inline-box;
+	-moz-box-align: stretch;
+	-webkit-box-align: stretch;
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+}
+.containerdiv {
+	border: 1px #666666 solid;
+	margin: 5px; 
+	padding: 10px;
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+}
+
+
+.boxsizeBrd{
+Xbox-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.SzHtWd100MaPaBd0{
+     height:100%;
+      width:100%;
+       margin:0px;
+        border:0px;
+      padding:0%;
+}
+
+
+.boxDisplay {
+	display: -webkit-box; 
+	    display: -moz-box; 
+	             display: box;
+}
+.blockDisplay {
+	display: block; 
+}
+.inlineBoxDisplay {
+	display: -webkit-inline-box;
+	   display: -moz-inline-box;
+	            display: inline-box;
+}
+.inlinetableDisplay {
+	display: inline-table;
+}
+.tableDisplay {
+	display: table;
+}
+.inlineTableDisplay{
+	display: inline-table;
+}
+
+
+.boxFlex0 {
+	-webkit-box-flex: 0;
+    	-moz-box-flex: 0;
+                 box-flex: 0;
+}
+.boxFlex1 {
+	-webkit-box-flex: 1;
+	   -moz-box-flex: 1;
+	            box-flex: 1;
+}
+.boxFlex2 {
+	-webkit-box-flex: 2;
+    	-moz-box-flex: 2;
+	             box-flex: 2;
+}
+.boxFlex3 {
+	-webkit-box-flex: 3;
+	   -moz-box-flex: 3;
+	            box-flex: 3;
+}
+
+
+.boxGroup1 {
+	-webkit-box-flex-group: 1;
+    	-moz-box-flex-group: 1;
+	             box-flex-group: 1;
+}
+.boxGroup2 {
+	-webkit-box-flex-group: 2;
+	   -moz-box-flex-group: 2;
+	            box-flex-group: 2;
+}
+
+
+.axisBoxOrient{
+-webkit-box-orient: block-axis;
+	-moz-box-orient: block-axis;
+              box-orient:block-axis;
+}
+.hBoxOrient{
+-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+             box-orient: horizontal;
+}
+.vBoxOrient{
+-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+              box-orient:vertical;
+}
+
+
+.boxalignStart{
+-webkit-box-align: start;
+	-moz-box-align: start;
+	         box-align: start;
+}
+.boxalignCenter{
+-webkit-box-align: center;
+	-moz-box-align: center;
+	         box-align: center;
+}
+.boxalignEnd{
+-webkit-box-align: end;
+	-moz-box-align: end;
+	         box-align: end;
+}
+.boxalignStretch{
+-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	         box-align: stretch;
+}
+
+
+.boxpackStart {
+	-webkit-box-pack: start;
+	    -moz-box-pack: start;
+	             box-pack: start;
+}
+.boxpackEnd {
+	-webkit-box-pack: end;
+	    -moz-box-pack: end;
+	             box-pack: end;
+}
+.boxpackCenter { 
+	-webkit-box-pack: center;
+    	-moz-box-pack: center;
+	             box-pack: center;
+}
+.boxpackJustify {
+	-webkit-box-pack: justify;
+	    -moz-box-pack: justify;
+	             box-pack: justify;
+}
+
+
+.boxsizeBrd{
+box-sizing: border-box; -o-box-sizing: border-box; -icab-box-sizing: border-box; -khtml-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+
+</style>
+</head>
+<!-- classes 
+misc styling classes for testing: brdRadTestBlk SzHtWd100MaPaBd0
+
+(elm)        box-sizing:   boxsizeBrd      boxsizeMar
+(elm)        display:        boxDisplay      blockDisplay       inlineBoxDisplay tableDisplay       inlineTableDisplay
+(elm)        box-orient:   axisBoxOrient  hBoxOrient        vBoxOrient
+(elm)        box-align:     boxalignStart   boxalignCenter  boxalignEnd        boxalignStretch
+(chd)        box-pack:     boxpackStart   boxpackCenter  boxpackEnd        boxpackJustify
+(elmChd) box-flex:       boxFlex0          boxFlex              boxFlex1             boxFlex2           boxFlex3
+(elm)       margin-start: marstartAuto
+(elm)       margin-end:  marendAuto
+
+--> 
+<body class="boxsizeBrd SzHtWd100MaPaBd0" style="background:white">
+<div class="outerDiv boxsizeBrd" style="width: 80%; margin: 0px auto;">
+	<div class="container boxsizeBrd" style="">
+		<div class="containerdiv" style="">Left-hand-column</div>
+		<div class="containerdiv" style="">
+			Lorem ipsum WWWWW dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br /><br />
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div class="containerdiv" style="">Right-hand-column</div>
+	</div>
+</div>
+</body>
+</html>

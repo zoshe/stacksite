@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body>
+XXX
+<script>
+var obj_arr = {
+  col1:{ name: 'Joe',   age: 20 },
+  col2:{ name: 'Joe',   age: 10 },
+  col3:{ name: 'Smith',   age: 30 },
+  col4:{ name: 'Paul',   age: 40 },
+  col5:{ name: 'Kary',   age: 20 },
+  col6:{ name: 'Bill',   age: 15 },
+  col7:{ name: 'Barry',   age: 35 },
+  col8:{ name: 'Peter',   age: 25 },
+};
+
+var obj_arr2 = [
+  { name: 'Joe',   age: 20 },
+  { name: 'Joe',   age: 10 },
+  { name: 'Smith',   age: 30 },
+  { name: 'Paul',   age: 40 },
+  { name: 'Kary',   age: 20 },
+  { name: 'Bill',   age: 15 },
+  { name: 'Barry',   age: 35 },
+  { name: 'Peter',   age: 25 },
+];
+
+bHash = [
+["_MenuArrays","m",1],
+["_Borders","b",1],
+["_BtnIcons","i",1],
+["_Pages","w",1],
+["_Pref","p",2],
+["_Scripts","j",1],
+["_Sites","s",1],
+["_Snipits","n",1],
+["_Templetes","t",1],
+["_About","z",3],
+];
+
+function sortByFirstName(a, b) {
+    var x = a[sortByFirstName.sortBy].toLowerCase();
+    var y = b.name.toLowerCase();
+//    var x = a[sortByFirstName.sortBy].toLowerCase();
+//    var y = b[sortByFirstName.sortBy].toLowerCase();
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+}
+sortByFirstName.sortBy = "name";
+obj_arr2.sort(sortByFirstName);
+//alert(obj_arr.length);
+//alert(SerializeObject(obj_arr)," ");
+//for(var line in obj_arr){
+//alert(SerializeObject(obj_arr[2])," ");
+//}
+
+for(var line in obj_arr){
+alert(SerializeObject(obj_arr[line])," ");
+}
+
+//bHash.sort();
+//alert(SerializeObject(bHash)," ");
+//sort(sortArray([2,0,2]));
+/*
+
+function sortArray(arr){
+// sort array
+// ie call can be names or number
+// Ftn attributes: 
+//1. arr = should be an array in [] brackets.  Each value in this array
+// should be in the order of importance of the array it is sorting.
+// ie if arr = [1,0] Then the "1" repersents the second values of the array it's sorting,
+// and 0 repersents the first value of the array it's sorting. Since the second values(1) come first
+// it will sort the second values first, and the first values last.  The order can be changed around
+// and there is no restriction on how many values in the array it is sorting, or which ones you wish to
+// exclude. ie if u wish to sort and array with 4 values and want to sort the 4th values first and second last
+// then arr = [3,1] 
+if (arr && arr.length > 0){//if1
+return function(a,b){//ftn1
+for each(var prop in arr){//for1
+if( a[prop] < b[prop] ){return -1;}
+if( a[prop] > b[prop] ){return  1;}
+}//for1
+return 0;
+};//ftn1
+}//if1
+else{
+return function(a,b) { return a<=b; }
+}
+}
+
+//alert("hello");
+//var arr1 = [];
+//var arr1 = [];
+//var arr1 = [["c",3],["b",2],["a",2]];
+//arr1.sort();
+//alert(arr1.toSource());
+alert(obj_arr.toString());
+*/
+
+function SerializeObject(obj, indentValue)
+{
+  var hexDigits = "0123456789ABCDEF";
+  function ToHex(d)
+  {
+    return hexDigits[d >> 8] + hexDigits[d & 0x0F];
+  }
+  function Escape(string)
+  {
+    return string.replace(/[\x00-\x1F'\\]/g,
+        function (x)
+        {
+          if (x == "'" || x == "\\") return "\\" + x;
+          return "\\x" + ToHex(String.charCodeAt(x, 0));
+        })
+  }
+
+  var indent;
+  if (indentValue == null)
+  {
+    indentValue = "";
+    indent = ""; // or " "
+  }
+  else
+  {
+    indent = "\n";
+  }
+  return GetObject(obj, indent).replace(/,$/, "");
+
+  function GetObject(obj, indent)
+  {
+    if (typeof obj == 'string')
+    {
+      return "'" + Escape(obj) + "',";
+    }
+    if (obj instanceof Array)
+    {
+      result = indent + "[";
+      for (var i = 0; i < obj.length; i++)
+      {
+        result += indent + indentValue +
+            GetObject(obj[i], indent + indentValue);
+      }
+      result += indent + "],";
+      return result;
+    }
+    var result = "";
+    if (typeof obj == 'object')
+    {
+      result += indent + "{";
+      for (var property in obj)
+      {
+        result += indent + indentValue + "'" +
+            Escape(property) + "' : " +
+            GetObject(obj[property], indent + indentValue);
+      }
+      result += indent + "},";
+    }
+    else
+    {
+      result += obj + ",";
+    }
+    return result.replace(/,(\n?\s*)([\]}])/g, "$1$2");
+  }
+}
+
+</script>
+</body>
+</html>

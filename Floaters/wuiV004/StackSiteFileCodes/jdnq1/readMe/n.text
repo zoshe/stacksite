@@ -1,0 +1,4 @@
+Name
+(this is the name the Author gives this Item, which is stored in the the item's Lib)
+dn.nVersion + "StackSite"
+(current program version Number)+(the StackSite Name)

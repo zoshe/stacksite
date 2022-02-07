@@ -1,0 +1,4 @@
+
+Just a HTML file/ with a b.vtm file seems to be the only thing that is needed to work on the b element. .js files don't update links if the User has don't rewrite code in .js files is set in the prefence setting of dreamweaver. HTML file work fine as javascript files. So any javascript files that need links updated should use a .html 
+
+I left a lot of files here, but they all can go eccept the b.vtm in the HTML folder. Custom elements don't work in some browsers so, that is why the b element is being use. Also the p element did not work either.

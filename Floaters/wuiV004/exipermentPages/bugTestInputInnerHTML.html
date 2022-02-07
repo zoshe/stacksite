@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>bug with caret in string</title>
+<script>
+function alertTest(){
+var inputElm = document.getElementById("element1");
+alert(inputElm.innerHTML);
+}
+</script>
+</head>
+<body>
+Step 1. Type in "hello world"(with out the qoutes) in the input field below:
+<br />
+<div id="element1"><input  type="text" value=" " /></div>
+<br />
+Step 2. Click on the Test button below: 
+<br />
+<input type="button" value="Test" onClick="alertTest()" />
+<br />
+Results:
+An alert box should popup and display a string of the html input element you typed in "hello world".
+This input element's attribute "value" has no value (ie value="") , it should have a value of hello world. (ie value="hello world")   
+</body>
+</html>

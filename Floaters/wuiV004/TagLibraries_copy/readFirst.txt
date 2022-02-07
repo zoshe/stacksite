@@ -1,0 +1,2 @@
+ZX link is using the HTML/b.vtm to add this attribute to the app's main config 
+I try some but I could not get it to change JavaScript files, I believe setting DW perference to not update js files is blocking it. Needs more testing. I don't thik I'm going to use a custom TagLibraries.vtm . Having the mod to the HTML/b.vtm should be good enough, and using .html instead of .js for the menu file should be good enough too. 

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body>
+<div id="onemillion" style="display:none">
+</div>
+<script>
+function writeM(){
+var div1 = document.getElementById('onemillion');
+var arr = new Array(1000);
+for(var i = 0;i<1000000;){
+for(var j=0; j<1000;arr[j++]=i++){}
+div1.appendChild(document.createTextNode(arr.join(" ")));
+}
+}
+
+t0 = new Date(); 
+writeM();
+var uu = document.getElementById('onemillion');
+t = new Date() - t0;
+uu.appendChild(document.createTextNode(" time ="+t));
+uu.style.display="block";
+
+//alert("time ="+t);
+//document.write('<p>time = ', t, '</p>'); 
+</script>
+</body>
+</html>

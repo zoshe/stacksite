@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Untitled Document</title>
+<script>
+textSizeChange();
+function textSizeChange(X){
+// THING TO DO 
+//1. it needs checking on fast clicking of test sizing button
+//alert("hello");
+var bx = document.getElementById("qsizeBox");
+if(bx){//if1
+//var bx = document.getElementById("bx1");
+//alert(bx);
+var bxoffsetWidth = bx.offsetWidth;
+var bxoffsetHeight = bx.offsetHeight;
+var bxLastWidth = bx.lastWidth;
+var bxLastHeight = bx.lastHeight;
+if(bxoffsetWidth!= bxLastWidth || bxoffsetHeight != bxLastHeight){
+bx.lastWidth = bxoffsetWidth;
+bx.lastHeight = bxoffsetHeight;
+(X!="firstTime")? reSizeLayout() : null;
+//////Run the resizing function here ////var runGetSize = getSize();
+//alert(" bxoffsetWidth:"+bxoffsetWidth+" bxoffsetHeight:"+bxoffsetHeight);
+}
+}//if1
+window.sizeFunTimout = setTimeout("textSizeChange()", 1000);
+}
+function reSizeLayout(){
+var template = document.getElementById("structureObjects"); // containing the document's Template Objects
+var templateObjs = template.getElementsByTagName("DIV"); // gets the Template Objects
+//var objX = ""; // get the current div element which repersents a single Template Object
+//
+// set any needed heights back to auto before sizing
+for(i=0;i<templateObjs.length;i++){ //for1 
+var objX = templateObjs[i]; // get the current div element which repersents a single Template Object
+var objOn = parseInt(objX.isOn); // get the on or off value for the current object
+var objType = parseInt(objX.objType); // get the type for this current object
+if(objX.isOn && objType == 3){ //if1 the body children and up only needs this for now
+var xSib = (objX.childQty)? objX.firstChild : 0; //sib = sibling
+for(var ii = 0; ii<objX.childQty;ii++){//for loop the siblings
+var xSibTd = document.getElementById("q"+objX.qNum+"t"+ii);
+var xSibDivLastDiv = xSibTd.getElementsByTagName("DIV")[xSibTd.trueDivQty];;
+xSibDivLastDiv.style.height = "100%";
+//alert(getLdHeight);
+xSib = xSib.nextSibling;
+}//for2
+}//if1
+}//for1
+// reset any needed heights
+for(i=0;i<templateObjs.length;i++){ //for1 
+var objX = templateObjs[i]; // get the current div element which repersents a single Template Object
+var objId = objX.id; // get the current div Id
+var objIdArray = objId.split("q"); // split the current object Id into an array
+//alert(templateObjs.length);
+//alert(objIdArray);
+var objOn = parseInt(objX.isOn); // get the on or off value for the current object
+var objType = parseInt(objX.objType); // get the type for this current object
+var objSubType = parseInt(objX.objSubType); // get the sub type for this current object
+//var objParent = objX.parentNode; // get the parent node for this object
+if(objX.isOn && objType == 3){ //if1 the body children and up only needs this for now
+var getXTaId = (objX.objType != "3")? "q"+objX.qNum+"ita" : "qBodyTable";
+var objXTa = document.getElementById(getXTaId);//Ta=Table
+var objXTa_Height = objXTa.offsetHeight; // tbody height
+
+
+var xSib = (objX.childQty)? objX.firstChild : 0; //sib = sibling
+for(var ii = 0; ii<objX.childQty;ii++){//for loop the siblings
+var xSibTd = document.getElementById("q"+objX.qNum+"t"+ii);
+var xSibDiv1 = xSibTd.firstChild;
+var xSibDiv2 = xSibDiv1.firstChild;
+var xSibDivLastDiv = xSibTd.getElementsByTagName("DIV")[xSibTd.trueDivQty];;
+var xSibTa = xSibTd.getElementsByTagName("TABLE")[0];;
+
+var xSibTd_Height = xSibTd.offsetHeight;
+var xSibDiv1_Height = xSibDiv1.offsetHeight;
+var xSibDiv2_Height = xSibDiv2.offsetHeight;
+var xSibDivLastDiv_Height = xSibDivLastDiv.offsetHeight;
+var xSibTa_Height = xSibTa.offsetHeight;
+//var 
+//xSibDivLastDiv.style.height =  "400px";
+//var getboxHeight = (xSibDivLastDiv_Height < xSibDiv2_Height)? xSibDivLastDiv_Height : 
+var getSpaceHeight = xSibTd_Height - xSibDiv2_Height;
+var getMargin = xSibTd_Height - xSibDiv2_Height;
+var getLdHeight =  getMargin + xSibTa_Height;
+//var getLdHeight =  objXTa_Height - (xSibTd_Height-xSibTa_Height);
+xSibDivLastDiv.style.height = getLdHeight + "px";
+//alert(getLdHeight);
+alert("objXTa_Height:"+objXTa_Height + ", xSibTd_Height:"+xSibTd_Height +", xSibDiv1_Height:"+xSibDiv1_Height+", xSibDiv2_Height:"+xSibDiv2_Height+", xSibDivLastDiv_Height:"+xSibDivLastDiv_Height+", xSibTa_Height:"+xSibTa_Height+", getMargin:"+getMargin);
+
+//alert(xSib.id);
+
+xSib = xSib.nextSibling;
+//alert(objXTd.offsetHeight);
+}//for2
+/*
+var checkChildQty = (objX.childQty)? objX.childQty : 1; // if current div has child qty use it otherwise build it with 1 child
+var checkTrQty = (objSubType==0)? checkChildQty : 1; // checks if the obj is set vertically or hort and set the tr qty
+var checkTdQty = (objSubType==1)? checkChildQty : 1; // checks if the obj is set vertically or hort and set the td qty
+
+var getXouterTaId = (objParent.objType != "3")? "q"+objParent.qNum+"ita" : "qBodyTable";
+var objXouterTa = document.getElementById(getXouterTaId);//Ta=Table
+var objXouterTd = document.getElementById("q"+objParent.qNum+"t"+objX.parentSubNum);
+var objXDiv1 = objXouterTd.firstChild;
+var objXDiv2 = objXDiv1.firstChild;
+var objXDiv3 = objXDiv2.firstChild;
+var objXTb = objXDiv3.firstChild;
+//alert(objXDiv2.innerHTML);
+var objXouterTa_Height = objXouterTa.offsetHeight;
+var objXouterTd_Height = objXouterTd.offsetHeight;
+var objXDiv1_Height = objXDiv1.offsetHeight;
+var objXDiv2_Height = objXDiv2.offsetHeight;
+var objXDiv3_Height = objXDiv3.offsetHeight;
+var objXTb_Height = objXTb.offsetHeight;
+
+alert("objXouterTa_Height:"+objXouterTa_Height + ", objXouterTd_Height:"+objXouterTd_Height +", objXDiv1_Height:"+objXDiv1_Height+", objXDiv2_Height:"+objXDiv2_Height+", objXDiv3_Height:"+objXDiv3_Height+", objXTb_Height:"+objXTb_Height);
+*/
+//var objXboxHeightSubVal =  (is_ie6c || is_sa)?   objXDiv3_Height - objXTb_Height : 0;// ie6 in compliant mode  box is sized by the inside so is safari and most likly Konq too
+//objXDiv3.style.height = (is_ie6c || is_sa)? (first_set_height_too - (subMB_Tspace + subMB_Lspace))  + "px" : first_set_height_too + "px" ;
+//subMB_holder.style.height = (first_set_height_too - (subMB_Tspace + subMB_Lspace)) + "px";
+//subMB_select.style.height = (subMB_outer_Height  - (subMB_Tspace + subMB_Lspace)) + "px";
+
+//var ObjXouterDiv1
+//var heightNeeded = "";
+//var  objX.childQty;
+//objX.childQty = 0; // put a childQty on the current div so it's children can use it
+//objX.childLiquidWidthMaxQty = 0;
+//objX.childLiquidHeightMaxQty = 0;
+//objX.isOn = (objParent.isOn)?  objOn :0; // if both parent and current Div is on, then current div is on
+}//if1
+}//for1
+}
+
+</script>
+<style>
+/*StackSite0.0096*/.q2c{background:#CCCCCC;font-size:100%}.q3c{background:#6633CC;padding-top:10px}.q4c{background:#0099CC;margin-top:10px}.menuBox,#lastelmid,#lastelmidie6{box-sizing:border-box;-moz-box-sizing:border-box}.menuScrollBtn{display:none;position:absolute;cursor:pointer;cursor:default;overflow:hidden}.sizeit{border-right:0px;border-left:0px; padding-top:0px;padding-bottom:0px}.sizeit .holder{position: absolute}.noneMB .SSnone{width:100%}.noneMB .holder,.nonemacIE .holder{overflow: hidden}.backnone,.backnie6,.backNoneDoc{border:none;color:none;cue:none;filter:none;line-height:none;font-size:100%;padding:0px}.backnone,.backnie6{cursor:pointer;cursor:hand}#lastelmid,#lastelmidie6{background:none;background-color:transparent;margin:0px}.backnone,#lastelmidie6{width:auto}
+</style>
+</head>
+<body>
+<DIV id="qsizeBox" style="position: absolute; top: -9999px; font-size: 100%; ">X X X X<BR>X X X X</DIV>
+<TABLE style="width: 100%; height: auto; display: table; " id="qBodyTable" class="q2cta" cellspacing="0" cellpadding="0" border="0"><TBODY><TR><TD id="q2t0" style="height: auto; vertical-align: top; width: 50%; "><DIV><DIV class="backNoneDoc q3c"><DIV><DIV class="q3c" id="lastelmid"><TABLE style="width: 100%; height: auto; " cellspacing="0" cellpadding="0" border="0"><TBODY><TR><TD id="q3t0" style="height: auto; vertical-align: top; ">Box</TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV></TD><TD id="q2t1" style="height: auto; vertical-align: top; width: 50%; "><DIV><DIV class="backNoneDoc q4c"><DIV><DIV class="q4c" id="lastelmid"><TABLE style="width: 100%; height: auto; " cellspacing="0" cellpadding="0" border="0"><TBODY><TR><TD id="q4t0" style="height: auto; vertical-align: top; ">Box</TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV></TD></TR></TBODY></TABLE
+
+<DIV id="structureObjects" style="display:none"><DIV id="q1q101q0qwindow"><DIV id="q1q1q0qhtml"><DIV id="q1q3q1qbodyq0q0_0qbody"><DIV id="q1q4q0q0q0q0q1_0_00000000q2q1qBox"></DIV><DIV id="q1q4q0q0q0q0q1_2_1q2q1qBox"></DIV></DIV></DIV></DIV></DIV>
+</body>
+</html>

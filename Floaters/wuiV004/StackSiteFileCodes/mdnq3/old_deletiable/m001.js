@@ -1,0 +1,1 @@
+"var qsdnStackSite='"+sdnMFileHolder.innerHTML+"';"

@@ -1,0 +1,216 @@
+
+
+
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<!-- ********NOTE**************
+this is for % images sizing
+-->
+ <html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>7</title>
+<meta http-equiv='Content-Type' content='text/html' charset='' />
+<!-- ********NOTE**************
+multiple backgrounds work in:
+Safari 1.3 and up, OmniWeb 5.5, Konqueror
+em sizes to pxs : ie is .9759 and the rest needs to cal from 13 pxs multiplies I believe to find the right size. So 13px should = 1em and 13px x .9759  ie 1em in ie
+-->
+<!--<iframe src='../stacksite/array/1/c.html?hhhh' id='qIfSnp' style='border:none;width:0px;height:0px'frameborder='0'></iframe>
+<script language='JavaScript1.2' type='text/javascript' id='testjspage' src='testjspage.js' ></script>-->
+<style>
+.simple {
+/*
+border:transparent solid 2px;
+-webkit-border-radius: 20px;
+-moz-border-radius: 10px;
+
+background: brown;
+*/
+width: 100%;
+height: auto;
+position: inline;
+background:url("img/png/t.png") top repeat-x, url("img/png/b.png") bottom repeat-x, url("img/png/l.png") left repeat-y,  url("img/png/r.png") right repeat-y, url("img/png/tl.png") top left no-repeat, url("img/png/tr.png") top right no-repeat, url("img/png/bl.png") bottom left no-repeat, url("img/png/br.png") bottom right no-repeat
+}
+</style>
+<script language='JavaScript1.2' type='text/javascript' id='stacksitejs'>
+/*
+var num = 12;
+var bin = "1";
+/// ToInt32()  // this works and can return 0 on nan
+alert(num.toString(2));
+alert(parseInt(bin,2));
+/^\d+$/                 //All-digit
+/^\s*[-+]?\d+\s*$/      //Unbroken Signed integer & spaces
+/^\d{1,5}$/             //1 to 5 digits
+/^\d+\.\d\d$/           //Money
+/^\d+(\.\d{2})$/        //Money
+/^\d{1,3}(,\d\d\d)*\.\d\d$/  //comma-separated money - 12,432.57
+
+       // optional comma-separated money - 12,432.57 or 12432.57
+/^\d{1,3}(,\d\d\d)*\.\d\d$|^\d+\.\d\d$/
+*/
+function getSize(){
+// all is good but old netscape has some bugs I'll fix that last. and probally use ex
+var con = document.getElementById("content");
+var imgObj = document.getElementById("imgObj");
+var sizeInfoDiv = document.getElementById("sizeInfo");
+//var 
+imgObj.style.width="1em"; // ns and ff can't read the height unless it has a width //
+//alert(imgObj.offsetWidth);
+var conoffsetWidth = con.offsetWidth;
+var conoffsetHeight = con.offsetHeight;
+var imgObjoffsetWidth = imgObj.offsetWidth;
+var imgObjoffsetHeight = imgObj.offsetHeight;
+
+var pxHghtPerEmDiv = conoffsetHeight / imgObjoffsetHeight;
+var pxHghtPerEmSub = conoffsetHeight - imgObjoffsetHeight;
+
+var pxWdthPerEmDiv = conoffsetWidth / imgObjoffsetHeight;
+var pxWdthPerEmSub = conoffsetWidth - conoffsetHeight;
+//var pxWdthRatioValA = (pxHghtPerEmSub>0)? eval("."+pxHghtPerEmSub): 1; // needs work
+//var pxWdthRatioMultiplyer = 1/pxWdthRatioValA;
+/* needs work here to find a way to avg a 13px to 1 em */
+var if_ie = 0; // just here for testing // it is needed
+var emWidth = (imgObjoffsetWidth)? (conoffsetWidth*13)/(imgObjoffsetWidth*13) : 0;
+(if_ie&& emWidth)? emWidth = emWidth*.9759 : null;
+///////emWidth+=(imgObjoffsetWidth <5 )?-.5: (imgObjoffsetWidth <10)?.1: .2; // May work
+//alert(parseFloat(imgObjoffsetWidth));
+//alert((-1*imgObjoffsetWidth-1)/10);
+
+//emWidth =  (imgObjoffsetWidth >4 )? emWidth +1 : emWidth + (-1*imgObjoffsetWidth-1)/10;
+//var emWidth = Math.ceil(((conoffsetWidth/imgObjoffsetWidth)*100))/100;
+alert("[preWidth Info]- curContentWidth:"+conoffsetWidth+" curImgWidth:"+imgObjoffsetWidth+" emWidth:" + emWidth);
+imgObj.style.width= emWidth +"%";
+//alert(Math.ceil(((conoffsetWidth/imgObjoffsetWidth)*100))/100);
+//alert("[preWidth Info]- curContentWidth:"+conoffsetWidth+" curImgWidth:"+imgObjoffsetWidth+" emWidth:" + ((conoffsetWidth)/(imgObjoffsetWidth)));
+//alert("[preWidth Info]- curContentWidth:"+conoffsetWidth+" curImgWidth:"+imgObjoffsetWidth+" emWidth:" + ((conoffsetWidth)/(imgObjoffsetWidth)*100)/100);
+//alert(con.offsetWidth +"*******"+ conoffsetHeight+"*******"+imgObjoffsetWidth+"*******"+imgObjoffsetHeight+"*******"+conoffsetWidth/imgObjoffsetWidth);
+//imgObj.style.width = imgObjoffsetWidth+"em";
+//imgObj.style.width=((conoffsetWidth)/(imgObjoffsetWidth)*100)/100 +"em";
+//imgObj.style.width = ((conoffsetWidth*1.03)/(imgObjoffsetWidth))+"em";
+//imgObj.style.width = "5.1em";
+//imgObj.style.width = (conoffsetWidth/imgObjoffsetWidth)+"em";
+
+//alert(pxWdthRatioMultiplyer);
+//conoffsetHeight =  conoffsetHeight + pxPerEmSub; 
+//var pxPerEm = imgObjoffsetHeight + pxPerEmSub;
+//alert(imgObjoffsetHeight/conoffsetHeight);
+//sizeInfoDiv.innerHTML = pxPerEmDiv +"*******"+ pxPerEmSub+"*******"+pxPerEm;
+//alert(conoffsetHeight +"*******"+ imgObjoffsetHeight+"*******"+pxPerEm);
+//alert(conoffsetWidth +"*******"+ imgObjoffsetHeight+"*******"+pxPerEm);
+//alert(pxPerEmDiv +"*******"+ pxPerEmSub+"*******"+pxPerEm);
+//imgObj.style.width= pxPerEmDiv+"em";
+//imgObj.style.width=conoffsetWidth/imgObjoffsetHeight +"em";
+/*
+//set the width
+var curWidth = (conoffsetWidth&&imgObjoffsetHeight)? conoffsetWidth/imgObjoffsetWidth :0;
+//var curWidth = (conoffsetWidth&&imgObjoffsetHeight)? conoffsetWidth/imgObjoffsetHeight :0;
+alert(curWidth);
+imgObj.style.width = curWidth + "em" ;
+imgObjoffsetWidth = imgObj.offsetWidth;
+while(conoffsetWidth<imgObjoffsetWidth){// if it to large
+curWidth = curWidth - 0.13;
+imgObj.style.width = curWidth+"em";
+imgObjoffsetWidth = imgObj.offsetWidth;
+alert("[Width to large]- curContentWidth:"+conoffsetWidth+" curImgWidth:"+imgObjoffsetWidth);
+}
+while(conoffsetWidth>=imgObjoffsetWidth){ // if it to small
+curWidth = curWidth + 0.13;
+imgObj.style.width = curWidth+"em";
+imgObjoffsetWidth = imgObj.offsetWidth;
+alert("[Width to large]- curContentWidth:"+conoffsetWidth+" curImgWidth:"+imgObjoffsetWidth);
+//alert("Width to small: "+curWidth);
+}
+*/
+/////alert(curWidth);
+//con.style.display = "none";
+//set the height
+var curHeight = (conoffsetHeight&&imgObjoffsetHeight)? conoffsetHeight/imgObjoffsetHeight :0;
+//////////////////alert(conoffsetHeight +"*******"+ imgObjoffsetHeight+"*******"+curHeight);
+//alert(curHeight);
+//imgObj.style.height = curHeight + "em" ;
+imgObjoffsetHeight = imgObj.offsetHeight;
+while(conoffsetHeight<imgObjoffsetHeight){// if it to large
+curHeight = curHeight - 0.13;
+imgObj.style.height = curHeight+"%";
+imgObjoffsetHeight = imgObj.offsetHeight;
+///////////alert("Height to large: "+curHeight);
+}
+while(conoffsetHeight>=imgObjoffsetHeight){ // if it to small
+curHeight = curHeight + 0.13;
+imgObj.style.height = curHeight+"%";
+imgObjoffsetHeight = imgObj.offsetHeight;
+////////////alert("Height to small: "+curHeight);
+}
+//con.style.display = "block";
+//con.style.marginTop = "-2em";
+con.style.marginTop = "-"+curHeight+"%";
+//imgObj.style.height = curHeight+"em";
+
+
+/*
+for(i= conoffsetWidth; i>imgObjoffsetWidth;i++){
+imgObj.style.width = curWidth+"em";
+curWidth = curWidth + .3;
+imgObjoffsetWidth = imgObj.offsetWidth;
+//alert(curWidth);
+}
+*/
+//imgObj.style.width = conoffsetWidth;
+//imgObj.style.width = conoffsetWidth/pxPerEm+"em";
+//imgObj.style.width = (conoffsetWidth/conoffsetHeight)*pxPerEmSub+"em";
+//pxPerEm = parseFloat(0.0+pxPerEm);
+//var pxPerEmSub = 0.8;
+//pxPerEmSub = pxPerEmSub + 0; //sa bug fix
+//alert(pxPerEm - pxPerEmSub);
+//alert(parseFloat(pxPerEm) + parseFloat(pxPerEmSub));
+//alert(pxPerEm - ((conoffsetHeight - imgObjoffsetHeight)/10));
+//alert(1.20 - (((conoffsetHeight - imgObjoffsetHeight)/10)));
+//pxPerEm = (pxPerEm > 1)? pxPerEm - pxPerEmSub : pxPerEm;
+//pxPerEm = (pxPerEm > 1)? (pxPerEm >1.235106)?  pxPerEm - .5 : pxPerEm - .3  : pxPerEm;
+//alert(imgObjoffsetWidth+"****"+imgObjoffsetHeight +"****"+ conoffsetWidth+"****"+conoffsetHeight +"****"+(conoffsetHeight / imgObjoffsetHeight));
+//alert(pxPerEm);
+//alert( imgObjoffsetHeight+"****"+conoffsetHeight +"****"+imgObjoffsetHeight+"****"+(conoffsetWidth / imgObjoffsetHeight) );
+//conoffsetWidth = (conoffsetWidth / imgObjoffsetHeight);
+}
+</script>
+</head>
+<body>
+<img id="imgObj" src="tab_silver.jpg" border="0px" style="display:table; width:50px; height:10ex"><br />
+<div class="simple">Test borders with rounded corners</div>
+<div id='qBody' style="font-size:100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+        <td nowrap style="background:red"><div><img id="imgObj" src="tab_silver.jpg" border="0px" style="width:50%; height:10ex"><br /><div href="index.html" id="content" style="position:relative; margin-top:0; text-align:center; background:transparent;Xline-height:0px;cursor:pointer;cursor:hand;overflow:hidden">X.....ipXXXXXXXXXXXXXXX<br /> H</div></div>
+</td>
+<!--
+        <td><img src="Untitled-2.gif" style='display:block; width:15em; padding:2em; margin:2em'>Hello</img>
+</td>
+      <td><img src="Untitled-2.gif" style='display:table; width:15em; padding:2em; margin:2em'><div style="position:relative; top:0px; width:5em; display:table">Hello</div></img>
+</td>
+    <td><img src="Untitled-2.gif" style='width:15em; padding:2em; margin:2em' /><div style="position:relative; top:0px; width:5em; padding:2em; margin:2em; display:table">Hello</div>
+</td>
+-->
+    <td>2nd td</td>
+    <td width="100%"></td>
+  </tr>
+</table>
+px divided by 7.6 = em<br>
+<div id="sizeInfo"></div>
+<button onClick="getSize()">test</button>
+<!--
+    <td><img src="Untitled-2.gif" style='width:5em; padding:2em; margin:2em'><div style="position:absolute; top:0px; width:5em; padding:2em; margin:2em;border-left:#0000FF solid 2em">Hello</div>
+</td>
+
+<img src="Untitled-2.gif" width="200" height="200" border="0" style="width:2em" onerror="imageError(this)">-->
+
+
+<a href="index.html">XXXXXXXXXXXXXXXXXXXXXXXXX</a></div>
+<p>
+</p>
+<p>&nbsp;</p>
+</body>
+</html>
+<script language='JavaScript1.2' type='text/javascript' id='stacksitejsXX'>
+//var e = document.getElementById("xmlData");
+//alert(e.childNodes.item(0).text);
+</script>

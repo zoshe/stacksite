@@ -1,0 +1,1 @@
+//this is the all general purpose dom builder script, it's general purpose is to build the need menus tables and other stuff before the onload of the page.
